@@ -1,29 +1,37 @@
 using InputSystem;
+using Locomotion;
+using UnityEngine;
 
 namespace StateMachines.Player
 {
     public class PlayerStateMachine : StateMachine
     {
-        private InputReader _inputReader;
+        [field: SerializeField] public Transform MainCameraTransform { get; private set; }
+
+        public InputReader InputReader { get; private set; }
+        public Animator Animator { get; private set; }
+        public PlayerMover PlayerMover { get; private set; }
 
         private void Awake()
         {
-            _inputReader = GetComponent<InputReader>();
+            InputReader = GetComponent<InputReader>();
+            Animator = GetComponent<Animator>();
+            PlayerMover = GetComponent<PlayerMover>();
         }
 
         private void Start()
         {
-            SwitchState(new PlayerTestState(this));
+            SwitchState(new PlayerLocomotionState(this));
         }
 
         private void OnEnable()
         {
-            _inputReader.JumpEvent += OnJump;
+            InputReader.JumpEvent += OnJump;
         }
         
         private void OnDisable()
         {
-            _inputReader.JumpEvent -= OnJump;
+            InputReader.JumpEvent -= OnJump;
         }
 
         private void OnJump()
