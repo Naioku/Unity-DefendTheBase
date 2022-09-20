@@ -36,5 +36,7 @@ namespace InputSystem
         {
             MovementValue = context.ReadValue<Vector2>();
         }
+
+        public void OnFreeLook(InputAction.CallbackContext context) {}
     }
 }
