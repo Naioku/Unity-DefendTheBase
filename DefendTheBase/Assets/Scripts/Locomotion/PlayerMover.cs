@@ -12,15 +12,18 @@ namespace Locomotion
         [SerializeField] private float rotationDamping = 100f;
 
         private CharacterController _characterController;
+        private ForceReceiver _forceReceiver;
 
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
+            _forceReceiver = GetComponent<ForceReceiver>();
         }
 
         public void Move(Vector3 direction, float deltaTime)
         {
-            _characterController.Move(direction * movementSpeed * deltaTime);
+            Vector3 movementDisplacement = direction * movementSpeed;
+            _characterController.Move((movementDisplacement + _forceReceiver.ForceDisplacement) * deltaTime);
         }
 
         public void FaceCameraForward(float deltaTime)
