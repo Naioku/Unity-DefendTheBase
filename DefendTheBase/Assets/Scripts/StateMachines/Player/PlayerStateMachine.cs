@@ -24,20 +24,5 @@ namespace StateMachines.Player
         {
             SwitchState(new PlayerLocomotionState(this));
         }
-
-        private void OnEnable()
-        {
-            InputReader.JumpEvent += OnJump;
-        }
-        
-        private void OnDisable()
-        {
-            InputReader.JumpEvent -= OnJump;
-        }
-
-        private void OnJump()
-        {
-            SwitchState(new PlayerJumpState(this));
-        }
     }
 }

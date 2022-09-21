@@ -25,5 +25,10 @@ namespace Locomotion
                 _verticalVelocity += Physics.gravity.y * Time.deltaTime;
             }
         }
+
+        internal void Jump(float jumpVelocity)
+        {
+            _verticalVelocity += jumpVelocity;
+        }
     }
 }

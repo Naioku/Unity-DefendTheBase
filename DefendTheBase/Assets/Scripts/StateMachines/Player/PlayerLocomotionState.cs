@@ -12,15 +12,22 @@ namespace StateMachines.Player
     
         public override void Enter()
         {
+            StateMachine.InputReader.JumpEvent += OnJump;
+
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick(float deltaTime)
         {
+            base.Tick(deltaTime);
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
             StateMachine.PlayerMover.Move(movementDirection, deltaTime);
-            StateMachine.PlayerMover.FaceCameraForward(deltaTime);
             UpdateAnimator(deltaTime);
+        }
+
+        public override void Exit()
+        {
+            StateMachine.InputReader.JumpEvent -= OnJump;
         }
 
         private void UpdateAnimator(float deltaTime)
@@ -49,11 +56,6 @@ namespace StateMachines.Player
             }
         }
 
-        public override void Exit()
-        {
-            
-        }
-        
         private Vector3 CalculateMovementDirectionFromCameraPosition()
         {
             return StateMachine.PlayerMover.GetCameraForwardDirection() * 
@@ -61,6 +63,11 @@ namespace StateMachines.Player
                    +
                    StateMachine.PlayerMover.GetCameraRightDirection() * 
                    StateMachine.InputReader.MovementValue.x;
+        }
+        
+        private void OnJump()
+        {
+            StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
         }
     }
 }

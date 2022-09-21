@@ -5,7 +5,11 @@ namespace Locomotion
     [RequireComponent(typeof(CharacterController))]
     public class PlayerMover : MonoBehaviour
     {
+        public bool IsFallingDown => _characterController.velocity.y < 0f;
+        public bool IsGrounded => _characterController.isGrounded;
+        
         [SerializeField] private float movementSpeed = 5f;
+        [SerializeField] private float jumpVelocity = 5f;
         
         [Header("FreeLook Camera")]
         [SerializeField] private Transform mainCameraTransform;
@@ -13,6 +17,7 @@ namespace Locomotion
 
         private CharacterController _characterController;
         private ForceReceiver _forceReceiver;
+
 
         private void Awake()
         {
@@ -52,6 +57,18 @@ namespace Locomotion
             rightVector.Normalize();
             
             return rightVector;
+        }
+
+        public void Jump()
+        {
+            _forceReceiver.Jump(jumpVelocity);
+        }
+
+        public void ApplyMomentum(float deltaTime)
+        {
+            Vector3 momentum = _characterController.velocity;
+            momentum.y = 0f;
+            _characterController.Move((momentum + _forceReceiver.ForceDisplacement) * deltaTime);
         }
     }
 }
