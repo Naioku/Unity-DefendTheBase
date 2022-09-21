@@ -1,34 +1,28 @@
 using InputSystem;
+using Locomotion;
+using UnityEngine;
 
 namespace StateMachines.Player
 {
     public class PlayerStateMachine : StateMachine
     {
-        private InputReader _inputReader;
+        [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
+        [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;
+        
+        public InputReader InputReader { get; private set; }
+        public PlayerMover PlayerMover { get; private set; }
+        public Animator Animator { get; private set; }
 
         private void Awake()
         {
-            _inputReader = GetComponent<InputReader>();
+            InputReader = GetComponent<InputReader>();
+            PlayerMover = GetComponent<PlayerMover>();
+            Animator = GetComponent<Animator>();
         }
 
         private void Start()
         {
-            SwitchState(new PlayerTestState(this));
-        }
-
-        private void OnEnable()
-        {
-            _inputReader.JumpEvent += OnJump;
-        }
-        
-        private void OnDisable()
-        {
-            _inputReader.JumpEvent -= OnJump;
-        }
-
-        private void OnJump()
-        {
-            SwitchState(new PlayerJumpState(this));
+            SwitchState(new PlayerLocomotionState(this));
         }
     }
 }
