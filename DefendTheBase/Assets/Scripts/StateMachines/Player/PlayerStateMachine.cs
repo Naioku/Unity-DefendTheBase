@@ -1,3 +1,4 @@
+using Combat;
 using InputSystem;
 using Locomotion;
 using UnityEngine;
@@ -12,12 +13,14 @@ namespace StateMachines.Player
         public InputReader InputReader { get; private set; }
         public PlayerMover PlayerMover { get; private set; }
         public Animator Animator { get; private set; }
+        public MeleeFighter MeleeFighter { get; private set; }
 
         private void Awake()
         {
             InputReader = GetComponent<InputReader>();
             PlayerMover = GetComponent<PlayerMover>();
             Animator = GetComponent<Animator>();
+            MeleeFighter = GetComponent<MeleeFighter>();
         }
 
         private void Start()

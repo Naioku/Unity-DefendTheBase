@@ -9,6 +9,7 @@ namespace InputSystem
         public event Action JumpEvent;
         
         public Vector2 MovementValue { get; private set; }
+        public float IsAttackingValue { get; private set; }
 
         private Controls _controls;
 
@@ -35,6 +36,11 @@ namespace InputSystem
         public void OnMove(InputAction.CallbackContext context)
         {
             MovementValue = context.ReadValue<Vector2>();
+        }
+
+        public void OnAttack(InputAction.CallbackContext context)
+        {
+            IsAttackingValue = context.ReadValue<float>();
         }
 
         public void OnFreeLook(InputAction.CallbackContext context) {}

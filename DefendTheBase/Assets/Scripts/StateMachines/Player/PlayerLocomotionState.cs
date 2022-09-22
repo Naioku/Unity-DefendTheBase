@@ -1,3 +1,4 @@
+using Combat;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -23,6 +24,8 @@ namespace StateMachines.Player
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
             StateMachine.PlayerMover.Move(movementDirection, deltaTime);
             UpdateAnimator(deltaTime);
+            
+            ListenAttackInput();
         }
 
         public override void Exit()
@@ -68,6 +71,39 @@ namespace StateMachines.Player
         private void OnJump()
         {
             StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
+        }
+        
+        private void ListenAttackInput()
+        {
+            if (!(StateMachine.InputReader.IsAttackingValue == 1f)) return;
+
+            Vector2 movementValue = StateMachine.InputReader.MovementValue;
+            
+            if (movementValue.x > 0.71f)
+            {
+                StateMachine.SwitchState(new PlayerAttackingState(
+                    StateMachine, 
+                    StateMachine.MeleeFighter.GetAttack(AttackNames.Right)));
+            }
+            else if (movementValue.x < -0.71f)
+            {
+                StateMachine.SwitchState(new PlayerAttackingState(
+                    StateMachine, 
+                    StateMachine.MeleeFighter.GetAttack(AttackNames.Left)));
+            }
+            else if (movementValue.y > 0.71f)
+            {
+                StateMachine.SwitchState(new PlayerAttackingState(
+                    StateMachine, 
+                    StateMachine.MeleeFighter.GetAttack(AttackNames.Forward)));
+            }
+            else if (movementValue.y < -0.71f)
+            {
+                StateMachine.SwitchState(new PlayerAttackingState(
+                    StateMachine, 
+                    StateMachine.MeleeFighter.GetAttack(AttackNames.Backward)));
+
+            }
         }
     }
 }
