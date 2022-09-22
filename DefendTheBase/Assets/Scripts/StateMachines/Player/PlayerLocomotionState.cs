@@ -1,4 +1,5 @@
 using Combat;
+using Core;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -73,9 +74,9 @@ namespace StateMachines.Player
             StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
         }
         
-        private void OnMeleeAttack(AttackNames attackName)
+        private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
         {
-            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(attackName)));
+            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
         }
     }
 }

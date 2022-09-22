@@ -1,4 +1,5 @@
 using Combat;
+using Core;
 
 namespace StateMachines.Player
 {
@@ -34,7 +35,7 @@ namespace StateMachines.Player
             StateMachine.InputReader.MeleeAttackEvent -= OnMeleeAttack;
         }
 
-        private void OnMeleeAttack(AttackNames attackName)
+        private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
         {
             if (!ReadyForNextAttack(GetNormalizedAnimationTime(StateMachine.Animator, "Attack")))
             {
@@ -44,7 +45,7 @@ namespace StateMachines.Player
             
             if (_isComboBroken) return;
             
-            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(attackName)));
+            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
         }
 
         private bool ReadyForNextAttack(float normalizedAnimationTime)

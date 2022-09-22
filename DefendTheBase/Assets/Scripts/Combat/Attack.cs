@@ -1,4 +1,5 @@
 using System;
+using Core;
 using UnityEngine;
 
 namespace Combat
@@ -7,7 +8,7 @@ namespace Combat
     public class Attack
     {
         [field: SerializeField]
-        public AttackNames AttackName { get; private set; }
+        public MeleeAttackNames MeleeAttackName { get; private set; }
         
         [field: SerializeField]
         public string AnimationName { get; private set; }

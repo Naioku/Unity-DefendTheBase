@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack3
+  m_Name: ShieldAttack
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
@@ -220,7 +220,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack1
+  m_Name: LeftAttack
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
@@ -272,7 +272,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack2
+  m_Name: RightAttack
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
@@ -324,7 +324,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Attack4
+  m_Name: 360Attack
   m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []

@@ -1,23 +1,25 @@
 using System.Linq;
+using Core;
 using UnityEngine;
 
 namespace Combat
 {
     public class MeleeFighter : MonoBehaviour
     {
-        [SerializeField] private Attack[] _attacks = new Attack[4];
+        [SerializeField] private Attack[] attacks = new Attack[4];
+        [SerializeField] private WeaponController equippedMainHandWeapon;
+        [SerializeField] private WeaponController equippedOffHandWeapon;
 
-        public Attack GetAttack(AttackNames attackName)
+        public Attack GetAttack(MeleeAttackNames meleeAttackName)
         {
-            return _attacks.FirstOrDefault(attack => attack.AttackName == attackName);
+            return attacks.FirstOrDefault(attack => attack.MeleeAttackName == meleeAttackName);
         }
-    }
+        
+        // Animation event methods
+        public void EnableWeaponMainHandDamager() => equippedMainHandWeapon.EnableDamageTrigger();
+        public void DisableWeaponMainHandDamager() => equippedMainHandWeapon.DisableDamageTrigger();
+        public void EnableWeaponOffHandDamager() => equippedOffHandWeapon.EnableDamageTrigger();
+        public void DisableWeaponOffHandDamager() => equippedOffHandWeapon.DisableDamageTrigger();
 
-    public enum AttackNames
-    {
-        Left,
-        Right,
-        Backward,
-        Forward
     }
 }

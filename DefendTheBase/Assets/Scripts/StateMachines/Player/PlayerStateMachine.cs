@@ -1,5 +1,5 @@
 using Combat;
-using InputSystem;
+using Core;
 using Locomotion;
 using UnityEngine;
 
