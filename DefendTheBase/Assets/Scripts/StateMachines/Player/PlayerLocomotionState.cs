@@ -14,6 +14,7 @@ namespace StateMachines.Player
         public override void Enter()
         {
             StateMachine.InputReader.JumpEvent += OnJump;
+            StateMachine.InputReader.MeleeAttackEvent += OnMeleeAttack;
 
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
         }
@@ -24,13 +25,12 @@ namespace StateMachines.Player
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
             StateMachine.PlayerMover.Move(movementDirection, deltaTime);
             UpdateAnimator(deltaTime);
-            
-            ListenAttackInput();
         }
 
         public override void Exit()
         {
             StateMachine.InputReader.JumpEvent -= OnJump;
+            StateMachine.InputReader.MeleeAttackEvent -= OnMeleeAttack;
         }
 
         private void UpdateAnimator(float deltaTime)
@@ -73,37 +73,9 @@ namespace StateMachines.Player
             StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
         }
         
-        private void ListenAttackInput()
+        private void OnMeleeAttack(AttackNames attackName)
         {
-            if (!(StateMachine.InputReader.IsAttackingValue == 1f)) return;
-
-            Vector2 movementValue = StateMachine.InputReader.MovementValue;
-            
-            if (movementValue.x > 0.71f)
-            {
-                StateMachine.SwitchState(new PlayerAttackingState(
-                    StateMachine, 
-                    StateMachine.MeleeFighter.GetAttack(AttackNames.Right)));
-            }
-            else if (movementValue.x < -0.71f)
-            {
-                StateMachine.SwitchState(new PlayerAttackingState(
-                    StateMachine, 
-                    StateMachine.MeleeFighter.GetAttack(AttackNames.Left)));
-            }
-            else if (movementValue.y > 0.71f)
-            {
-                StateMachine.SwitchState(new PlayerAttackingState(
-                    StateMachine, 
-                    StateMachine.MeleeFighter.GetAttack(AttackNames.Forward)));
-            }
-            else if (movementValue.y < -0.71f)
-            {
-                StateMachine.SwitchState(new PlayerAttackingState(
-                    StateMachine, 
-                    StateMachine.MeleeFighter.GetAttack(AttackNames.Backward)));
-
-            }
+            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(attackName)));
         }
     }
 }

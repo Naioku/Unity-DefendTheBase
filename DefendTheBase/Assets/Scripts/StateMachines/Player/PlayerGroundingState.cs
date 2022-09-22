@@ -17,7 +17,7 @@ namespace StateMachines.Player
         {
             base.Tick(deltaTime);
             
-            if (IsAnimationFinished("Ground"))
+            if (HasAnimationFinished("Ground"))
             {
                 StateMachine.SwitchState(new PlayerLocomotionState(StateMachine));
                 return;

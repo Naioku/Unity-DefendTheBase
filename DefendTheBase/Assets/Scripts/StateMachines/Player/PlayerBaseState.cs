@@ -1,3 +1,4 @@
+using Combat;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -16,7 +17,7 @@ namespace StateMachines.Player
             StateMachine.PlayerMover.FaceCameraForward(deltaTime);
         }
         
-        protected bool IsAnimationFinished(string tag)
+        protected bool HasAnimationFinished(string tag)
         {
             return GetNormalizedAnimationTime(StateMachine.Animator, tag) >= 1f;
         }

@@ -55,9 +55,36 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""MeleeForwardAttack"",
                     ""type"": ""Button"",
-                    ""id"": ""789d9222-b056-40d6-88ae-bd9d04ac66e6"",
+                    ""id"": ""5ceb2a73-bc2f-4354-aa89-cce48468478a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MeleeBackwardAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""615610d6-426d-4835-ae18-e140e43f6834"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MeleeLeftAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""69a66c5a-fce8-473a-9393-39f1e19241dc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MeleeRightAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a15922fa-1d59-4ef9-bee8-eedc8a817345"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -231,26 +258,532 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c751ccf0-6d39-44bf-a9ba-2074f7d7318c"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""name"": ""S"",
+                    ""id"": ""e544c454-7b78-49b6-836c-3ff3363ea1b7"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
+                    ""groups"": """",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c748151a-eacc-4601-89b0-8151fb0b983f"",
+                    ""name"": ""binding"",
+                    ""id"": ""abacceee-cfb6-41fc-a3ba-04f0784d1913"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Attack"",
+                    ""action"": ""MeleeBackwardAttack"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""c77971a8-7876-47aa-b698-a15a33251e3c"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""DownArrow"",
+                    ""id"": ""e6d97a14-eed3-4bf9-ac6e-0f3932d8615f"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3a79098a-19c3-430d-9d5c-bb78293097bb"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""5f3e2f93-6a8d-4587-b493-b65338d55682"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""LeftStick"",
+                    ""id"": ""28488b0e-fe76-47fe-b9e4-cef2773fb848"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""05eca288-a218-4960-86a0-d2b50c7da1ba"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""0d8fbdcf-6822-4d48-8d5c-fa02f3a47126"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""45e486a5-84d7-4848-a197-4149edc3007e"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""95c9a4b7-bddf-4228-8c7f-dab039b07f97"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""73aeb812-1c16-4f88-83a6-cd1bdf94b261"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeBackwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""A"",
+                    ""id"": ""ad2fd7df-7dcf-42bc-a2d4-defb74097d61"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""4f5214c5-0d9b-49c6-857f-e8a1afc75e20"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""46c4d264-8d15-4e01-bda7-642b1ffd834d"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""LeftArrow"",
+                    ""id"": ""1f7af4c6-c701-434c-ba9f-585a9ea94d06"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""7f5d6c6f-a613-45c8-95c9-bc42b9c8ff8d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""bd1cf3ac-03fc-42a8-a07e-9675fab77bfd"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""LeftStick"",
+                    ""id"": ""2f445960-2025-4efb-b8da-d68eac92308d"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""a96e5dbe-575c-4da0-9e90-813868309b26"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""18eae344-f4b3-4c4e-a2f7-de5d0ddd5200"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""3cc53d7e-8cd9-4d98-bcbe-9e12cf6f8381"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""ff7f2f8e-06db-45c0-936a-4a6434739253"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""0088b1f2-9839-48ae-8930-0c70cacad1d8"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeLeftAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D"",
+                    ""id"": ""12965cd2-40de-4627-a02a-c01202310480"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""613c2258-d4d7-4080-bdc5-0ebc6887e541"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""84b3ec91-dfd9-44fd-9bb3-ee41c5f37477"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""RightArrow"",
+                    ""id"": ""4ff5693c-83c7-4618-b36a-f2e4ad9e33ba"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""1d1ee5e4-cbd5-4917-af28-ba442fe510a5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""ac429ea5-e06b-4f43-b6ad-9403c66d01a5"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""LeftStick"",
+                    ""id"": ""4d3500bb-db44-403d-a5dd-1ad10a7ce3aa"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""f6b14545-112f-48b3-b9d5-3d136f25be18"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""2d979055-e11a-4001-9d9d-e67ee68c9ff1"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""dd5c2c05-285c-4ccc-a849-f5e7113fa447"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""64f38939-33db-4b0e-8b3c-236f7d945bd4"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""a5f621e9-9cd8-40f8-aef6-abdb8f676b26"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeRightAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""W"",
+                    ""id"": ""7b474523-4649-4a30-9b23-d44ed5fa8a04"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""737693df-83f0-4452-b484-9d02fd4bd317"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""3283d210-66fc-4177-a393-81c81e6bbc1e"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""UpArrow"",
+                    ""id"": ""b2166736-f6ac-4598-bc1c-341b2a6553c5"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""09e9ac12-93ab-4b02-9e4b-116290705b41"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""8d009c59-5dd1-46e5-b20d-38307d975641"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""LeftStick"",
+                    ""id"": ""65038cfb-8d9f-4180-99dc-4ef2df2ebb0b"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""4eb06bd1-5316-4a7d-8a23-70e44f803e8a"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""6cb2011e-8953-4dff-9250-1a8f74c56fbe"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""D-Pad"",
+                    ""id"": ""4974c4c6-dbf5-43f5-b2a8-c2164abf70c5"",
+                    ""path"": ""OneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""binding"",
+                    ""id"": ""3682cfb7-29b7-4006-830e-924f9835f4bd"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""5e0501fd-c878-4ea3-8645-100556ffa807"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""MeleeForwardAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -290,7 +823,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_FreeLook = m_Player.FindAction("FreeLook", throwIfNotFound: true);
-        m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_MeleeForwardAttack = m_Player.FindAction("MeleeForwardAttack", throwIfNotFound: true);
+        m_Player_MeleeBackwardAttack = m_Player.FindAction("MeleeBackwardAttack", throwIfNotFound: true);
+        m_Player_MeleeLeftAttack = m_Player.FindAction("MeleeLeftAttack", throwIfNotFound: true);
+        m_Player_MeleeRightAttack = m_Player.FindAction("MeleeRightAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -353,7 +889,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_FreeLook;
-    private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_MeleeForwardAttack;
+    private readonly InputAction m_Player_MeleeBackwardAttack;
+    private readonly InputAction m_Player_MeleeLeftAttack;
+    private readonly InputAction m_Player_MeleeRightAttack;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -361,7 +900,10 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @FreeLook => m_Wrapper.m_Player_FreeLook;
-        public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @MeleeForwardAttack => m_Wrapper.m_Player_MeleeForwardAttack;
+        public InputAction @MeleeBackwardAttack => m_Wrapper.m_Player_MeleeBackwardAttack;
+        public InputAction @MeleeLeftAttack => m_Wrapper.m_Player_MeleeLeftAttack;
+        public InputAction @MeleeRightAttack => m_Wrapper.m_Player_MeleeRightAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -380,9 +922,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @FreeLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFreeLook;
                 @FreeLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFreeLook;
                 @FreeLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFreeLook;
-                @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @MeleeForwardAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeForwardAttack;
+                @MeleeForwardAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeForwardAttack;
+                @MeleeForwardAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeForwardAttack;
+                @MeleeBackwardAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeBackwardAttack;
+                @MeleeBackwardAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeBackwardAttack;
+                @MeleeBackwardAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeBackwardAttack;
+                @MeleeLeftAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeLeftAttack;
+                @MeleeLeftAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeLeftAttack;
+                @MeleeLeftAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeLeftAttack;
+                @MeleeRightAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
+                @MeleeRightAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
+                @MeleeRightAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -396,9 +947,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @FreeLook.started += instance.OnFreeLook;
                 @FreeLook.performed += instance.OnFreeLook;
                 @FreeLook.canceled += instance.OnFreeLook;
-                @Attack.started += instance.OnAttack;
-                @Attack.performed += instance.OnAttack;
-                @Attack.canceled += instance.OnAttack;
+                @MeleeForwardAttack.started += instance.OnMeleeForwardAttack;
+                @MeleeForwardAttack.performed += instance.OnMeleeForwardAttack;
+                @MeleeForwardAttack.canceled += instance.OnMeleeForwardAttack;
+                @MeleeBackwardAttack.started += instance.OnMeleeBackwardAttack;
+                @MeleeBackwardAttack.performed += instance.OnMeleeBackwardAttack;
+                @MeleeBackwardAttack.canceled += instance.OnMeleeBackwardAttack;
+                @MeleeLeftAttack.started += instance.OnMeleeLeftAttack;
+                @MeleeLeftAttack.performed += instance.OnMeleeLeftAttack;
+                @MeleeLeftAttack.canceled += instance.OnMeleeLeftAttack;
+                @MeleeRightAttack.started += instance.OnMeleeRightAttack;
+                @MeleeRightAttack.performed += instance.OnMeleeRightAttack;
+                @MeleeRightAttack.canceled += instance.OnMeleeRightAttack;
             }
         }
     }
@@ -426,6 +986,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnFreeLook(InputAction.CallbackContext context);
-        void OnAttack(InputAction.CallbackContext context);
+        void OnMeleeForwardAttack(InputAction.CallbackContext context);
+        void OnMeleeBackwardAttack(InputAction.CallbackContext context);
+        void OnMeleeLeftAttack(InputAction.CallbackContext context);
+        void OnMeleeRightAttack(InputAction.CallbackContext context);
     }
 }

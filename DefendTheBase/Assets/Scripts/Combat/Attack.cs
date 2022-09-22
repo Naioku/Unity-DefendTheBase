@@ -19,6 +19,6 @@ namespace Combat
                         "In/after what time player should click to perform next combo attack?")]
         [field: Range(0f, 1f)]
         [field: SerializeField]
-        public float NextComboAttackTime { get; private set; }
+        public float NextComboAttackNormalizedTime { get; private set; }
     }
 }
