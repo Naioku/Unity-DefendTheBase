@@ -20,7 +20,7 @@ namespace StateMachines.Player
 
             StateMachine.PlayerMover.ApplyMomentum(deltaTime);
             
-            if (IsAnimationFinished("Jump") && StateMachine.PlayerMover.IsFallingDown)
+            if (HasAnimationFinished("Jump") && StateMachine.PlayerMover.IsFallingDown)
             {
                 StateMachine.SwitchState(new PlayerFallingDownState(StateMachine));
                 return;

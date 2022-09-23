@@ -2,12 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace InputSystem
+namespace Core
 {
     public class InputReader : MonoBehaviour, Controls.IPlayerActions
     {
         public event Action JumpEvent;
-        
+        public event Action<MeleeAttackNames> MeleeAttackEvent;
+
         public Vector2 MovementValue { get; private set; }
 
         private Controls _controls;
@@ -37,6 +38,33 @@ namespace InputSystem
             MovementValue = context.ReadValue<Vector2>();
         }
 
+        public void OnMeleeForwardAttack(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            
+            MeleeAttackEvent?.Invoke(MeleeAttackNames.Forward);
+        }
+
+        public void OnMeleeBackwardAttack(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            MeleeAttackEvent?.Invoke(MeleeAttackNames.Backward);
+        }
+
+        public void OnMeleeLeftAttack(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            MeleeAttackEvent?.Invoke(MeleeAttackNames.Left);
+        }
+
+        public void OnMeleeRightAttack(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+            MeleeAttackEvent?.Invoke(MeleeAttackNames.Right);
+        }
+
         public void OnFreeLook(InputAction.CallbackContext context) {}
+        
+        
     }
 }

@@ -1,3 +1,5 @@
+using Combat;
+using Core;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -13,6 +15,7 @@ namespace StateMachines.Player
         public override void Enter()
         {
             StateMachine.InputReader.JumpEvent += OnJump;
+            StateMachine.InputReader.MeleeAttackEvent += OnMeleeAttack;
 
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
         }
@@ -28,6 +31,7 @@ namespace StateMachines.Player
         public override void Exit()
         {
             StateMachine.InputReader.JumpEvent -= OnJump;
+            StateMachine.InputReader.MeleeAttackEvent -= OnMeleeAttack;
         }
 
         private void UpdateAnimator(float deltaTime)
@@ -68,6 +72,11 @@ namespace StateMachines.Player
         private void OnJump()
         {
             StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
+        }
+        
+        private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
+        {
+            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
         }
     }
 }
