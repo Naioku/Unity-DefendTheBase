@@ -1,4 +1,3 @@
-using Combat;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -14,7 +13,7 @@ namespace StateMachines.Player
 
         public override void Tick(float deltaTime)
         {
-            StateMachine.PlayerMover.FaceCameraForward(deltaTime);
+            StateMachine.CameraMover.FaceCameraForward(deltaTime);
         }
         
         protected bool HasAnimationFinished(string tag)

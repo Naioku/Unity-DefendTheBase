@@ -700,7 +700,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""binding"",
                     ""id"": ""09e9ac12-93ab-4b02-9e4b-116290705b41"",
-                    ""path"": ""<Keyboard>/shift"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",

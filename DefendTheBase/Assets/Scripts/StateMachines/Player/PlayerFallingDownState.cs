@@ -17,9 +17,9 @@ namespace StateMachines.Player
         {
             base.Tick(deltaTime);
 
-            StateMachine.PlayerMover.ApplyMomentum(deltaTime);
+            StateMachine.Mover.ApplyMomentum(deltaTime);
 
-            if (StateMachine.PlayerMover.IsGrounded)
+            if (StateMachine.Mover.IsGrounded)
             {
                 StateMachine.SwitchState(new PlayerGroundingState(StateMachine));
             }

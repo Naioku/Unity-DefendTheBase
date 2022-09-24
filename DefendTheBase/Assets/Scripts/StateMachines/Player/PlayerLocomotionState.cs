@@ -24,7 +24,7 @@ namespace StateMachines.Player
         {
             base.Tick(deltaTime);
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
-            StateMachine.PlayerMover.Move(movementDirection, deltaTime);
+            StateMachine.Mover.Move(movementDirection, deltaTime);
             UpdateAnimator(deltaTime);
         }
 
@@ -62,10 +62,10 @@ namespace StateMachines.Player
 
         private Vector3 CalculateMovementDirectionFromCameraPosition()
         {
-            return StateMachine.PlayerMover.GetCameraForwardDirection() * 
+            return StateMachine.CameraMover.GetCameraForwardDirection() * 
                    StateMachine.InputReader.MovementValue.y
                    +
-                   StateMachine.PlayerMover.GetCameraRightDirection() * 
+                   StateMachine.CameraMover.GetCameraRightDirection() * 
                    StateMachine.InputReader.MovementValue.x;
         }
         
