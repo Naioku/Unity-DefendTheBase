@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 128a0af4f9824664898d412092d219bb, type: 2}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,16 +75,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
   m_PrefabInstance: {fileID: 1880144075834090509}
   m_PrefabAsset: {fileID: 0}
---- !u!143 &3336993967809797620 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 3772045364879292921, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
-  m_PrefabInstance: {fileID: 1880144075834090509}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3336993967809797622 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
   m_PrefabInstance: {fileID: 1880144075834090509}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3666145990578233291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae9f5190de258f4094450611baf83e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSpeed: 5
+  jumpVelocity: 5
+  chasingSpeed: 7
+--- !u!195 &6302291379064726691
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 50
+  avoidancePriority: 50
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &6720374215094431433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +130,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <AnimationCrossFadeDuration>k__BackingField: 0.1
+  <AnimatorDampTime>k__BackingField: 0.05
+  <AttackRange>k__BackingField: 2
+  <ChasingStartDelay>k__BackingField: 0.5
+--- !u!114 &4337203797914084557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859963c2f4fa56c40ad898b5a36a62cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  angle: 120
+  height: 2
+  defaultMeshColor: {r: 0.3657968, g: 1, b: 0.3254717, a: 0.38}
+  detectedStateMeshColor: {r: 0.9846383, g: 1, b: 0.3254902, a: 0.38}
+  rangeGizmosColor: {r: 0, g: 1, b: 0, a: 1}
+  objectsInSightGizmosColor: {r: 0, g: 0, b: 1, a: 1}
+  scanFrequency: 30
+  searchingLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!143 &6189767029466823547 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5760637473762713462, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+  m_PrefabInstance: {fileID: 1880144075834090509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2839300762417875368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -109,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 2443834509826472707, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
       propertyPath: ownerCollider
       value: 
-      objectReference: {fileID: 3336993967809797620}
+      objectReference: {fileID: 6189767029466823547}
     - target: {fileID: 6024575019380497648, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
       propertyPath: m_Name
       value: SwordSlot
@@ -177,7 +243,7 @@ PrefabInstance:
     - target: {fileID: 4293812245237080394, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
       propertyPath: ownerCollider
       value: 
-      objectReference: {fileID: 3336993967809797620}
+      objectReference: {fileID: 6189767029466823547}
     - target: {fileID: 6782017276112559138, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
       propertyPath: m_RootOrder
       value: -1

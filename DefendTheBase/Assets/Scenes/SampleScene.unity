@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 7baaa015e1d80d74582c30913eb3f879, type: 2}
 --- !u!1 &626660509
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &626660510
 Transform:
@@ -269,37 +269,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &872189519 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3336993967809797622, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
-  m_PrefabInstance: {fileID: 1262206724058119828}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &872189527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872189519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859963c2f4fa56c40ad898b5a36a62cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 10
-  angle: 120
-  height: 2
-  defaultMeshColor: {r: 0.3657968, g: 1, b: 0.3254717, a: 0.38}
-  detectedStateMeshColor: {r: 0.9846383, g: 1, b: 0.3254902, a: 0.38}
-  rangeGizmosColor: {r: 0, g: 1, b: 0, a: 1}
-  objectsInSightGizmosColor: {r: 0, g: 0, b: 1, a: 1}
-  scanFrequency: 30
-  searchingLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  occlusionLayers:
-    serializedVersion: 2
-    m_Bits: 1
 --- !u!1 &1033978811
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +283,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1033978812
 Transform:
@@ -357,7 +326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049022281}
-  m_LocalRotation: {x: 0.16018221, y: -0.000000041602625, z: 0.000000006751175, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018221, y: 0.000000041602625, z: -0.000000006751175, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -428,7 +397,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1184829018
 Transform:
@@ -879,7 +848,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.14220113, y: 0.000000017041582, z: -0.0000000024482114, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220117, y: 0.000000034063053, z: -0.0000000048935354, w: 0.98983777}
   m_LocalPosition: {x: -5.42, y: 3.5899997, z: -13.928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -978,7 +947,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772106271}
-  m_LocalRotation: {x: 0.12422061, y: 0.000000017073088, z: -0.0000000021373843, w: 0.9922547}
+  m_LocalRotation: {x: 0.12422061, y: -0.000000017073113, z: 0.0000000021373876, w: 0.9922547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1183,7 +1152,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966790506}
-  m_LocalRotation: {x: 0.14220111, y: 0.00000001704158, z: -0.0000000024482107, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220114, y: 0.000000017031526, z: -0.000000002446767, w: 0.9898378}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1594,6 +1563,10 @@ PrefabInstance:
     - target: {fileID: 3336993967809797622, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720374215094431433, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: <ChasingStartDelay>k__BackingField
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

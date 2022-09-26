@@ -8,23 +8,21 @@ namespace Locomotion
         public bool IsFallingDown => _characterController.velocity.y < 0f;
         public bool IsGrounded => _characterController.isGrounded;
         
-        [SerializeField] private float movementSpeed = 5f;
+        [SerializeField] private float defaultSpeed = 5f;
         [SerializeField] private float jumpVelocity = 5f;
 
         private CharacterController _characterController;
         private ForceReceiver _forceReceiver;
 
-        private void Awake()
+        protected void Awake()
         {
             _characterController = GetComponent<CharacterController>();
             _forceReceiver = GetComponent<ForceReceiver>();
         }
 
-        public void Move(Vector3 direction, float deltaTime)
-        {
-            Vector3 movementDisplacement = direction * movementSpeed;
-            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);
-        }
+        public void MoveWithDefaultSpeed(Vector3 direction, float deltaTime) => Move(direction, defaultSpeed, deltaTime);
+
+        public void OnlyApplyForces(float deltaTime) => UpdateVelocity(_forceReceiver.ForceDisplacement, deltaTime);
 
         public void ApplyMomentum(float deltaTime)
         {
@@ -34,9 +32,10 @@ namespace Locomotion
             UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, deltaTime);
         }
 
-        public void OnlyApplyForces(float deltaTime)
+        private void Move(Vector3 direction, float movementSpeed, float deltaTime)
         {
-            UpdateVelocity(_forceReceiver.ForceDisplacement, deltaTime);
+            Vector3 movementDisplacement = direction * movementSpeed;
+            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);
         }
 
         private void UpdateVelocity(Vector3 movement, float deltaTime)

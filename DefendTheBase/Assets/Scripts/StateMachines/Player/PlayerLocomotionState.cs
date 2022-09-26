@@ -24,7 +24,7 @@ namespace StateMachines.Player
         {
             base.Tick(deltaTime);
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
-            StateMachine.Mover.Move(movementDirection, deltaTime);
+            StateMachine.Mover.MoveWithDefaultSpeed(movementDirection, deltaTime);
             UpdateAnimator(deltaTime);
         }
 

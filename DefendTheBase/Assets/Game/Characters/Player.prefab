@@ -42,7 +42,7 @@ PrefabInstance:
     - target: {fileID: 2443834509826472707, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
       propertyPath: ownerCollider
       value: 
-      objectReference: {fileID: 4906576444402988098}
+      objectReference: {fileID: 4593305771430089421}
     - target: {fileID: 6024575019380497648, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
       propertyPath: m_Name
       value: SwordSlot
@@ -1029,7 +1029,7 @@ PrefabInstance:
     - target: {fileID: 4293812245237080394, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
       propertyPath: ownerCollider
       value: 
-      objectReference: {fileID: 4906576444402988098}
+      objectReference: {fileID: 4593305771430089421}
     - target: {fileID: 6782017276112559138, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1131,7 +1131,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 128a0af4f9824664898d412092d219bb, type: 2}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1182,6 +1182,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1608924106}
   m_SourcePrefab: {fileID: 100100000, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+--- !u!143 &4593305771430089421 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 5760637473762713462, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+  m_PrefabInstance: {fileID: 8092781620349210043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4906576444402988096 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
@@ -1258,11 +1263,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d28413080136f84aaa27e93fbb5ac56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!143 &4906576444402988098 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 3772045364879292921, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
-  m_PrefabInstance: {fileID: 8092781620349210043}
+--- !u!114 &8771494785422445668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4906576444402988096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db3df6ef5058cfe488ff4dbdd8a3fd4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSpeed: 10
+  jumpVelocity: 7
 --- !u!4 &4906576444402988101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}

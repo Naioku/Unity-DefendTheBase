@@ -19,7 +19,7 @@ namespace StateMachines.Enemy
         public override void Tick(float deltaTime)
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            StateMachine.Mover.OnlyApplyForces(deltaTime);
+            StateMachine.AIMover.OnlyApplyForces(deltaTime);
         }
 
         public override void Exit()

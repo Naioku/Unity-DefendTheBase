@@ -8,11 +8,11 @@ namespace StateMachines.Enemy
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
-        private readonly List<Transform> _targets;
+        private readonly List<Transform> _detectedTargets;
 
         public EnemyChasingState(EnemyStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
         {
-            _targets = targets;
+            _detectedTargets = targets;
         }
         
         public override void Enter()
@@ -24,14 +24,56 @@ namespace StateMachines.Enemy
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
-            if (_targets.Count == 0)
+            Transform closestTarget = GetClosestTarget();
+            
+            if (closestTarget == null)
             {
                 StateMachine.SwitchState(new EnemyIdleState(StateMachine));
+                return;
             }
+
+            StateMachine.AIMover.FacePosition(closestTarget.position);
+
+            if (!StateMachine.AIMover.ChaseToPosition(closestTarget.position))
+            {
+                StateMachine.SwitchState(new EnemyIdleState(StateMachine));
+                return;
+            }
+
+            if (IsInAttackRange(closestTarget.position))
+            {
+                StateMachine.SwitchState(new EnemyIdleState(StateMachine)); // change to EnemyAttackState
+                return;
+            }
+        }
+
+        private bool IsInAttackRange(Vector3 targetPosition)
+        {
+            return (targetPosition - StateMachine.transform.position).sqrMagnitude
+                   <= Mathf.Pow(StateMachine.AttackRange, 2);
         }
 
         public override void Exit()
         {
+            StateMachine.AIMover.StopNavMeshAgent();
+        }
+        
+        private Transform GetClosestTarget()
+        {
+            Vector3 enemyPosition = StateMachine.transform.position;
+            Transform closestTarget = null;
+            float distanceToClosestTargetSquared = Mathf.Infinity;
+            foreach (Transform detectedTarget in _detectedTargets)
+            {
+                float distanceToTargetSquared = Vector3.SqrMagnitude(detectedTarget.position - enemyPosition);
+                if (distanceToTargetSquared < distanceToClosestTargetSquared)
+                {
+                    distanceToClosestTargetSquared = distanceToTargetSquared;
+                    closestTarget = detectedTarget;
+                }
+            }
+
+            return closestTarget;
         }
     }
 }
