@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 7baaa015e1d80d74582c30913eb3f879, type: 2}
+--- !u!114 &310527946 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 472041824734016171, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+  m_PrefabInstance: {fileID: 1262206724058119828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626660509
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +280,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704015803 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6458617114620561654, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+  m_PrefabInstance: {fileID: 1262206724058119828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &872189519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3336993967809797622, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+  m_PrefabInstance: {fileID: 1262206724058119828}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &872189545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872189519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dde17d390f4264db8c713b0fc884b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks:
+  - <MeleeAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: LeftAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+  - <MeleeAttackName>k__BackingField: 1
+    <AnimationName>k__BackingField: RightAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+  - <MeleeAttackName>k__BackingField: 2
+    <AnimationName>k__BackingField: ShieldAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+  - <MeleeAttackName>k__BackingField: 3
+    <AnimationName>k__BackingField: 360Attack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+  equippedMainHandWeapon: {fileID: 310527946}
+  equippedOffHandWeapon: {fileID: 704015803}
 --- !u!1 &1033978811
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049022281}
-  m_LocalRotation: {x: 0.16018221, y: 0.000000041602625, z: -0.000000006751175, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018224, y: -4.1894842e-15, z: 1.4043524e-15, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -848,7 +906,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.14220117, y: 0.000000034063053, z: -0.0000000048935354, w: 0.98983777}
+  m_LocalRotation: {x: 0.14220117, y: -0.000000034063053, z: 0.0000000048935354, w: 0.98983777}
   m_LocalPosition: {x: -5.42, y: 3.5899997, z: -13.928}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -947,7 +1005,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772106271}
-  m_LocalRotation: {x: 0.12422061, y: -0.000000017073113, z: 0.0000000021373876, w: 0.9922547}
+  m_LocalRotation: {x: 0.12422062, y: -0.000000017073113, z: 0.0000000021373874, w: 0.9922547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1152,7 +1210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966790506}
-  m_LocalRotation: {x: 0.14220114, y: 0.000000017031526, z: -0.000000002446767, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220114, y: -0.000000017031528, z: 0.0000000024467672, w: 0.9898378}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

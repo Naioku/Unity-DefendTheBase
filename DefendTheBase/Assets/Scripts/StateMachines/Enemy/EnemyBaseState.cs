@@ -8,5 +8,10 @@ namespace StateMachines.Enemy
         {
             StateMachine = stateMachine;
         }
+        
+        protected bool HasAnimationFinished(string tag)
+        {
+            return GetNormalizedAnimationTime(StateMachine.Animator, tag) >= 1f;
+        }
     }
 }
