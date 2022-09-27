@@ -29,23 +29,33 @@ namespace StateMachines.Enemy
 
             if (closestTarget == null)
             {
-                StateMachine.SwitchState(new EnemySuspicionState(StateMachine, _lastSeenTargetPosition));
+                if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
+                {
+                    StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                    return;
+                }
+                    
+                if (IsDestinationReached(_lastSeenTargetPosition, StateMachine.WaypointTolerance))
+                {
+                    StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                    return;
+                }
+                
                 return;
             }
 
             _lastSeenTargetPosition = closestTarget.position;
-
+            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition, deltaTime);
+            
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
                 StateMachine.SwitchState(new EnemyAttackingState(StateMachine, closestTarget));
                 return;
             }
 
-            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition, deltaTime);
-
             if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
             {
-                StateMachine.SwitchState(new EnemySuspicionState(StateMachine, _lastSeenTargetPosition));
+                StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
                 return;
             }
         }
