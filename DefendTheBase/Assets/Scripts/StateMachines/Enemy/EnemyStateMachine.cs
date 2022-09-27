@@ -19,7 +19,9 @@ namespace StateMachines.Enemy
         
         [field: Header("Suspicion state")]
         [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
-        [field: SerializeField] public float SuspicionWaypointTolerance { get; private set; } = 1.5f;
+        [field: SerializeField] public float WaypointTolerance { get; private set; } = 1.5f;
+        
+        public Vector3 GuardingPosition { get; set; }
         
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }
@@ -34,7 +36,8 @@ namespace StateMachines.Enemy
         
         private void Start()
         {
-            SwitchState(new EnemyIdleState(this));
+            GuardingPosition = transform.position;
+            SwitchState(new EnemyGuardingState(this));
         }
     }
 }

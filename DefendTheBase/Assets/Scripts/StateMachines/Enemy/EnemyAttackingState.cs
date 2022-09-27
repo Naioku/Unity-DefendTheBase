@@ -25,7 +25,7 @@ namespace StateMachines.Enemy
 
             if (HasAnimationFinished("Attack"))
             {
-                StateMachine.SwitchState(new EnemyIdleState(StateMachine));
+                StateMachine.SwitchState(new EnemyGuardingState(StateMachine));
                 return;
             }
         }

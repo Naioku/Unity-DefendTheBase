@@ -21,5 +21,11 @@ namespace StateMachines.Enemy
         {
             StateMachine.SwitchState(new EnemyChasingState(StateMachine, targets));
         }
+        
+        protected bool IsDestinationReached(Vector3 destination, float displacementToleration)
+        {
+            float distanceToWaypointSquared = Vector3.SqrMagnitude(destination - StateMachine.transform.position);
+            return distanceToWaypointSquared <= Mathf.Pow(displacementToleration, 2);
+        }
     }
 }

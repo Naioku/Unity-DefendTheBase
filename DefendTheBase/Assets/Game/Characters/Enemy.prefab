@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 5
   jumpVelocity: 5
-  chasingSpeed: 5
+  movingSpeed: 5
   rotationInterpolationRatio: 0.1
 --- !u!114 &4337203797914084557
 MonoBehaviour:
@@ -160,6 +160,8 @@ MonoBehaviour:
   <AnimatorDampTime>k__BackingField: 0.05
   <AttackRange>k__BackingField: 2
   <RotationInterpolationRatioInAttackingState>k__BackingField: 1
+  <SuspicionTime>k__BackingField: 2
+  <WaypointTolerance>k__BackingField: 1.5
 --- !u!143 &6189767029466823547 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 5760637473762713462, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}

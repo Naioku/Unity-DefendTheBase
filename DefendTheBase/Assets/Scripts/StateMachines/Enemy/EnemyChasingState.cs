@@ -43,24 +43,18 @@ namespace StateMachines.Enemy
 
             StateMachine.AIMover.FacePosition(_lastSeenTargetPosition, deltaTime);
 
-            if (!StateMachine.AIMover.ChaseToPosition(_lastSeenTargetPosition))
+            if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
             {
                 StateMachine.SwitchState(new EnemySuspicionState(StateMachine, _lastSeenTargetPosition));
                 return;
             }
         }
 
-        private bool IsInAttackRange(Vector3 targetPosition)
-        {
-            return (targetPosition - StateMachine.transform.position).sqrMagnitude
-                   <= Mathf.Pow(StateMachine.AttackRange, 2);
-        }
-
         public override void Exit()
         {
             StateMachine.AIMover.StopMovement();
         }
-        
+
         private Transform GetClosestTarget()
         {
             Vector3 enemyPosition = StateMachine.transform.position;
@@ -77,6 +71,12 @@ namespace StateMachines.Enemy
             }
 
             return closestTarget;
+        }
+
+        private bool IsInAttackRange(Vector3 targetPosition)
+        {
+            return (targetPosition - StateMachine.transform.position).sqrMagnitude
+                   <= Mathf.Pow(StateMachine.AttackRange, 2);
         }
     }
 }

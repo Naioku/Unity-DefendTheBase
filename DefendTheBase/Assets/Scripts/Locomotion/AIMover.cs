@@ -5,7 +5,7 @@ namespace Locomotion
 {
     public class AIMover : Mover
     {
-        [SerializeField] private float chasingSpeed = 7f;
+        [SerializeField] private float movingSpeed = 7f;
         [SerializeField] [Range(0f, 1f)] private float rotationInterpolationRatio = 0.1f;
         
         private NavMeshAgent _navMeshAgent;
@@ -18,11 +18,11 @@ namespace Locomotion
 
         private void Start()
         {
-            _navMeshAgent.speed = chasingSpeed;
+            _navMeshAgent.speed = movingSpeed;
             _navMeshAgent.updateRotation = false;
         }
 
-        public bool ChaseToPosition(Vector3 position)
+        public bool MoveToPosition(Vector3 position)
         {
             if (!_navMeshAgent.isOnNavMesh) return false;
             if (!_navMeshAgent.SetDestination(position)) return false;

@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace StateMachines.Enemy
 {
-    public class EnemyIdleState : EnemyBaseState
+    public class EnemyIdlingState : EnemyBaseState
     {
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
 
-        public EnemyIdleState(EnemyStateMachine stateMachine) : base(stateMachine) {}
+        public EnemyIdlingState(EnemyStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
