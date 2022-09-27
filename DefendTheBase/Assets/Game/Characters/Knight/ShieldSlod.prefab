@@ -122,8 +122,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageTrigger: {fileID: 8027398776086957335}
-  damage: 5
   ownerCollider: {fileID: 0}
+  damage: 5
+  knockback: 10
 --- !u!1001 &4627705480801238090
 PrefabInstance:
   m_ObjectHideFlags: 0

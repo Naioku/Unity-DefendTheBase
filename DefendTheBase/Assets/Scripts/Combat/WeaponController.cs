@@ -5,13 +5,15 @@ namespace Combat
     public class WeaponController : MonoBehaviour
     {
         [SerializeField] private WeaponDamageTrigger damageTrigger;
-        [SerializeField] private float damage = 10f;
         [SerializeField] private Collider ownerCollider;
+        [SerializeField] private float damage = 10f;
+        [SerializeField] private float knockback = 5f;
 
         private void Start()
         {
-            damageTrigger.SetDamage(damage);
             damageTrigger.SetOwnerCollider(ownerCollider);
+            damageTrigger.SetDamage(damage);
+            damageTrigger.SetKnockback(knockback);
             DisableDamageTrigger();
         }
 
