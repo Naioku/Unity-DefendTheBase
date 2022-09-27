@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using UnityEngine;
+
 namespace StateMachines.Enemy
 {
     public abstract class EnemyBaseState : State
@@ -12,6 +15,11 @@ namespace StateMachines.Enemy
         protected bool HasAnimationFinished(string tag)
         {
             return GetNormalizedAnimationTime(StateMachine.Animator, tag) >= 1f;
+        }
+        
+        protected void OnTargetDetection(List<Transform> targets)
+        {
+            StateMachine.SwitchState(new EnemyChasingState(StateMachine, targets));
         }
     }
 }

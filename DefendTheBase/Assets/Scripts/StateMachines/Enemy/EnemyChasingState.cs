@@ -9,6 +9,7 @@ namespace StateMachines.Enemy
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
         private readonly List<Transform> _detectedTargets;
+        private Vector3 _lastSeenTargetPosition;
 
         public EnemyChasingState(EnemyStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
         {
@@ -25,24 +26,26 @@ namespace StateMachines.Enemy
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
             Transform closestTarget = GetClosestTarget();
-            
+
             if (closestTarget == null)
             {
-                StateMachine.SwitchState(new EnemyIdleState(StateMachine));
+                StateMachine.SwitchState(new EnemySuspicionState(StateMachine, _lastSeenTargetPosition));
                 return;
             }
 
-            StateMachine.AIMover.FacePosition(closestTarget.position, deltaTime);
+            _lastSeenTargetPosition = closestTarget.position;
 
-            if (!StateMachine.AIMover.ChaseToPosition(closestTarget.position))
-            {
-                StateMachine.SwitchState(new EnemyIdleState(StateMachine));
-                return;
-            }
-
-            if (IsInAttackRange(closestTarget.position))
+            if (IsInAttackRange(_lastSeenTargetPosition))
             {
                 StateMachine.SwitchState(new EnemyAttackingState(StateMachine, closestTarget));
+                return;
+            }
+
+            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition, deltaTime);
+
+            if (!StateMachine.AIMover.ChaseToPosition(_lastSeenTargetPosition))
+            {
+                StateMachine.SwitchState(new EnemySuspicionState(StateMachine, _lastSeenTargetPosition));
                 return;
             }
         }
@@ -55,7 +58,7 @@ namespace StateMachines.Enemy
 
         public override void Exit()
         {
-            StateMachine.AIMover.StopNavMeshAgent();
+            StateMachine.AIMover.StopMovement();
         }
         
         private Transform GetClosestTarget()

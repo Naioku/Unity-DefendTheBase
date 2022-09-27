@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace StateMachines.Enemy
@@ -25,11 +24,6 @@ namespace StateMachines.Enemy
         public override void Exit()
         {
             StateMachine.AISensor.TargetDetectedEvent -= OnTargetDetection;
-        }
-
-        private void OnTargetDetection(List<Transform> targets)
-        {
-            StateMachine.SwitchState(new EnemyChasingState(StateMachine, targets));
         }
     }
 }

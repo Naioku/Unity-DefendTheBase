@@ -10,10 +10,16 @@ namespace StateMachines.Enemy
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f; 
         
         [field: Header("Attacking state")]
-        [field: SerializeField] public float AttackRange { get; private set; } = 2f;
+        [field: SerializeField] 
+        public float AttackRange { get; private set; } = 2f;
+        
         [field: SerializeField]
         [field: Range(0f, 1f)]
-        public float RotationInterpolationRatioInAttackingState { get; private set; } = 1f; 
+        public float RotationInterpolationRatioInAttackingState { get; private set; } = 1f;
+        
+        [field: Header("Suspicion state")]
+        [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
+        [field: SerializeField] public float SuspicionWaypointTolerance { get; private set; } = 1.5f;
         
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }

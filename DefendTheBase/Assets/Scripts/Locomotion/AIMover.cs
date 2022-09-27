@@ -30,7 +30,7 @@ namespace Locomotion
             return true;
         }
 
-        public void StopNavMeshAgent()
+        public void StopMovement()
         {
             if (!_navMeshAgent.isOnNavMesh) return;
             _navMeshAgent.ResetPath();
