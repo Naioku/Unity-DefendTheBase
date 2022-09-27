@@ -9,8 +9,11 @@ namespace StateMachines.Enemy
         [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f; 
         
-        [field: SerializeField] public float AttackRange { get; private set; } = 2f; 
-        [field: SerializeField] public float ChasingStartDelay { get; private set; } = 0.5f; 
+        [field: Header("Attacking state")]
+        [field: SerializeField] public float AttackRange { get; private set; } = 2f;
+        [field: SerializeField]
+        [field: Range(0f, 1f)]
+        public float RotationInterpolationRatioInAttackingState { get; private set; } = 1f; 
         
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }

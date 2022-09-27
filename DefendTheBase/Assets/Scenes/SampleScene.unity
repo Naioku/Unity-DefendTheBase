@@ -384,7 +384,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049022281}
-  m_LocalRotation: {x: 0.16018224, y: -4.1894842e-15, z: 1.4043524e-15, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018225, y: -0.000000018413422, z: 0.0000000029880876, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -906,8 +906,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.14220117, y: -0.000000034063053, z: 0.0000000048935354, w: 0.98983777}
-  m_LocalPosition: {x: -5.42, y: 3.5899997, z: -13.928}
+  m_LocalRotation: {x: 0.14220117, y: -0.00000003406267, z: 0.0000000048934794, w: 0.98983777}
+  m_LocalPosition: {x: -5.42, y: 2.944347, z: -11.991041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1005,7 +1005,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772106271}
-  m_LocalRotation: {x: 0.12422062, y: -0.000000017073113, z: 0.0000000021373874, w: 0.9922547}
+  m_LocalRotation: {x: 0.12422064, y: -0.0000000042689066, z: 5.344256e-10, w: 0.9922547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1210,7 +1210,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966790506}
-  m_LocalRotation: {x: 0.14220114, y: -0.000000017031528, z: 0.0000000024467672, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220116, y: -0.000000017030759, z: 0.000000002446657, w: 0.98983777}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1621,6 +1621,10 @@ PrefabInstance:
     - target: {fileID: 3336993967809797622, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3666145990578233291, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: rotationDamping
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6720374215094431433, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: <ChasingStartDelay>k__BackingField

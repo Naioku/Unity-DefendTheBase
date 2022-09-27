@@ -94,7 +94,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSpeed: 5
   jumpVelocity: 5
-  chasingSpeed: 7
+  chasingSpeed: 5
+  rotationInterpolationRatio: 0.1
+--- !u!114 &4337203797914084557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859963c2f4fa56c40ad898b5a36a62cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  angle: 120
+  height: 2
+  defaultMeshColor: {r: 0.3657968, g: 1, b: 0.3254717, a: 0.38}
+  detectedStateMeshColor: {r: 0.9846383, g: 1, b: 0.3254902, a: 0.38}
+  rangeGizmosColor: {r: 0, g: 1, b: 0, a: 1}
+  objectsInSightGizmosColor: {r: 0, g: 0, b: 1, a: 1}
+  scanFrequency: 30
+  searchingLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!195 &6302291379064726691
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -132,33 +159,7 @@ MonoBehaviour:
   <AnimationCrossFadeDuration>k__BackingField: 0.1
   <AnimatorDampTime>k__BackingField: 0.05
   <AttackRange>k__BackingField: 2
-  <ChasingStartDelay>k__BackingField: 0.5
---- !u!114 &4337203797914084557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3336993967809797622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859963c2f4fa56c40ad898b5a36a62cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 10
-  angle: 120
-  height: 2
-  defaultMeshColor: {r: 0.3657968, g: 1, b: 0.3254717, a: 0.38}
-  detectedStateMeshColor: {r: 0.9846383, g: 1, b: 0.3254902, a: 0.38}
-  rangeGizmosColor: {r: 0, g: 1, b: 0, a: 1}
-  objectsInSightGizmosColor: {r: 0, g: 0, b: 1, a: 1}
-  scanFrequency: 30
-  searchingLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  occlusionLayers:
-    serializedVersion: 2
-    m_Bits: 1
+  <RotationInterpolationRatioInAttackingState>k__BackingField: 1
 --- !u!143 &6189767029466823547 stripped
 CharacterController:
   m_CorrespondingSourceObject: {fileID: 5760637473762713462, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}

@@ -6,11 +6,17 @@ namespace StateMachines.Enemy
     {
         private static readonly int AttackHash = Animator.StringToHash("LeftAttack");
 
-        public EnemyAttackingState(EnemyStateMachine stateMachine) : base(stateMachine) {}
+        private readonly Transform _target;
+
+        public EnemyAttackingState(EnemyStateMachine stateMachine, Transform target) : base(stateMachine)
+        {
+            _target = target;
+        }
         
         public override void Enter()
         {
             StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.AIMover.FacePosition(_target.position, StateMachine.RotationInterpolationRatioInAttackingState, Time.deltaTime);
         }
 
         public override void Tick(float deltaTime)

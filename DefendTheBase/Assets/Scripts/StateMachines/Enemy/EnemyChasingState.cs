@@ -23,7 +23,6 @@ namespace StateMachines.Enemy
         public override void Tick(float deltaTime)
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            // StateMachine.AIMover.OnlyApplyForces(deltaTime);
             
             Transform closestTarget = GetClosestTarget();
             
@@ -33,7 +32,7 @@ namespace StateMachines.Enemy
                 return;
             }
 
-            StateMachine.AIMover.FacePosition(closestTarget.position);
+            StateMachine.AIMover.FacePosition(closestTarget.position, deltaTime);
 
             if (!StateMachine.AIMover.ChaseToPosition(closestTarget.position))
             {
@@ -43,7 +42,7 @@ namespace StateMachines.Enemy
 
             if (IsInAttackRange(closestTarget.position))
             {
-                StateMachine.SwitchState(new EnemyAttackingState(StateMachine));
+                StateMachine.SwitchState(new EnemyAttackingState(StateMachine, closestTarget));
                 return;
             }
         }

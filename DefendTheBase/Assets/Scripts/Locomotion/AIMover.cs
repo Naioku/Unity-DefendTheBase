@@ -5,7 +5,8 @@ namespace Locomotion
 {
     public class AIMover : Mover
     {
-        [SerializeField] private float chasingSpeed;
+        [SerializeField] private float chasingSpeed = 7f;
+        [SerializeField] [Range(0f, 1f)] private float rotationInterpolationRatio = 0.1f;
         
         private NavMeshAgent _navMeshAgent;
 
@@ -18,6 +19,7 @@ namespace Locomotion
         private void Start()
         {
             _navMeshAgent.speed = chasingSpeed;
+            _navMeshAgent.updateRotation = false;
         }
 
         public bool ChaseToPosition(Vector3 position)
@@ -35,12 +37,21 @@ namespace Locomotion
             _navMeshAgent.velocity = Vector3.zero;
         }
 
-        public void FacePosition(Vector3 position)
+        public void FacePosition(Vector3 position, float deltaTime)
+        {
+            FacePosition(position, rotationInterpolationRatio, deltaTime);
+        }
+        
+        public void FacePosition(Vector3 position, float rotationInterpolationRatio, float deltaTime)
         {
             Vector3 pointingVector = position - transform.position;
             pointingVector.y = 0f;
             
-            transform.rotation = Quaternion.LookRotation(pointingVector);
+            transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    Quaternion.LookRotation(pointingVector),
+                    rotationInterpolationRatio
+            );
         }
     }
 }
