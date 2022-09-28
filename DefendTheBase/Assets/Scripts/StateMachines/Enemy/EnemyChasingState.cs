@@ -45,7 +45,7 @@ namespace StateMachines.Enemy
             }
 
             _lastSeenTargetPosition = closestTarget.position;
-            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition, deltaTime);
+            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition);
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {

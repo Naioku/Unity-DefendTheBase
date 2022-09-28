@@ -16,7 +16,7 @@ namespace StateMachines.Enemy
         public override void Enter()
         {
             StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
-            StateMachine.AIMover.FacePosition(_target.position, StateMachine.RotationInterpolationRatioInAttackingState, Time.deltaTime);
+            StateMachine.AIMover.FacePosition(_target.position, StateMachine.RotationInterpolationRatioInAttackingState);
         }
 
         public override void Tick(float deltaTime)
@@ -25,7 +25,7 @@ namespace StateMachines.Enemy
 
             if (HasAnimationFinished("Attack"))
             {
-                StateMachine.SwitchState(new EnemyGuardingState(StateMachine));
+                StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
                 return;
             }
         }

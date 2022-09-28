@@ -27,7 +27,7 @@ namespace StateMachines.Enemy
 
             if (_suspicionTimer <= 0f)
             {
-                StateMachine.SwitchState(new EnemyGuardingState(StateMachine));
+                StateMachine.SwitchToDefaultState();
                 return;
             }
         }

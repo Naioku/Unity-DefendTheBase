@@ -26,18 +26,32 @@ namespace StateMachines.Enemy
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }
         public AISensor AISensor { get; private set; }
+        public AIPatroller AIPatroller { get; private set; }
 
         private void Awake()
         {
             Animator = GetComponent<Animator>();
             AIMover = GetComponent<AIMover>();
             AISensor = GetComponent<AISensor>();
+            AIPatroller = GetComponent<AIPatroller>();
         }
         
         private void Start()
         {
             GuardingPosition = transform.position;
-            SwitchState(new EnemyGuardingState(this));
+            SwitchToDefaultState();
+        }
+
+        public void SwitchToDefaultState()
+        {
+            if (AIPatroller != null)
+            {
+                SwitchState(new EnemyPatrollingState(this));
+            }
+            else
+            {
+                SwitchState(new EnemyGuardingState(this));
+            }
         }
     }
 }

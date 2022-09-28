@@ -32,7 +32,7 @@ namespace Locomotion
             UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, deltaTime);
         }
 
-        private void Move(Vector3 direction, float movementSpeed, float deltaTime)
+        protected void Move(Vector3 direction, float movementSpeed, float deltaTime)
         {
             Vector3 movementDisplacement = direction * movementSpeed;
             UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);

@@ -29,7 +29,7 @@ namespace Locomotion
         
             return true;
         }
-
+        
         public void StopMovement()
         {
             if (!_navMeshAgent.isOnNavMesh) return;
@@ -37,12 +37,12 @@ namespace Locomotion
             _navMeshAgent.velocity = Vector3.zero;
         }
 
-        public void FacePosition(Vector3 position, float deltaTime)
+        public void FacePosition(Vector3 position)
         {
-            FacePosition(position, rotationInterpolationRatio, deltaTime);
+            FacePosition(position, rotationInterpolationRatio);
         }
         
-        public void FacePosition(Vector3 position, float rotationInterpolationRatio, float deltaTime)
+        public void FacePosition(Vector3 position, float rotationInterpolationRatio)
         {
             Vector3 pointingVector = position - transform.position;
             pointingVector.y = 0f;
