@@ -19,6 +19,7 @@ namespace StateMachines.Enemy
         
         public override void Enter()
         {
+            _aiMover.SwitchMovementToNavmesh();
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
         }
@@ -35,7 +36,6 @@ namespace StateMachines.Enemy
             if (_aiPatroller.ShouldMoveToNextWaypoint())
             {
                 StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
-                _aiMover.FacePosition(_aiPatroller.GetCurrentWaypointPosition());
 
                 if (!_aiMover.MoveToPosition(_aiPatroller.GetCurrentWaypointPosition()))
                 {

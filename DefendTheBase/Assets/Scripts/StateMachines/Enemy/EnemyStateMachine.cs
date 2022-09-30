@@ -1,3 +1,4 @@
+using System;
 using Combat;
 using Locomotion;
 using UnityEngine;
@@ -27,6 +28,8 @@ namespace StateMachines.Enemy
         public AIMover AIMover { get; private set; }
         public AISensor AISensor { get; private set; }
         public AIPatroller AIPatroller { get; private set; }
+        
+        private Health _health;
 
         private void Awake()
         {
@@ -34,12 +37,23 @@ namespace StateMachines.Enemy
             AIMover = GetComponent<AIMover>();
             AISensor = GetComponent<AISensor>();
             AIPatroller = GetComponent<AIPatroller>();
+            _health = GetComponent<Health>();
         }
         
         private void Start()
         {
             GuardingPosition = transform.position;
             SwitchToDefaultState();
+        }
+
+        private void OnEnable()
+        {
+            _health.OnTakeDamage += HandleTakeDamage;
+        }
+
+        private void OnDisable()
+        {
+            _health.OnTakeDamage -= HandleTakeDamage;
         }
 
         public void SwitchToDefaultState()
@@ -52,6 +66,11 @@ namespace StateMachines.Enemy
             {
                 SwitchState(new EnemyGuardingState(this));
             }
+        }
+
+        private void HandleTakeDamage()
+        {
+            SwitchState(new EnemyImpactState(this));
         }
     }
 }

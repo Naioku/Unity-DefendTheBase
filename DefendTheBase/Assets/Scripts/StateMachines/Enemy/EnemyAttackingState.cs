@@ -15,13 +15,14 @@ namespace StateMachines.Enemy
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.AIMover.SwitchMovementToCharacterController();
             StateMachine.AIMover.FacePosition(_target.position, StateMachine.RotationInterpolationRatioInAttackingState);
+            StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick(float deltaTime)
         {
-            StateMachine.AIMover.OnlyApplyForces(deltaTime);
+            StateMachine.AIMover.ApplyForces(deltaTime);
 
             if (HasAnimationFinished("Attack"))
             {

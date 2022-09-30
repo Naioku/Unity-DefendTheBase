@@ -22,8 +22,6 @@ namespace Locomotion
 
         public void MoveWithDefaultSpeed(Vector3 direction, float deltaTime) => Move(direction, defaultSpeed, deltaTime);
 
-        public void OnlyApplyForces(float deltaTime) => UpdateVelocity(_forceReceiver.ForceDisplacement, deltaTime);
-
         public void ApplyMomentum(float deltaTime)
         {
             Vector3 momentum = _characterController.velocity;
@@ -32,7 +30,7 @@ namespace Locomotion
             UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, deltaTime);
         }
 
-        protected void Move(Vector3 direction, float movementSpeed, float deltaTime)
+        private void Move(Vector3 direction, float movementSpeed, float deltaTime)
         {
             Vector3 movementDisplacement = direction * movementSpeed;
             UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);

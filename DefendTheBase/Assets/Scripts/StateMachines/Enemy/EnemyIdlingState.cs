@@ -18,7 +18,7 @@ namespace StateMachines.Enemy
         public override void Tick(float deltaTime)
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            StateMachine.AIMover.OnlyApplyForces(deltaTime);
+            StateMachine.AIMover.ApplyForces(deltaTime);
         }
 
         public override void Exit()

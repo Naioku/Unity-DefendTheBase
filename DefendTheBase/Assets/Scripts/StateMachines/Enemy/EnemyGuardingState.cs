@@ -11,6 +11,7 @@ namespace StateMachines.Enemy
         
         public override void Enter()
         {
+            StateMachine.AIMover.SwitchMovementToNavmesh();
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
         }
@@ -21,12 +22,10 @@ namespace StateMachines.Enemy
             {
                 StateMachine.AIMover.StopMovement(); // shouldn't be called on every frame
                 StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
-                StateMachine.AIMover.OnlyApplyForces(deltaTime);
                 return;
             }
             
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            StateMachine.AIMover.FacePosition(StateMachine.GuardingPosition);
             
             if (!StateMachine.AIMover.MoveToPosition(StateMachine.GuardingPosition))
             {

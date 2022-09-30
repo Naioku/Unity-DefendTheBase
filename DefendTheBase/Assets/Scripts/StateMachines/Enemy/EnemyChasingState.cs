@@ -18,6 +18,7 @@ namespace StateMachines.Enemy
         
         public override void Enter()
         {
+            StateMachine.AIMover.SwitchMovementToNavmesh();
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
         }
 
@@ -45,7 +46,6 @@ namespace StateMachines.Enemy
             }
 
             _lastSeenTargetPosition = closestTarget.position;
-            StateMachine.AIMover.FacePosition(_lastSeenTargetPosition);
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
