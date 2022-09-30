@@ -30,18 +30,13 @@ namespace StateMachines.Enemy
 
             if (closestTarget == null)
             {
-                if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
+                if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition) ||
+                    IsDestinationReached(_lastSeenTargetPosition, StateMachine.WaypointTolerance))
                 {
                     StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
                     return;
                 }
-                    
-                if (IsDestinationReached(_lastSeenTargetPosition, StateMachine.WaypointTolerance))
-                {
-                    StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
-                    return;
-                }
-                
+
                 return;
             }
 

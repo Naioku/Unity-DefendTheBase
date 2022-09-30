@@ -22,8 +22,6 @@ namespace StateMachines.Enemy
 
         public override void Tick(float deltaTime)
         {
-            StateMachine.AIMover.ApplyForces(deltaTime);
-
             if (HasAnimationFinished("Attack"))
             {
                 StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
