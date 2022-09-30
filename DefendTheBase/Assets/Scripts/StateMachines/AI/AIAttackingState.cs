@@ -1,14 +1,14 @@
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyAttackingState : EnemyBaseState
+    public class AIAttackingState : AIBaseState
     {
         private static readonly int AttackHash = Animator.StringToHash("LeftAttack");
 
         private readonly Transform _target;
 
-        public EnemyAttackingState(EnemyStateMachine stateMachine, Transform target) : base(stateMachine)
+        public AIAttackingState(AIStateMachine stateMachine, Transform target) : base(stateMachine)
         {
             _target = target;
         }
@@ -24,7 +24,7 @@ namespace StateMachines.Enemy
         {
             if (HasAnimationFinished("Attack"))
             {
-                StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                StateMachine.SwitchState(new AISuspicionState(StateMachine));
                 return;
             }
         }

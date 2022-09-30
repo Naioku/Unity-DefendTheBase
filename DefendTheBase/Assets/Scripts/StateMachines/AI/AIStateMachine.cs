@@ -1,11 +1,10 @@
-using System;
 using Combat;
-using Locomotion;
+using Locomotion.AI;
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyStateMachine : StateMachine
+    public class AIStateMachine : StateMachine
     {
         [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f; 
@@ -60,17 +59,17 @@ namespace StateMachines.Enemy
         {
             if (AIPatroller != null)
             {
-                SwitchState(new EnemyPatrollingState(this));
+                SwitchState(new AIPatrollingState(this));
             }
             else
             {
-                SwitchState(new EnemyGuardingState(this));
+                SwitchState(new AIGuardingState(this));
             }
         }
 
         private void HandleTakeDamage()
         {
-            SwitchState(new EnemyImpactState(this));
+            SwitchState(new AIImpactState(this));
         }
     }
 }

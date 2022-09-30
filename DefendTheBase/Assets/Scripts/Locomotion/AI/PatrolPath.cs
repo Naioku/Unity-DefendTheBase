@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Locomotion
+namespace Locomotion.AI
 {
     public class PatrolPath : MonoBehaviour
     {

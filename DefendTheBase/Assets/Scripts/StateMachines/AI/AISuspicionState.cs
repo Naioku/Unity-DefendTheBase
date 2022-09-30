@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemySuspicionState : EnemyBaseState
+    public class AISuspicionState : AIBaseState
     {
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
@@ -10,7 +10,7 @@ namespace StateMachines.Enemy
         private float _suspicionTimer;
         private bool _canMoveToDestination;
 
-        public EnemySuspicionState(EnemyStateMachine stateMachine) : base(stateMachine) {}
+        public AISuspicionState(AIStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {

@@ -1,9 +1,9 @@
-using Locomotion;
+using Locomotion.AI;
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyPatrollingState : EnemyBaseState
+    public class AIPatrollingState : AIBaseState
     {
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
@@ -11,7 +11,7 @@ namespace StateMachines.Enemy
         private readonly AIMover _aiMover;
         private readonly AIPatroller _aiPatroller;
 
-        public EnemyPatrollingState(EnemyStateMachine stateMachine) : base(stateMachine)
+        public AIPatrollingState(AIStateMachine stateMachine) : base(stateMachine)
         {
             _aiMover = StateMachine.AIMover;
             _aiPatroller = StateMachine.AIPatroller;

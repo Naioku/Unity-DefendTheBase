@@ -1,11 +1,11 @@
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyImpactState : EnemyBaseState
+    public class AIImpactState : AIBaseState
     {
         // Temporary value. Instead of it add new impact animation and when it is finished switch state.
         private float _duration = 1f;
         
-        public EnemyImpactState(EnemyStateMachine stateMachine) : base(stateMachine) {}
+        public AIImpactState(AIStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
@@ -19,7 +19,7 @@ namespace StateMachines.Enemy
             _duration -= deltaTime;
             if (_duration <= 0f)
             {
-                StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                StateMachine.SwitchState(new AISuspicionState(StateMachine));
                 return;
             }
         }

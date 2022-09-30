@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyGuardingState : EnemyBaseState
+    public class AIGuardingState : AIBaseState
     {
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
-        public EnemyGuardingState(EnemyStateMachine stateMachine) : base(stateMachine) {}
+        public AIGuardingState(AIStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {

@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public class EnemyChasingState : EnemyBaseState
+    public class AIChasingState : AIBaseState
     {
         private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
@@ -11,7 +11,7 @@ namespace StateMachines.Enemy
         private readonly List<Transform> _detectedTargets;
         private Vector3 _lastSeenTargetPosition;
 
-        public EnemyChasingState(EnemyStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
+        public AIChasingState(AIStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
         {
             _detectedTargets = targets;
         }
@@ -33,7 +33,7 @@ namespace StateMachines.Enemy
                 if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition) ||
                     IsDestinationReached(_lastSeenTargetPosition, StateMachine.WaypointTolerance))
                 {
-                    StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                    StateMachine.SwitchState(new AISuspicionState(StateMachine));
                     return;
                 }
 
@@ -44,13 +44,13 @@ namespace StateMachines.Enemy
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
-                StateMachine.SwitchState(new EnemyAttackingState(StateMachine, closestTarget));
+                StateMachine.SwitchState(new AIAttackingState(StateMachine, closestTarget));
                 return;
             }
 
             if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
             {
-                StateMachine.SwitchState(new EnemySuspicionState(StateMachine));
+                StateMachine.SwitchState(new AISuspicionState(StateMachine));
                 return;
             }
         }

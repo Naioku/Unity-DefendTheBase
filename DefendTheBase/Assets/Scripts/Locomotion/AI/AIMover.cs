@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Locomotion
+namespace Locomotion.AI
 {
     public class AIMover : MonoBehaviour
     {

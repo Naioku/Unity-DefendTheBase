@@ -1,6 +1,7 @@
 using Combat;
 using Core;
 using Locomotion;
+using Locomotion.Player;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -11,7 +12,7 @@ namespace StateMachines.Player
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;
         
         public InputReader InputReader { get; private set; }
-        public Mover Mover { get; private set; }
+        public PlayerMover PlayerMover { get; private set; }
         public CameraMover CameraMover { get; private set; }
         public Animator Animator { get; private set; }
         public MeleeFighter MeleeFighter { get; private set; }
@@ -19,7 +20,7 @@ namespace StateMachines.Player
         private void Awake()
         {
             InputReader = GetComponent<InputReader>();
-            Mover = GetComponent<Mover>();
+            PlayerMover = GetComponent<PlayerMover>();
             CameraMover = GetComponent<CameraMover>();
             Animator = GetComponent<Animator>();
             MeleeFighter = GetComponent<MeleeFighter>();

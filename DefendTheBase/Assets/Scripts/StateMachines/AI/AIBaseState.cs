@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StateMachines.Enemy
+namespace StateMachines.AI
 {
-    public abstract class EnemyBaseState : State
+    public abstract class AIBaseState : State
     {
-        protected readonly EnemyStateMachine StateMachine;
+        protected readonly AIStateMachine StateMachine;
         
-        protected EnemyBaseState(EnemyStateMachine stateMachine)
+        protected AIBaseState(AIStateMachine stateMachine)
         {
             StateMachine = stateMachine;
         }
@@ -19,7 +19,7 @@ namespace StateMachines.Enemy
         
         protected void OnTargetDetection(List<Transform> targets)
         {
-            StateMachine.SwitchState(new EnemyChasingState(StateMachine, targets));
+            StateMachine.SwitchState(new AIChasingState(StateMachine, targets));
         }
         
         protected bool IsDestinationReached(Vector3 destination, float displacementToleration)

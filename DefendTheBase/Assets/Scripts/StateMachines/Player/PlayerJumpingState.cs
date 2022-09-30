@@ -18,9 +18,9 @@ namespace StateMachines.Player
         {
             base.Tick(deltaTime);
 
-            StateMachine.Mover.ApplyMomentum(deltaTime);
+            StateMachine.PlayerMover.ApplyMomentum(deltaTime);
             
-            if (HasAnimationFinished("Jump") && StateMachine.Mover.IsFallingDown)
+            if (HasAnimationFinished("Jump") && StateMachine.PlayerMover.IsFallingDown)
             {
                 StateMachine.SwitchState(new PlayerFallingDownState(StateMachine));
                 return;

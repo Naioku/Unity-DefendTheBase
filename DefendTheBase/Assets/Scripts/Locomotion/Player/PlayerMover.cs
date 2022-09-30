@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Locomotion
+namespace Locomotion.Player
 {
     [RequireComponent(typeof(CharacterController))]
-    public class Mover : MonoBehaviour
+    public class PlayerMover : MonoBehaviour
     {
         public bool IsFallingDown => _characterController.velocity.y < 0f;
         public bool IsGrounded => _characterController.isGrounded;
