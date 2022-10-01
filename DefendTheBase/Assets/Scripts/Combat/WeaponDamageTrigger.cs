@@ -25,25 +25,30 @@ namespace Combat
             _alreadyCollidedWith.Add(other);
 
             if (!other.TryGetComponent(out Health health)) return;
-            health.TakeDamage(_damage);
+            health.TakeDamage(_damage, GetHitDirection(other));
             
             if (!other.TryGetComponent(out ForceReceiver forceReceiver)) return;
-            forceReceiver.AddForce((other.transform.position - _ownerCollider.transform.position).normalized * _knockbackValue);
+            forceReceiver.AddForce(GetHitDirection(other) * _knockbackValue);
         }
 
         public void SetOwnerCollider(Collider collider)
         {
             _ownerCollider = collider;
         }
-        
+
         public void SetDamage(float value)
         {
             _damage = value;
         }
-        
+
         public void SetKnockback(float value)
         {
             _knockbackValue = value;
+        }
+
+        private Vector3 GetHitDirection(Collider other)
+        {
+            return (other.transform.position - _ownerCollider.transform.position).normalized;
         }
     }
 }

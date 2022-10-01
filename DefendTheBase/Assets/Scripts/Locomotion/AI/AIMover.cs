@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ namespace Locomotion.AI
     {
         public bool IsFallingDown => _characterController.velocity.y < 0f;
         public bool IsGrounded => _characterController.isGrounded;
+        public bool IsRotationFinished { get; private set; } = true;
         
         [SerializeField] private float movementSpeed = 7f;
         
@@ -55,18 +57,14 @@ namespace Locomotion.AI
             _navMeshAgent.velocity = Vector3.zero;
         }
 
-        public void FacePosition(Vector3 position, float rotationInterpolationRatio)
+        public void FacePosition(Vector3 position, float duration)
         {
             if (!IsNavMeshAgentDisabled()) return;
 
+            IsRotationFinished = false;
             Vector3 pointingVector = position - transform.position;
             pointingVector.y = 0f;
-            
-            transform.rotation = Quaternion.Slerp(
-                    transform.rotation,
-                    Quaternion.LookRotation(pointingVector),
-                    rotationInterpolationRatio
-            );
+            StartCoroutine(FacePositionCoroutine(pointingVector, duration));
         }
 
         public void ApplyForces(float deltaTime)
@@ -95,6 +93,27 @@ namespace Locomotion.AI
             
             print("AIMover: Nav mesh agent IS disabled.");
             return false;
+        }
+
+        private IEnumerator FacePositionCoroutine(Vector3 pointingVector, float duration)
+        {
+            for (float time = 0; time < duration; time += Time.deltaTime)
+            {
+                if (!IsNavMeshAgentDisabled())
+                {
+                    yield break;
+                }
+                
+                transform.rotation = Quaternion.Slerp(
+                    transform.rotation,
+                    Quaternion.LookRotation(pointingVector),
+                    time/duration
+                );
+
+                yield return new WaitForEndOfFrame();
+            }
+
+            IsRotationFinished = true;
         }
     }
 }

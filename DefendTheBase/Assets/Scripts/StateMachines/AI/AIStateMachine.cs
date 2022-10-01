@@ -7,16 +7,16 @@ namespace StateMachines.AI
     public class AIStateMachine : StateMachine
     {
         [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
-        [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f; 
-        
+        [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;
+
+        [field: SerializeField]
+        [field: Tooltip("In seconds.")]
+        public float RotationDuration { get; private set; } = 0.5f;
+
         [field: Header("Attacking state")]
         [field: SerializeField] 
         public float AttackRange { get; private set; } = 2f;
-        
-        [field: SerializeField]
-        [field: Range(0f, 1f)]
-        public float RotationInterpolationRatioInAttackingState { get; private set; } = 1f;
-        
+
         [field: Header("Suspicion state")]
         [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
         [field: SerializeField] public float WaypointTolerance { get; private set; } = 1.5f;
@@ -55,6 +55,11 @@ namespace StateMachines.AI
             _health.OnTakeDamage -= HandleTakeDamage;
         }
 
+        private void OnValidate()
+        {
+            RotationDuration = Mathf.Max(RotationDuration, float.Epsilon);
+        }
+
         public void SwitchToDefaultState()
         {
             if (AIPatroller != null)
@@ -67,9 +72,9 @@ namespace StateMachines.AI
             }
         }
 
-        private void HandleTakeDamage()
+        private void HandleTakeDamage(Vector3 hitDirection)
         {
-            SwitchState(new AIImpactState(this));
+            SwitchState(new AIImpactState(this, hitDirection));
         }
     }
 }

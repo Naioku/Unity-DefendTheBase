@@ -1,11 +1,18 @@
+using UnityEngine;
+
 namespace StateMachines.AI
 {
     public class AIImpactState : AIBaseState
     {
         // Temporary value. Instead of it add new impact animation and when it is finished switch state.
-        private float _duration = 1f;
+        private float _animationDuration = 1f;
         
-        public AIImpactState(AIStateMachine stateMachine) : base(stateMachine) {}
+        private readonly Vector3 _hitDirection;
+
+        public AIImpactState(AIStateMachine stateMachine, Vector3 hitDirection) : base(stateMachine)
+        {
+            _hitDirection = hitDirection;
+        }
         
         public override void Enter()
         {
@@ -16,10 +23,10 @@ namespace StateMachines.AI
         {
             StateMachine.AIMover.ApplyForces(deltaTime);
 
-            _duration -= deltaTime;
-            if (_duration <= 0f)
+            _animationDuration -= deltaTime;
+            if (_animationDuration <= 0f)
             {
-                StateMachine.SwitchState(new AISuspicionState(StateMachine));
+                StateMachine.SwitchState(new AIRotationToAttackerState(StateMachine, _hitDirection));
                 return;
             }
         }

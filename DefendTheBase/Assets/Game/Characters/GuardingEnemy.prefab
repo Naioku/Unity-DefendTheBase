@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: GuardingEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292925, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_Avatar
@@ -92,10 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae9f5190de258f4094450611baf83e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 5
-  jumpVelocity: 5
-  movingSpeed: 5
-  rotationInterpolationRatio: 0.1
+  movementSpeed: 7
 --- !u!114 &4337203797914084557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +155,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationCrossFadeDuration>k__BackingField: 0.1
   <AnimatorDampTime>k__BackingField: 0.05
+  <RotationDuration>k__BackingField: 0.3
   <AttackRange>k__BackingField: 2
-  <RotationInterpolationRatioInAttackingState>k__BackingField: 1
   <SuspicionTime>k__BackingField: 2
   <WaypointTolerance>k__BackingField: 1.5
 --- !u!143 &6189767029466823547 stripped
