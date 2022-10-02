@@ -1,6 +1,7 @@
 using Combat;
 using Core;
 using Locomotion;
+using Locomotion.Player;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -12,6 +13,7 @@ namespace StateMachines.Player
         
         public InputReader InputReader { get; private set; }
         public PlayerMover PlayerMover { get; private set; }
+        public CameraMover CameraMover { get; private set; }
         public Animator Animator { get; private set; }
         public MeleeFighter MeleeFighter { get; private set; }
 
@@ -19,6 +21,7 @@ namespace StateMachines.Player
         {
             InputReader = GetComponent<InputReader>();
             PlayerMover = GetComponent<PlayerMover>();
+            CameraMover = GetComponent<CameraMover>();
             Animator = GetComponent<Animator>();
             MeleeFighter = GetComponent<MeleeFighter>();
         }
