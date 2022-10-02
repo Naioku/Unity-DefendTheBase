@@ -71,11 +71,11 @@ namespace Locomotion.AI
             StartCoroutine(FacePositionCoroutine(direction, rotationSpeed));
         }
 
-        public void ApplyForces(float deltaTime)
+        public void ApplyForces()
         {
             if (!IsNavMeshAgentDisabled()) return;
 
-            _characterController.Move(_forceReceiver.ForceDisplacement * deltaTime);
+            _characterController.Move(_forceReceiver.ForceDisplacement * Time.deltaTime);
         }
         
         private void ClampRotationSpeedToBeGreaterThan0()

@@ -20,20 +20,20 @@ namespace Locomotion.Player
             _forceReceiver = GetComponent<ForceReceiver>();
         }
 
-        public void MoveWithDefaultSpeed(Vector3 direction, float deltaTime) => Move(direction, defaultSpeed, deltaTime);
+        public void MoveWithDefaultSpeed(Vector3 direction) => Move(direction, defaultSpeed);
 
-        public void ApplyMomentum(float deltaTime)
+        public void ApplyMomentum()
         {
             Vector3 momentum = _characterController.velocity;
             momentum.y = 0f;
             
-            UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, deltaTime);
+            UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, Time.deltaTime);
         }
 
-        private void Move(Vector3 direction, float movementSpeed, float deltaTime)
+        private void Move(Vector3 direction, float movementSpeed)
         {
             Vector3 movementDisplacement = direction * movementSpeed;
-            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);
+            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, Time.deltaTime);
         }
 
         private void UpdateVelocity(Vector3 movement, float deltaTime)

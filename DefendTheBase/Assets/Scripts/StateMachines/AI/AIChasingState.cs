@@ -22,7 +22,7 @@ namespace StateMachines.AI
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
             

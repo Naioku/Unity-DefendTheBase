@@ -8,7 +8,7 @@ namespace StateMachines
 
         private void Update()
         {
-            _currentState?.Tick(Time.deltaTime);
+            _currentState?.Tick();
         }
 
         public void SwitchState(State state)

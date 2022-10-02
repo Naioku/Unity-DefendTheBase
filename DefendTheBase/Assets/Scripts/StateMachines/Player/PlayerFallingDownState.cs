@@ -13,11 +13,11 @@ namespace StateMachines.Player
             StateMachine.Animator.CrossFadeInFixedTime(FallDownStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
 
-            StateMachine.PlayerMover.ApplyMomentum(deltaTime);
+            StateMachine.PlayerMover.ApplyMomentum();
 
             if (StateMachine.PlayerMover.IsGrounded)
             {

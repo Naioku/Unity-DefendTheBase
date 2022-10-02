@@ -20,9 +20,9 @@ namespace StateMachines.Player
             StateMachine.Animator.CrossFadeInFixedTime(_attack.AnimationName, _attack.TransitionDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
             if (HasAnimationFinished("Attack"))
             {
                 StateMachine.SwitchState(new PlayerLocomotionState(StateMachine));

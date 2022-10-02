@@ -7,14 +7,14 @@ namespace Locomotion.Player
         [SerializeField] private Transform mainCameraTransform;
         [SerializeField] private float rotationDamping = 100f;
         
-        public void FaceCameraForward(float deltaTime)
+        public void FaceCameraForward()
         {
             var forwardDirection = GetCameraForwardDirection();
 
             transform.rotation = Quaternion.Lerp(
                 transform.rotation,
                 Quaternion.LookRotation(forwardDirection),
-                deltaTime * rotationDamping);
+                Time.deltaTime * rotationDamping);
         }
 
         public Vector3 GetCameraForwardDirection()

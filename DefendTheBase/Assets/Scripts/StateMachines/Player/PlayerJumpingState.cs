@@ -14,11 +14,11 @@ namespace StateMachines.Player
             // Jump action is invoked by animation.
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
 
-            StateMachine.PlayerMover.ApplyMomentum(deltaTime);
+            StateMachine.PlayerMover.ApplyMomentum();
             
             if (HasAnimationFinished("Jump") && StateMachine.PlayerMover.IsFallingDown)
             {

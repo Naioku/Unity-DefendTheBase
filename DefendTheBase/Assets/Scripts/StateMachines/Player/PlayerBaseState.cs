@@ -9,9 +9,9 @@ namespace StateMachines.Player
             StateMachine = stateMachine;
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            StateMachine.CameraMover.FaceCameraForward(deltaTime);
+            StateMachine.CameraMover.FaceCameraForward();
         }
         
         protected bool HasAnimationFinished(string tag)

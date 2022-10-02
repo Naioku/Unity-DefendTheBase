@@ -1,6 +1,5 @@
 using Combat;
 using Core;
-using Locomotion;
 using Locomotion.Player;
 using UnityEngine;
 
@@ -16,6 +15,7 @@ namespace StateMachines.Player
         public CameraMover CameraMover { get; private set; }
         public Animator Animator { get; private set; }
         public MeleeFighter MeleeFighter { get; private set; }
+        public Health Health { get; private set; }
 
         private void Awake()
         {
@@ -24,6 +24,7 @@ namespace StateMachines.Player
             CameraMover = GetComponent<CameraMover>();
             Animator = GetComponent<Animator>();
             MeleeFighter = GetComponent<MeleeFighter>();
+            Health = GetComponent<Health>();
         }
 
         private void Start()

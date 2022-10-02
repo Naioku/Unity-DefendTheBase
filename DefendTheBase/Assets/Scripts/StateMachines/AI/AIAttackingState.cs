@@ -14,7 +14,7 @@ namespace StateMachines.AI
             StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
             
             if (HasAnimationFinished("Attack"))

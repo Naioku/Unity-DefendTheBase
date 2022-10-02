@@ -89,20 +89,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Block"",
+                    ""type"": ""Button"",
+                    ""id"": ""1502b4ff-bdbd-44c6-92f1-f7906cbdf09e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""dae29a74-c6f1-4911-8432-b4b75a4f1070"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""21bebc10-57f9-4289-a3a7-a5e0726e9a08"",
@@ -111,17 +109,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1efa3b69-749d-437c-a6b7-1ec66d568407"",
-                    ""path"": ""<Gamepad>/leftStick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -237,12 +224,12 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b6681ed4-8205-4c67-835e-8c41e14c41d3"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""id"": ""1efa3b69-749d-437c-a6b7-1ec66d568407"",
+                    ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""FreeLook"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -253,6 +240,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""FreeLook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6681ed4-8205-4c67-835e-8c41e14c41d3"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""FreeLook"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -784,6 +782,39 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""MeleeForwardAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""502a3efa-d01a-40cd-ade8-fd3733180b53"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3efeb68a-006f-4d70-93fb-ec7a494a382b"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Block"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dae29a74-c6f1-4911-8432-b4b75a4f1070"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -827,6 +858,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_MeleeBackwardAttack = m_Player.FindAction("MeleeBackwardAttack", throwIfNotFound: true);
         m_Player_MeleeLeftAttack = m_Player.FindAction("MeleeLeftAttack", throwIfNotFound: true);
         m_Player_MeleeRightAttack = m_Player.FindAction("MeleeRightAttack", throwIfNotFound: true);
+        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -893,6 +925,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MeleeBackwardAttack;
     private readonly InputAction m_Player_MeleeLeftAttack;
     private readonly InputAction m_Player_MeleeRightAttack;
+    private readonly InputAction m_Player_Block;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -904,6 +937,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @MeleeBackwardAttack => m_Wrapper.m_Player_MeleeBackwardAttack;
         public InputAction @MeleeLeftAttack => m_Wrapper.m_Player_MeleeLeftAttack;
         public InputAction @MeleeRightAttack => m_Wrapper.m_Player_MeleeRightAttack;
+        public InputAction @Block => m_Wrapper.m_Player_Block;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -934,6 +968,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MeleeRightAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
                 @MeleeRightAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
                 @MeleeRightAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
+                @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -959,6 +996,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MeleeRightAttack.started += instance.OnMeleeRightAttack;
                 @MeleeRightAttack.performed += instance.OnMeleeRightAttack;
                 @MeleeRightAttack.canceled += instance.OnMeleeRightAttack;
+                @Block.started += instance.OnBlock;
+                @Block.performed += instance.OnBlock;
+                @Block.canceled += instance.OnBlock;
             }
         }
     }
@@ -990,5 +1030,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMeleeBackwardAttack(InputAction.CallbackContext context);
         void OnMeleeLeftAttack(InputAction.CallbackContext context);
         void OnMeleeRightAttack(InputAction.CallbackContext context);
+        void OnBlock(InputAction.CallbackContext context);
     }
 }

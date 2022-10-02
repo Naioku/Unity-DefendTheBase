@@ -13,9 +13,9 @@ namespace StateMachines.Player
             StateMachine.Animator.CrossFadeInFixedTime(GroundStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
             
             if (HasAnimationFinished("Ground"))
             {

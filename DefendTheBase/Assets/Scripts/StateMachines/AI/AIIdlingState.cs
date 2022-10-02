@@ -15,10 +15,10 @@ namespace StateMachines.AI
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            StateMachine.AIMover.ApplyForces(deltaTime);
+            StateMachine.AIMover.ApplyForces();
         }
 
         public override void Exit()

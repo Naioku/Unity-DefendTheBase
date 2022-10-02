@@ -1,4 +1,3 @@
-using Combat;
 using Core;
 using UnityEngine;
 
@@ -20,12 +19,12 @@ namespace StateMachines.Player
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
-            StateMachine.PlayerMover.MoveWithDefaultSpeed(movementDirection, deltaTime);
-            UpdateAnimator(deltaTime);
+            StateMachine.PlayerMover.MoveWithDefaultSpeed(movementDirection);
+            UpdateAnimator();
         }
 
         public override void Exit()
@@ -34,29 +33,34 @@ namespace StateMachines.Player
             StateMachine.InputReader.MeleeAttackEvent -= OnMeleeAttack;
         }
 
-        private void UpdateAnimator(float deltaTime)
+        private void UpdateAnimator()
         {
             float movementRightValue = StateMachine.InputReader.MovementValue.x;
             float movementForwardValue = StateMachine.InputReader.MovementValue.y;
 
             if (movementForwardValue == 0f)
             {
-                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0, StateMachine.AnimatorDampTime, deltaTime);
+                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0, StateMachine.AnimatorDampTime, Time.deltaTime);
             }
             else
             {
                 float value = movementForwardValue > 0f ? 1f : -1f;
-                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, value, StateMachine.AnimatorDampTime, deltaTime);
+                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);
             }
             
             if (movementRightValue == 0f)
             {
-                StateMachine.Animator.SetFloat(RightMovementSpeedHash, 0, StateMachine.AnimatorDampTime, deltaTime);
+                StateMachine.Animator.SetFloat(RightMovementSpeedHash, 0, StateMachine.AnimatorDampTime, Time.deltaTime);
             }
             else
             {
                 float value = movementRightValue > 0f ? 1f : -1f;
-                StateMachine.Animator.SetFloat(RightMovementSpeedHash, value, StateMachine.AnimatorDampTime, deltaTime);
+                StateMachine.Animator.SetFloat(RightMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);
+            }
+            
+            if (StateMachine.InputReader.IsBlocking)
+            {
+                StateMachine.SwitchState(new PlayerBlockingState(StateMachine));
             }
         }
 
@@ -68,12 +72,12 @@ namespace StateMachines.Player
                    StateMachine.CameraMover.GetCameraRightDirection() * 
                    StateMachine.InputReader.MovementValue.x;
         }
-        
+
         private void OnJump()
         {
             StateMachine.SwitchState(new PlayerJumpingState(StateMachine));
         }
-        
+
         private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
         {
             StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
