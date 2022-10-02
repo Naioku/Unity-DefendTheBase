@@ -44,7 +44,11 @@ namespace StateMachines.AI
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
-                StateMachine.SwitchState(new AIAttackingState(StateMachine, closestTarget));
+                Vector3 directionTowardsTarget = closestTarget.position - StateMachine.transform.position;
+                StateMachine.SwitchState(new AIRotationState(
+                    StateMachine,
+                    directionTowardsTarget,
+                    new AIAttackingState(StateMachine)));
                 return;
             }
 

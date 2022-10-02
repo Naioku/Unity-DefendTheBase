@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationCrossFadeDuration>k__BackingField: 0.1
   <AnimatorDampTime>k__BackingField: 0.05
-  <RotationDuration>k__BackingField: 0.3
+  <RotationDuration>k__BackingField: 0.2
   <AttackRange>k__BackingField: 2
   <SuspicionTime>k__BackingField: 2
   <WaypointTolerance>k__BackingField: 1.5

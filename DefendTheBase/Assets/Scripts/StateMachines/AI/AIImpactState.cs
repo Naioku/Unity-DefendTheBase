@@ -26,7 +26,12 @@ namespace StateMachines.AI
             _animationDuration -= deltaTime;
             if (_animationDuration <= 0f)
             {
-                StateMachine.SwitchState(new AIRotationToAttackerState(StateMachine, _hitDirection));
+                Vector3 directionFromReceiver = -_hitDirection;
+                StateMachine.SwitchState(new AIRotationState(
+                    StateMachine,
+                    directionFromReceiver,
+                    new AISuspicionState(StateMachine)
+                ));
                 return;
             }
         }
