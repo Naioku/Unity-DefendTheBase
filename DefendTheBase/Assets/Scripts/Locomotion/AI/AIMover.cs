@@ -9,6 +9,7 @@ namespace Locomotion.AI
         public bool IsRotationFinished { get; private set; } = true;
         
         [SerializeField] private float movementSpeed = 7f;
+        [SerializeField] [Tooltip("In deg/sec.")] private float rotationSpeed = 1500f;
         
         private NavMeshAgent _navMeshAgent;
         private CharacterController _characterController;
@@ -24,6 +25,11 @@ namespace Locomotion.AI
         private void Start()
         {
             _navMeshAgent.speed = movementSpeed;
+        }
+        
+        private void OnValidate()
+        {
+            ClampRotationSpeedToBeGreaterThan0();
         }
 
         public void SwitchMovementToNavmesh()
@@ -55,14 +61,14 @@ namespace Locomotion.AI
             _navMeshAgent.velocity = Vector3.zero;
         }
 
-        public void FacePosition(Vector3 direction, float duration)
+        public void FacePosition(Vector3 direction)
         {
             if (!IsNavMeshAgentDisabled()) return;
 
             IsRotationFinished = false;
             direction.y = 0f;
            
-            StartCoroutine(FacePositionCoroutine(direction, duration));
+            StartCoroutine(FacePositionCoroutine(direction, rotationSpeed));
         }
 
         public void ApplyForces(float deltaTime)
@@ -70,6 +76,11 @@ namespace Locomotion.AI
             if (!IsNavMeshAgentDisabled()) return;
 
             _characterController.Move(_forceReceiver.ForceDisplacement * deltaTime);
+        }
+        
+        private void ClampRotationSpeedToBeGreaterThan0()
+        {
+            rotationSpeed = Mathf.Max(rotationSpeed, float.Epsilon);
         }
 
         private bool IsPathBuilt(NavMeshPath path)
@@ -93,10 +104,14 @@ namespace Locomotion.AI
             return false;
         }
 
-        private IEnumerator FacePositionCoroutine(Vector3 direction, float duration)
+        private IEnumerator FacePositionCoroutine(Vector3 desiredDirection, float speedOnSec)
         {
-            Quaternion startingDirection = transform.rotation;
-            for (float time = 0; time < duration; time += Time.deltaTime)
+            Quaternion startingRotation = transform.rotation;
+            float rotationAngle = Vector3.Angle(transform.forward, desiredDirection);
+            float speedOnFrame = speedOnSec * Time.deltaTime;
+            float step = speedOnFrame / rotationAngle;
+            
+            for (float currentRotationFraction = 0; currentRotationFraction <= 1f; currentRotationFraction += step)
             {
                 if (!IsNavMeshAgentDisabled())
                 {
@@ -104,9 +119,9 @@ namespace Locomotion.AI
                 }
                 
                 transform.rotation = Quaternion.Lerp(
-                    startingDirection,
-                    Quaternion.LookRotation(direction, Vector3.up),
-                    time/duration
+                    startingRotation,
+                    Quaternion.LookRotation(desiredDirection, Vector3.up),
+                    currentRotationFraction
                 );
                 
                 yield return new WaitForEndOfFrame();

@@ -19,7 +19,7 @@ namespace StateMachines.AI
         public override void Enter()
         {
             StateMachine.AIMover.SwitchMovementToCharacterController();
-            StateMachine.AIMover.FacePosition(_direction, StateMachine.RotationDuration);
+            StateMachine.AIMover.FacePosition(_direction);
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
         }
 

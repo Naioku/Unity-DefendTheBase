@@ -9,10 +9,6 @@ namespace StateMachines.AI
         [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;
 
-        [field: SerializeField]
-        [field: Tooltip("In seconds.")]
-        public float RotationDuration { get; private set; } = 0.5f;
-
         [field: Header("Attacking state")]
         [field: SerializeField] 
         public float AttackRange { get; private set; } = 2f;
@@ -54,12 +50,7 @@ namespace StateMachines.AI
         {
             _health.OnTakeDamage -= HandleTakeDamage;
         }
-
-        private void OnValidate()
-        {
-            RotationDuration = Mathf.Max(RotationDuration, float.Epsilon);
-        }
-
+        
         public void SwitchToDefaultState()
         {
             if (AIPatroller != null)
