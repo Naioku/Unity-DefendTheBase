@@ -1,3 +1,4 @@
+using StateMachines.Player.Knight;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -6,7 +7,7 @@ namespace StateMachines.Player
     {
         private static readonly int GroundStateHash = Animator.StringToHash("Ground");
         
-        public PlayerGroundingState(PlayerStateMachine stateMachine) : base(stateMachine) {}
+        public PlayerGroundingState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {

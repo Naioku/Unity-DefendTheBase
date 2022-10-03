@@ -1,14 +1,14 @@
 using Combat;
 using Core;
 
-namespace StateMachines.Player
+namespace StateMachines.Player.Knight
 {
-    public class PlayerAttackingState : PlayerBaseState
+    public class KnightAttackingState : PlayerBaseState
     {
         private readonly Attack _attack;
         private bool _isComboBroken;
 
-        public PlayerAttackingState(PlayerStateMachine stateMachine, Attack attack) : base(stateMachine)
+        public KnightAttackingState(KnightStateMachine stateMachine, Attack attack) : base(stateMachine)
         {
             _attack = attack;
         }
@@ -47,7 +47,7 @@ namespace StateMachines.Player
             
             if (_isComboBroken) return;
             
-            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
+            StateMachine.SwitchState(new KnightAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
         }
 
         private bool ReadyForNextAttack(float normalizedAnimationTime)

@@ -3,9 +3,9 @@ using Core;
 using Locomotion.Player;
 using UnityEngine;
 
-namespace StateMachines.Player
+namespace StateMachines.Player.Knight
 {
-    public class PlayerStateMachine : StateMachine
+    public class KnightStateMachine : StateMachine
     {
         [field: SerializeField] public float AnimationCrossFadeDuration { get; private set; } = 0.1f;
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;

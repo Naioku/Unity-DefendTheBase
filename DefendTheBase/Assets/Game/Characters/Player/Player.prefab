@@ -94,17 +94,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
---- !u!114 &3919821357105413585 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2443834509826472707, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
-  m_PrefabInstance: {fileID: 1696799640672650962}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4906576445705296421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6024575019380497655, guid: 0143da47d6dc1ad4dac643bb794f851f, type: 3}
@@ -620,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5977427543458421721, guid: 9394647be6aefa645a8ecb8a91d297e2, type: 3}
       propertyPath: m_Name
-      value: Knight
+      value: KnightMesh
       objectReference: {fileID: 0}
     - target: {fileID: 5990147511656964878, guid: 9394647be6aefa645a8ecb8a91d297e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1086,17 +1075,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6782017276112559138, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
   m_PrefabInstance: {fileID: 5352081356448908497}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8201273586107082139 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4293812245237080394, guid: 78452b48208c0ff4395a01b6c14f7652, type: 3}
-  m_PrefabInstance: {fileID: 5352081356448908497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8092781620349210043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1124,11 +1102,11 @@ PrefabInstance:
     - target: {fileID: 3772045364879292925, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 9000000, guid: 217c7c5bfbbdef840b9f06f7f298a5e6, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292925, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 128a0af4f9824664898d412092d219bb, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1204,57 +1182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 568eaaf33fc8e4643a12299c3b727f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCameraTransform: {fileID: 0}
+  mainCameraTransform: {fileID: 1608924106}
   rotationDamping: 100
---- !u!114 &3585210360909385377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906576444402988096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9190a0534a6e2a4a888382366c85935, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <AnimationCrossFadeDuration>k__BackingField: 0.1
-  <AnimatorDampTime>k__BackingField: 0.05
---- !u!114 &4536930320557701591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4906576444402988096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92dde17d390f4264db8c713b0fc884b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attacks:
-  - <MeleeAttackName>k__BackingField: 0
-    <AnimationName>k__BackingField: LeftAttack
-    <TransitionDuration>k__BackingField: 0.1
-    <NextComboAttackNormalizedTime>k__BackingField: 0.7
-    <CancelAttackNormalizeTime>k__BackingField: 0.1
-  - <MeleeAttackName>k__BackingField: 1
-    <AnimationName>k__BackingField: RightAttack
-    <TransitionDuration>k__BackingField: 0.1
-    <NextComboAttackNormalizedTime>k__BackingField: 0.7
-    <CancelAttackNormalizeTime>k__BackingField: 0.1
-  - <MeleeAttackName>k__BackingField: 2
-    <AnimationName>k__BackingField: ShieldAttack
-    <TransitionDuration>k__BackingField: 0.1
-    <NextComboAttackNormalizedTime>k__BackingField: 0.7
-    <CancelAttackNormalizeTime>k__BackingField: 0.1
-  - <MeleeAttackName>k__BackingField: 3
-    <AnimationName>k__BackingField: 360Attack
-    <TransitionDuration>k__BackingField: 0.1
-    <NextComboAttackNormalizedTime>k__BackingField: 0.7
-    <CancelAttackNormalizeTime>k__BackingField: 0.1
-  equippedMainHandWeapon: {fileID: 3919821357105413585}
-  equippedOffHandWeapon: {fileID: 8201273586107082139}
 --- !u!114 &6061586385502357862
 MonoBehaviour:
   m_ObjectHideFlags: 0

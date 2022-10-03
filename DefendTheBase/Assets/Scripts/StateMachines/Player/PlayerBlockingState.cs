@@ -1,3 +1,4 @@
+using StateMachines.Player.Knight;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -6,7 +7,7 @@ namespace StateMachines.Player
     {
         private static readonly int FallDownStateHash = Animator.StringToHash("Block");
 
-        public PlayerBlockingState(PlayerStateMachine stateMachine) : base(stateMachine) {}
+        public PlayerBlockingState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {

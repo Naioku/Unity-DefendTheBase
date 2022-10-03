@@ -1,10 +1,12 @@
+using StateMachines.Player.Knight;
+
 namespace StateMachines.Player
 {
     public abstract class PlayerBaseState : State
     {
-        protected readonly PlayerStateMachine StateMachine;
+        protected readonly KnightStateMachine StateMachine;
         
-        protected PlayerBaseState(PlayerStateMachine stateMachine)
+        protected PlayerBaseState(KnightStateMachine stateMachine)
         {
             StateMachine = stateMachine;
         }

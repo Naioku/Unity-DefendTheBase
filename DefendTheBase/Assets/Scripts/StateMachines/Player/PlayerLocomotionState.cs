@@ -1,4 +1,5 @@
 using Core;
+using StateMachines.Player.Knight;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -9,7 +10,7 @@ namespace StateMachines.Player
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         private static readonly int RightMovementSpeedHash = Animator.StringToHash("RightMovementSpeed");
         
-        public PlayerLocomotionState(PlayerStateMachine stateMachine) : base(stateMachine) {}
+        public PlayerLocomotionState(KnightStateMachine stateMachine) : base(stateMachine) {}
     
         public override void Enter()
         {
@@ -80,7 +81,7 @@ namespace StateMachines.Player
 
         private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
         {
-            StateMachine.SwitchState(new PlayerAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
+            StateMachine.SwitchState(new KnightAttackingState(StateMachine, StateMachine.MeleeFighter.GetAttack(meleeAttackName)));
         }
     }
 }

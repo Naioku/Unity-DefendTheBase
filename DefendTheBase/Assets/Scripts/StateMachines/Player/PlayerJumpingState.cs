@@ -1,3 +1,4 @@
+using StateMachines.Player.Knight;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -6,7 +7,7 @@ namespace StateMachines.Player
     {
         private static readonly int JumpStateHash = Animator.StringToHash("Jump");
         
-        public PlayerJumpingState(PlayerStateMachine stateMachine) : base(stateMachine) {}
+        public PlayerJumpingState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
