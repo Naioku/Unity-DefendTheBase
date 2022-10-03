@@ -16,6 +16,7 @@ namespace StateMachines.Player
         public override void Enter()
         {
             StateMachine.InputReader.MeleeAttackEvent += OnMeleeAttack;
+            StateMachine.InputReader.CancelAttackEvent += OnAttackCancel;
 
             StateMachine.Animator.CrossFadeInFixedTime(_attack.AnimationName, _attack.TransitionDuration);
         }
@@ -33,6 +34,7 @@ namespace StateMachines.Player
         public override void Exit()
         {
             StateMachine.InputReader.MeleeAttackEvent -= OnMeleeAttack;
+            StateMachine.InputReader.CancelAttackEvent -= OnAttackCancel;
         }
 
         private void OnMeleeAttack(MeleeAttackNames meleeAttackName)
@@ -51,6 +53,18 @@ namespace StateMachines.Player
         private bool ReadyForNextAttack(float normalizedAnimationTime)
         {
             return normalizedAnimationTime >= _attack.NextComboAttackNormalizedTime;
+        }
+
+        private void OnAttackCancel()
+        {
+            if (!CanAttackBeCancelled(GetNormalizedAnimationTime(StateMachine.Animator, "Attack"))) return;
+            
+            StateMachine.SwitchState(new PlayerLocomotionState(StateMachine));
+        }
+
+        private bool CanAttackBeCancelled(float normalizedAnimationTime)
+        {
+            return normalizedAnimationTime < _attack.CancelAttackNormalizedTime;
         }
     }
 }

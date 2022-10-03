@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Block",
+                    "name": "Block/CancelAttack",
                     "type": "Button",
                     "id": "1502b4ff-bdbd-44c6-92f1-f7906cbdf09e",
                     "expectedControlType": "Button",
@@ -768,7 +768,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Block",
+                    "action": "Block/CancelAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -779,7 +779,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Block",
+                    "action": "Block/CancelAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

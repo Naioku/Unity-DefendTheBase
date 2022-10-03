@@ -744,18 +744,22 @@ MonoBehaviour:
     <AnimationName>k__BackingField: LeftAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 1
     <AnimationName>k__BackingField: RightAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 2
     <AnimationName>k__BackingField: ShieldAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 3
     <AnimationName>k__BackingField: 360Attack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   equippedMainHandWeapon: {fileID: 310527946}
   equippedOffHandWeapon: {fileID: 704015803}
 --- !u!4 &872189554 stripped
@@ -855,7 +859,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049022281}
-  m_LocalRotation: {x: 0.16018222, y: 0.000000025319844, z: -0.0000000041088444, w: 0.9870875}
+  m_LocalRotation: {x: 0.16018227, y: 0.000000025643976, z: -0.000000004161445, w: 0.9870875}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1146,18 +1150,22 @@ MonoBehaviour:
     <AnimationName>k__BackingField: LeftAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 1
     <AnimationName>k__BackingField: RightAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 2
     <AnimationName>k__BackingField: ShieldAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 3
     <AnimationName>k__BackingField: 360Attack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   equippedMainHandWeapon: {fileID: 1198446905}
   equippedOffHandWeapon: {fileID: 1198446904}
 --- !u!4 &1198446916 stripped
@@ -1637,7 +1645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_LocalRotation: {x: 0.14220117, y: -0.00000003406242, z: 0.0000000048934443, w: 0.98983777}
+  m_LocalRotation: {x: 0.14220117, y: 0.00000003406111, z: -0.0000000048932556, w: 0.98983777}
   m_LocalPosition: {x: -34.86, y: 7.79, z: 11.902}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1736,7 +1744,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1772106271}
-  m_LocalRotation: {x: 0.124220625, y: -0.000000017594457, z: 0.0000000022026547, w: 0.9922547}
+  m_LocalRotation: {x: 0.124220625, y: 0.000000017640144, z: -0.0000000022083744, w: 0.9922547}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1941,7 +1949,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966790506}
-  m_LocalRotation: {x: 0.14220114, y: -0.000000017030269, z: 0.0000000024465865, w: 0.9898378}
+  m_LocalRotation: {x: 0.14220114, y: 0.000000017027649, z: -0.0000000024462101, w: 0.9898378}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2872,10 +2880,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -6.649621e-10
       objectReference: {fileID: 0}
-    - target: {fileID: 8771494785422445668, guid: 1c7ae6d9378b5314583b6aba3eb0dd69, type: 3}
-      propertyPath: jumpVelocity
-      value: 15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c7ae6d9378b5314583b6aba3eb0dd69, type: 3}
@@ -2986,18 +2990,22 @@ MonoBehaviour:
     <AnimationName>k__BackingField: LeftAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 1
     <AnimationName>k__BackingField: RightAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 2
     <AnimationName>k__BackingField: ShieldAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 3
     <AnimationName>k__BackingField: 360Attack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
   equippedMainHandWeapon: {fileID: 7219217512047196825}
   equippedOffHandWeapon: {fileID: 7219217512047196824}
 --- !u!4 &7219217512047196838 stripped

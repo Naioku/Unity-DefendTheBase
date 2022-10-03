@@ -1237,18 +1237,22 @@ MonoBehaviour:
     <AnimationName>k__BackingField: LeftAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizeTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 1
     <AnimationName>k__BackingField: RightAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizeTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 2
     <AnimationName>k__BackingField: ShieldAttack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizeTime>k__BackingField: 0.1
   - <MeleeAttackName>k__BackingField: 3
     <AnimationName>k__BackingField: 360Attack
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizeTime>k__BackingField: 0.1
   equippedMainHandWeapon: {fileID: 3919821357105413585}
   equippedOffHandWeapon: {fileID: 8201273586107082139}
 --- !u!114 &6061586385502357862
@@ -1276,7 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultSpeed: 10
-  jumpVelocity: 7
+  jumpVelocity: 15
 --- !u!4 &4906576444402988101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}

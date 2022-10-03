@@ -21,5 +21,10 @@ namespace Combat
         [field: Range(0f, 1f)]
         [field: SerializeField]
         public float NextComboAttackNormalizedTime { get; private set; }
+
+        [field: Tooltip("To what time player can cancel an attack.")]
+        [field: Range(0f, 1f)]
+        [field: SerializeField]
+        public float CancelAttackNormalizedTime { get; private set; } = 0.1f;
     }
 }

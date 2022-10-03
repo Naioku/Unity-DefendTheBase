@@ -9,6 +9,7 @@ namespace Core
         public event Action JumpEvent;
         public event Action<MeleeAttackNames> MeleeAttackEvent;
         public event Action BlockEvent;
+        public event Action CancelAttackEvent;
 
         public Vector2 MovementValue { get; private set; }
         public bool IsBlocking { get; private set; }
@@ -65,10 +66,11 @@ namespace Core
             MeleeAttackEvent?.Invoke(MeleeAttackNames.Right);
         }
 
-        public void OnBlock(InputAction.CallbackContext context)
+        public void OnBlockCancelAttack(InputAction.CallbackContext context)
         {
             IsBlocking = context.ReadValueAsButton();
             BlockEvent?.Invoke();
+            CancelAttackEvent?.Invoke();
         }
 
         public void OnFreeLook(InputAction.CallbackContext context) {}

@@ -91,7 +91,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Block"",
+                    ""name"": ""Block/CancelAttack"",
                     ""type"": ""Button"",
                     ""id"": ""1502b4ff-bdbd-44c6-92f1-f7906cbdf09e"",
                     ""expectedControlType"": ""Button"",
@@ -790,7 +790,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Block"",
+                    ""action"": ""Block/CancelAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -801,7 +801,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Block"",
+                    ""action"": ""Block/CancelAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -858,7 +858,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_MeleeBackwardAttack = m_Player.FindAction("MeleeBackwardAttack", throwIfNotFound: true);
         m_Player_MeleeLeftAttack = m_Player.FindAction("MeleeLeftAttack", throwIfNotFound: true);
         m_Player_MeleeRightAttack = m_Player.FindAction("MeleeRightAttack", throwIfNotFound: true);
-        m_Player_Block = m_Player.FindAction("Block", throwIfNotFound: true);
+        m_Player_BlockCancelAttack = m_Player.FindAction("Block/CancelAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -925,7 +925,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MeleeBackwardAttack;
     private readonly InputAction m_Player_MeleeLeftAttack;
     private readonly InputAction m_Player_MeleeRightAttack;
-    private readonly InputAction m_Player_Block;
+    private readonly InputAction m_Player_BlockCancelAttack;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -937,7 +937,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @MeleeBackwardAttack => m_Wrapper.m_Player_MeleeBackwardAttack;
         public InputAction @MeleeLeftAttack => m_Wrapper.m_Player_MeleeLeftAttack;
         public InputAction @MeleeRightAttack => m_Wrapper.m_Player_MeleeRightAttack;
-        public InputAction @Block => m_Wrapper.m_Player_Block;
+        public InputAction @BlockCancelAttack => m_Wrapper.m_Player_BlockCancelAttack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -968,9 +968,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MeleeRightAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
                 @MeleeRightAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
                 @MeleeRightAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMeleeRightAttack;
-                @Block.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
-                @Block.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
-                @Block.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlock;
+                @BlockCancelAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlockCancelAttack;
+                @BlockCancelAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlockCancelAttack;
+                @BlockCancelAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlockCancelAttack;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -996,9 +996,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @MeleeRightAttack.started += instance.OnMeleeRightAttack;
                 @MeleeRightAttack.performed += instance.OnMeleeRightAttack;
                 @MeleeRightAttack.canceled += instance.OnMeleeRightAttack;
-                @Block.started += instance.OnBlock;
-                @Block.performed += instance.OnBlock;
-                @Block.canceled += instance.OnBlock;
+                @BlockCancelAttack.started += instance.OnBlockCancelAttack;
+                @BlockCancelAttack.performed += instance.OnBlockCancelAttack;
+                @BlockCancelAttack.canceled += instance.OnBlockCancelAttack;
             }
         }
     }
@@ -1030,6 +1030,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnMeleeBackwardAttack(InputAction.CallbackContext context);
         void OnMeleeLeftAttack(InputAction.CallbackContext context);
         void OnMeleeRightAttack(InputAction.CallbackContext context);
-        void OnBlock(InputAction.CallbackContext context);
+        void OnBlockCancelAttack(InputAction.CallbackContext context);
     }
 }
