@@ -26,6 +26,11 @@ namespace StateMachines.Player
             var movementDirection = CalculateMovementDirectionFromCameraPosition();
             StateMachine.PlayerMover.MoveWithDefaultSpeed(movementDirection);
             UpdateAnimator();
+            
+            if (StateMachine.InputReader.IsBlocking)
+            {
+                StateMachine.SwitchState(new PlayerBlockingState(StateMachine));
+            }
         }
 
         public override void Exit()
@@ -36,42 +41,11 @@ namespace StateMachines.Player
 
         private void UpdateAnimator()
         {
-            float movementRightValue = StateMachine.InputReader.MovementValue.x;
             float movementForwardValue = StateMachine.InputReader.MovementValue.y;
+            float movementRightValue = StateMachine.InputReader.MovementValue.x;
 
-            if (movementForwardValue == 0f)
-            {
-                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0, StateMachine.AnimatorDampTime, Time.deltaTime);
-            }
-            else
-            {
-                float value = movementForwardValue > 0f ? 1f : -1f;
-                StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);
-            }
-            
-            if (movementRightValue == 0f)
-            {
-                StateMachine.Animator.SetFloat(RightMovementSpeedHash, 0, StateMachine.AnimatorDampTime, Time.deltaTime);
-            }
-            else
-            {
-                float value = movementRightValue > 0f ? 1f : -1f;
-                StateMachine.Animator.SetFloat(RightMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);
-            }
-            
-            if (StateMachine.InputReader.IsBlocking)
-            {
-                StateMachine.SwitchState(new PlayerBlockingState(StateMachine));
-            }
-        }
-
-        private Vector3 CalculateMovementDirectionFromCameraPosition()
-        {
-            return StateMachine.CameraMover.GetCameraForwardDirection() * 
-                   StateMachine.InputReader.MovementValue.y
-                   +
-                   StateMachine.CameraMover.GetCameraRightDirection() * 
-                   StateMachine.InputReader.MovementValue.x;
+            StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, movementForwardValue, StateMachine.AnimatorDampTime, Time.deltaTime);
+            StateMachine.Animator.SetFloat(RightMovementSpeedHash, movementRightValue, StateMachine.AnimatorDampTime, Time.deltaTime);
         }
 
         private void OnJump()

@@ -9,6 +9,7 @@ namespace Locomotion.Player
         public bool IsGrounded => _characterController.isGrounded;
         
         [SerializeField] private float defaultSpeed = 5f;
+        [SerializeField] private float blockingStateSpeed = 2.5f;
         [SerializeField] private float jumpVelocity = 5f;
 
         private CharacterController _characterController;
@@ -21,6 +22,7 @@ namespace Locomotion.Player
         }
 
         public void MoveWithDefaultSpeed(Vector3 direction) => Move(direction, defaultSpeed);
+        public void MoveWithBlockingStateSpeed(Vector3 direction) => Move(direction, blockingStateSpeed);
 
         public void ApplyMomentum()
         {
@@ -42,7 +44,7 @@ namespace Locomotion.Player
         }
 
         // Animation event actions
-        public void Jump()
+        public void JumpWithDefaultVelocity()
         {
             _forceReceiver.Jump(jumpVelocity);
         }

@@ -1,4 +1,5 @@
 using StateMachines.Player.Knight;
+using UnityEngine;
 
 namespace StateMachines.Player
 {
@@ -19,6 +20,15 @@ namespace StateMachines.Player
         protected bool HasAnimationFinished(string tag)
         {
             return GetNormalizedAnimationTime(StateMachine.Animator, tag) >= 1f;
+        }
+        
+        protected Vector3 CalculateMovementDirectionFromCameraPosition()
+        {
+            return StateMachine.CameraMover.GetCameraForwardDirection() * 
+                   StateMachine.InputReader.MovementValue.y
+                   +
+                   StateMachine.CameraMover.GetCameraRightDirection() * 
+                   StateMachine.InputReader.MovementValue.x;
         }
     }
 }
