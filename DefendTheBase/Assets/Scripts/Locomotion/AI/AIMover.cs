@@ -60,6 +60,11 @@ namespace Locomotion.AI
             _navMeshAgent.ResetPath();
             _navMeshAgent.velocity = Vector3.zero;
         }
+        
+        public bool IsMovementStopped()
+        {
+            return _navMeshAgent.velocity == Vector3.zero;
+        }
 
         public void FacePosition(Vector3 direction)
         {
@@ -71,11 +76,11 @@ namespace Locomotion.AI
             StartCoroutine(FacePositionCoroutine(direction, rotationSpeed));
         }
 
-        public void ApplyForces(float deltaTime)
+        public void ApplyForces()
         {
             if (!IsNavMeshAgentDisabled()) return;
 
-            _characterController.Move(_forceReceiver.ForceDisplacement * deltaTime);
+            _characterController.Move(_forceReceiver.ForceDisplacement * Time.deltaTime);
         }
         
         private void ClampRotationSpeedToBeGreaterThan0()

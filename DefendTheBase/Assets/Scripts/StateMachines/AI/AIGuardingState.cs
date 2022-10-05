@@ -16,7 +16,7 @@ namespace StateMachines.AI
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
             if (IsDestinationReached(StateMachine.GuardingPosition, StateMachine.WaypointTolerance))
             {

@@ -1,3 +1,4 @@
+using StateMachines.Player.Knight;
 using UnityEngine;
 
 namespace StateMachines.Player
@@ -6,18 +7,18 @@ namespace StateMachines.Player
     {
         private static readonly int FallDownStateHash = Animator.StringToHash("FallDown");
         
-        public PlayerFallingDownState(PlayerStateMachine stateMachine) : base(stateMachine) {}
+        public PlayerFallingDownState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
             StateMachine.Animator.CrossFadeInFixedTime(FallDownStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            base.Tick(deltaTime);
+            base.Tick();
 
-            StateMachine.PlayerMover.ApplyMomentum(deltaTime);
+            StateMachine.PlayerMover.ApplyMomentum();
 
             if (StateMachine.PlayerMover.IsGrounded)
             {

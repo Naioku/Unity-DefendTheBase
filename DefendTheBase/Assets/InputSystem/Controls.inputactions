@@ -67,20 +67,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Block/CancelAttack",
+                    "type": "Button",
+                    "id": "1502b4ff-bdbd-44c6-92f1-f7906cbdf09e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "dae29a74-c6f1-4911-8432-b4b75a4f1070",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "21bebc10-57f9-4289-a3a7-a5e0726e9a08",
@@ -89,17 +87,6 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1efa3b69-749d-437c-a6b7-1ec66d568407",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -215,12 +202,12 @@
                 },
                 {
                     "name": "",
-                    "id": "b6681ed4-8205-4c67-835e-8c41e14c41d3",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "1efa3b69-749d-437c-a6b7-1ec66d568407",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "FreeLook",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -231,6 +218,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "FreeLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b6681ed4-8205-4c67-835e-8c41e14c41d3",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "FreeLook",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -762,6 +760,39 @@
                     "action": "MeleeForwardAttack",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "502a3efa-d01a-40cd-ade8-fd3733180b53",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Block/CancelAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3efeb68a-006f-4d70-93fb-ec7a494a382b",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Block/CancelAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dae29a74-c6f1-4911-8432-b4b75a4f1070",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

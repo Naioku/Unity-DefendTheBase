@@ -10,6 +10,7 @@ namespace StateMachines.AI
         
         private readonly List<Transform> _detectedTargets;
         private Vector3 _lastSeenTargetPosition;
+        // private float _timeSinceLastAttack;
 
         public AIChasingState(AIStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
         {
@@ -22,8 +23,10 @@ namespace StateMachines.AI
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
+            // _timeSinceLastAttack += Time.deltaTime;
+
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
             Transform closestTarget = GetClosestTarget();
@@ -44,6 +47,18 @@ namespace StateMachines.AI
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
+                // // bug somewhere here
+                // if (!ReadyForNextAttack())
+                // {
+                //     if (!StateMachine.AIMover.IsMovementStopped())
+                //     {
+                //         StateMachine.AIMover.StopMovement();
+                //     }
+                //     
+                //     return;
+                // }
+                
+                // _timeSinceLastAttack = 0f;
                 Vector3 directionTowardsTarget = closestTarget.position - StateMachine.transform.position;
                 StateMachine.SwitchState(new AIRotationState(
                     StateMachine,
@@ -87,5 +102,10 @@ namespace StateMachines.AI
             return (targetPosition - StateMachine.transform.position).sqrMagnitude
                    <= Mathf.Pow(StateMachine.AttackRange, 2);
         }
+
+        // private bool ReadyForNextAttack()
+        // {
+        //     return _timeSinceLastAttack >= StateMachine.DelayBetweenAttacks;
+        // }
     }
 }

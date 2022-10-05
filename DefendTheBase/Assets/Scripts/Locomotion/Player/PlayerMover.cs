@@ -9,6 +9,7 @@ namespace Locomotion.Player
         public bool IsGrounded => _characterController.isGrounded;
         
         [SerializeField] private float defaultSpeed = 5f;
+        [SerializeField] private float blockingStateSpeed = 2.5f;
         [SerializeField] private float jumpVelocity = 5f;
 
         private CharacterController _characterController;
@@ -20,20 +21,26 @@ namespace Locomotion.Player
             _forceReceiver = GetComponent<ForceReceiver>();
         }
 
-        public void MoveWithDefaultSpeed(Vector3 direction, float deltaTime) => Move(direction, defaultSpeed, deltaTime);
+        public void MoveWithDefaultSpeed(Vector3 direction) => Move(direction, defaultSpeed);
+        public void MoveWithBlockingStateSpeed(Vector3 direction) => Move(direction, blockingStateSpeed);
 
-        public void ApplyMomentum(float deltaTime)
+        public void ApplyOnlyForces()
+        {
+            UpdateVelocity(_forceReceiver.ForceDisplacement, Time.deltaTime);
+        }
+        
+        public void ApplyMomentum()
         {
             Vector3 momentum = _characterController.velocity;
             momentum.y = 0f;
             
-            UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, deltaTime);
+            UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, Time.deltaTime);
         }
 
-        private void Move(Vector3 direction, float movementSpeed, float deltaTime)
+        private void Move(Vector3 direction, float movementSpeed)
         {
             Vector3 movementDisplacement = direction * movementSpeed;
-            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, deltaTime);
+            UpdateVelocity(movementDisplacement + _forceReceiver.ForceDisplacement, Time.deltaTime);
         }
 
         private void UpdateVelocity(Vector3 movement, float deltaTime)
@@ -42,7 +49,7 @@ namespace Locomotion.Player
         }
 
         // Animation event actions
-        public void Jump()
+        public void JumpWithDefaultVelocity()
         {
             _forceReceiver.Jump(jumpVelocity);
         }

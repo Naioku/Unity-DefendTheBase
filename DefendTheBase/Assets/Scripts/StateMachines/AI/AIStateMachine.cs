@@ -12,6 +12,7 @@ namespace StateMachines.AI
         [field: Header("Attacking state")]
         [field: SerializeField] 
         public float AttackRange { get; private set; } = 2f;
+        // [field: SerializeField] public float DelayBetweenAttacks { get; private set; } = 1f;
 
         [field: Header("Suspicion state")]
         [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
@@ -43,12 +44,12 @@ namespace StateMachines.AI
 
         private void OnEnable()
         {
-            _health.OnTakeDamage += HandleTakeDamage;
+            _health.OnTakeDamage += HandleImpact;
         }
 
         private void OnDisable()
         {
-            _health.OnTakeDamage -= HandleTakeDamage;
+            _health.OnTakeDamage -= HandleImpact;
         }
         
         public void SwitchToDefaultState()
@@ -63,7 +64,7 @@ namespace StateMachines.AI
             }
         }
 
-        private void HandleTakeDamage(Vector3 hitDirection)
+        private void HandleImpact(Vector3 hitDirection)
         {
             SwitchState(new AIImpactState(this, hitDirection));
         }

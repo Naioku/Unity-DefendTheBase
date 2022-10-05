@@ -19,7 +19,7 @@ namespace StateMachines.AI
             _suspicionTimer = StateMachine.SuspicionTime;
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
 

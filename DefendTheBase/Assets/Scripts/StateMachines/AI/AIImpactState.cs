@@ -19,11 +19,11 @@ namespace StateMachines.AI
             StateMachine.AIMover.SwitchMovementToCharacterController();
         }
 
-        public override void Tick(float deltaTime)
+        public override void Tick()
         {
-            StateMachine.AIMover.ApplyForces(deltaTime);
+            StateMachine.AIMover.ApplyForces();
 
-            _animationDuration -= deltaTime;
+            _animationDuration -= Time.deltaTime;
             if (_animationDuration <= 0f)
             {
                 Vector3 directionFromReceiver = -_hitDirection;
