@@ -1,3 +1,4 @@
+using System;
 using Combat;
 using Core;
 using Locomotion.Player;
@@ -30,6 +31,21 @@ namespace StateMachines.Player.Knight
         private void Start()
         {
             SwitchState(new PlayerLocomotionState(this));
+        }
+
+        private void OnEnable()
+        {
+            Health.OnTakeDamage += HandleImpact;
+        }
+
+        private void OnDisable()
+        {
+            Health.OnTakeDamage -= HandleImpact;
+        }
+
+        private void HandleImpact(Vector3 obj)
+        {
+            SwitchState(new PlayerImpactState(this));
         }
     }
 }

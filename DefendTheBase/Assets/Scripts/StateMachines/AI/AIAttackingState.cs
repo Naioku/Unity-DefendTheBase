@@ -16,7 +16,6 @@ namespace StateMachines.AI
 
         public override void Tick()
         {
-            
             if (HasAnimationFinished("Attack"))
             {
                 StateMachine.SwitchState(new AISuspicionState(StateMachine));

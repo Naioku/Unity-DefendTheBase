@@ -15,6 +15,8 @@ namespace StateMachines.Player
         {
             StateMachine.Animator.CrossFadeInFixedTime(FallDownStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.InputReader.BlockEvent += OnBlock;
+            StateMachine.Health.OnTakeHit += HandleBLockImpact;
+
             StateMachine.Health.IsVulnerable = false;
         }
 
@@ -29,9 +31,11 @@ namespace StateMachines.Player
         public override void Exit()
         {
             StateMachine.InputReader.BlockEvent -= OnBlock;
+            StateMachine.Health.OnTakeHit -= HandleBLockImpact;
+
             StateMachine.Health.IsVulnerable = true;
         }
-        
+
         private void UpdateAnimator()
         {
             float movementForwardValue = StateMachine.InputReader.MovementValue.y;
@@ -65,7 +69,7 @@ namespace StateMachines.Player
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);
         }
-        
+
         private void SetAnimationMovementRightSpeed(float value)
         {
             StateMachine.Animator.SetFloat(RightMovementSpeedHash, value, StateMachine.AnimatorDampTime, Time.deltaTime);

@@ -30,5 +30,10 @@ namespace StateMachines.Player
                    StateMachine.CameraMover.GetCameraRightDirection() * 
                    StateMachine.InputReader.MovementValue.x;
         }
+        
+        protected void HandleBLockImpact()
+        {
+            StateMachine.SwitchState(new PlayerBlockImpactState(StateMachine));
+        }
     }
 }

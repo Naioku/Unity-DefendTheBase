@@ -24,6 +24,11 @@ namespace Locomotion.Player
         public void MoveWithDefaultSpeed(Vector3 direction) => Move(direction, defaultSpeed);
         public void MoveWithBlockingStateSpeed(Vector3 direction) => Move(direction, blockingStateSpeed);
 
+        public void ApplyOnlyForces()
+        {
+            UpdateVelocity(_forceReceiver.ForceDisplacement, Time.deltaTime);
+        }
+        
         public void ApplyMomentum()
         {
             Vector3 momentum = _characterController.velocity;
