@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Combat
+namespace Combat.AI
 {
     [ExecuteAlways]
     public class AISensor : MonoBehaviour

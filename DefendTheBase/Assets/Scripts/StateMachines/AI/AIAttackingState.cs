@@ -4,14 +4,14 @@ namespace StateMachines.AI
 {
     public class AIAttackingState : AIBaseState
     {
-        private static readonly int AttackHash = Animator.StringToHash("LeftAttack");
+        private static readonly int AttackingStateHash = Animator.StringToHash("LeftAttack");
 
         public AIAttackingState(AIStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
             StateMachine.AIMover.SwitchMovementToCharacterController();
-            StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(AttackingStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick()

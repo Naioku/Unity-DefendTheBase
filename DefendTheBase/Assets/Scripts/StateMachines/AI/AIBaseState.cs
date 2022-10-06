@@ -27,5 +27,11 @@ namespace StateMachines.AI
             float distanceToWaypointSquared = Vector3.SqrMagnitude(destination - StateMachine.transform.position);
             return distanceToWaypointSquared <= Mathf.Pow(displacementToleration, 2);
         }
+        
+        protected bool IsInAttackRange(Vector3 targetPosition)
+        {
+            return (targetPosition - StateMachine.transform.position).sqrMagnitude
+                   <= Mathf.Pow(StateMachine.AttackRange, 2);
+        }
     }
 }

@@ -5,12 +5,11 @@ namespace StateMachines.AI
 {
     public class AIChasingState : AIBaseState
     {
-        private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private static readonly int LocomotionStateHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
         private readonly List<Transform> _detectedTargets;
         private Vector3 _lastSeenTargetPosition;
-        // private float _timeSinceLastAttack;
 
         public AIChasingState(AIStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
         {
@@ -20,13 +19,11 @@ namespace StateMachines.AI
         public override void Enter()
         {
             StateMachine.AIMover.SwitchMovementToNavmesh();
-            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick()
         {
-            // _timeSinceLastAttack += Time.deltaTime;
-
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
             Transform closestTarget = GetClosestTarget();
@@ -47,23 +44,7 @@ namespace StateMachines.AI
             
             if (IsInAttackRange(_lastSeenTargetPosition))
             {
-                // // bug somewhere here
-                // if (!ReadyForNextAttack())
-                // {
-                //     if (!StateMachine.AIMover.IsMovementStopped())
-                //     {
-                //         StateMachine.AIMover.StopMovement();
-                //     }
-                //     
-                //     return;
-                // }
-                
-                // _timeSinceLastAttack = 0f;
-                Vector3 directionTowardsTarget = closestTarget.position - StateMachine.transform.position;
-                StateMachine.SwitchState(new AIRotationState(
-                    StateMachine,
-                    directionTowardsTarget,
-                    new AIAttackingState(StateMachine)));
+                StateMachine.SwitchState(new AICombatState(StateMachine, closestTarget));
                 return;
             }
 
@@ -96,16 +77,5 @@ namespace StateMachines.AI
 
             return closestTarget;
         }
-
-        private bool IsInAttackRange(Vector3 targetPosition)
-        {
-            return (targetPosition - StateMachine.transform.position).sqrMagnitude
-                   <= Mathf.Pow(StateMachine.AttackRange, 2);
-        }
-
-        // private bool ReadyForNextAttack()
-        // {
-        //     return _timeSinceLastAttack >= StateMachine.DelayBetweenAttacks;
-        // }
     }
 }

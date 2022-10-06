@@ -4,7 +4,7 @@ namespace StateMachines.AI
 {
     public class AISuspicionState : AIBaseState
     {
-        private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private static readonly int LocomotionStateHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
         private float _suspicionTimer;
@@ -14,7 +14,7 @@ namespace StateMachines.AI
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
             _suspicionTimer = StateMachine.SuspicionTime;
         }

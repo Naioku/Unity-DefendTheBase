@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Locomotion;
 using UnityEngine;
 
-namespace Combat
+namespace Combat.Player
 {
     public class WeaponDamageTrigger : MonoBehaviour
     {

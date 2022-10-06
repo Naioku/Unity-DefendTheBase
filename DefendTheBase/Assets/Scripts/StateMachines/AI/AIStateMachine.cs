@@ -1,4 +1,5 @@
 using Combat;
+using Combat.AI;
 using Locomotion.AI;
 using UnityEngine;
 
@@ -12,7 +13,6 @@ namespace StateMachines.AI
         [field: Header("Attacking state")]
         [field: SerializeField] 
         public float AttackRange { get; private set; } = 2f;
-        // [field: SerializeField] public float DelayBetweenAttacks { get; private set; } = 1f;
 
         [field: Header("Suspicion state")]
         [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
@@ -24,6 +24,7 @@ namespace StateMachines.AI
         public AIMover AIMover { get; private set; }
         public AISensor AISensor { get; private set; }
         public AIPatroller AIPatroller { get; private set; }
+        public AIFighter AIFighter { get; private set; }
         
         private Health _health;
 
@@ -33,9 +34,10 @@ namespace StateMachines.AI
             AIMover = GetComponent<AIMover>();
             AISensor = GetComponent<AISensor>();
             AIPatroller = GetComponent<AIPatroller>();
+            AIFighter = GetComponent<AIFighter>();
             _health = GetComponent<Health>();
         }
-        
+
         private void Start()
         {
             GuardingPosition = transform.position;

@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 128a0af4f9824664898d412092d219bb, type: 2}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80,6 +80,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
   m_PrefabInstance: {fileID: 1880144075834090509}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310967709840408604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691b87fe3dd2d28438937ad45e8508c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  delayBetweenAttacks: 1
 --- !u!114 &3666145990578233291
 MonoBehaviour:
   m_ObjectHideFlags: 0

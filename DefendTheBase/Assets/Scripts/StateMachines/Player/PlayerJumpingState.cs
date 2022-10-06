@@ -5,13 +5,13 @@ namespace StateMachines.Player
 {
     public class PlayerJumpingState : PlayerBaseState
     {
-        private static readonly int JumpStateHash = Animator.StringToHash("Jump");
+        private static readonly int JumpingStateHash = Animator.StringToHash("Jump");
         
         public PlayerJumpingState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(JumpStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(JumpingStateHash, StateMachine.AnimationCrossFadeDuration);
             // Jump action is invoked by animation.
         }
 

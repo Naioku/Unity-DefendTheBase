@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Combat
+namespace Combat.Player
 {
     public class WeaponController : MonoBehaviour
     {

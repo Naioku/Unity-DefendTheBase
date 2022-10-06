@@ -5,7 +5,7 @@ namespace StateMachines.Player
 {
     public class PlayerBlockingState : PlayerBaseState
     {
-        private static readonly int FallDownStateHash = Animator.StringToHash("Block");
+        private static readonly int BlockStateHash = Animator.StringToHash("Block");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         private static readonly int RightMovementSpeedHash = Animator.StringToHash("RightMovementSpeed");
 
@@ -13,7 +13,7 @@ namespace StateMachines.Player
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(FallDownStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(BlockStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.InputReader.BlockEvent += OnBlock;
             StateMachine.Health.OnTakeHit += HandleBLockImpact;
 

@@ -4,7 +4,7 @@ namespace StateMachines.AI
 {
     public class AIGuardingState : AIBaseState
     {
-        private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private static readonly int LocomotionStateHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
         public AIGuardingState(AIStateMachine stateMachine) : base(stateMachine) {}
@@ -12,7 +12,7 @@ namespace StateMachines.AI
         public override void Enter()
         {
             StateMachine.AIMover.SwitchMovementToNavmesh();
-            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
         }
 

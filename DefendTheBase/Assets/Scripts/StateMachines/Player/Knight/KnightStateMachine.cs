@@ -1,5 +1,6 @@
 using System;
 using Combat;
+using Combat.Player;
 using Core;
 using Locomotion.Player;
 using UnityEngine;

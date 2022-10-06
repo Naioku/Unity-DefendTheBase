@@ -5,13 +5,13 @@ namespace StateMachines.Player
 {
     public class PlayerBlockImpactState : PlayerBaseState
     {
-        private static readonly int AttackHash = Animator.StringToHash("BlockImpact");
+        private static readonly int BlockImpactStateHash = Animator.StringToHash("BlockImpact");
 
         public PlayerBlockImpactState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(AttackHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(BlockImpactStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.Health.OnTakeHit += HandleBLockImpact;
 
             StateMachine.Health.IsVulnerable = false;

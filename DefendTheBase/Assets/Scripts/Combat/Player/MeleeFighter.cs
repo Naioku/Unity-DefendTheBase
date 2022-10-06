@@ -2,7 +2,7 @@ using System.Linq;
 using Core;
 using UnityEngine;
 
-namespace Combat
+namespace Combat.Player
 {
     public class MeleeFighter : MonoBehaviour
     {
