@@ -102,6 +102,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2000371119047597635, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: <AttackRange>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: equippedBill
       value: 
@@ -112,6 +116,18 @@ PrefabInstance:
       objectReference: {fileID: 2174044228100049995}
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: rhinbillAttacks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<Range>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<Range>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<Range>k__BackingField
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
@@ -159,6 +175,18 @@ PrefabInstance:
       value: JumpAttack
       objectReference: {fileID: 0}
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AttackerDisplacement>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AttackerDisplacement>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AttackerDisplacement>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: rhinbillAttacks.Array.data[0].<TransitionDuration>k__BackingField
       value: 0.1
       objectReference: {fileID: 0}
@@ -177,6 +205,30 @@ PrefabInstance:
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: rhinbillAttacks.Array.data[2].<TransitionDuration>k__BackingField
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_RootOrder
@@ -230,6 +282,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4d791225485af8b4791a1649b86f9962, type: 2}
+    - target: {fileID: 7552057206506597755, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: outputImpactSmoothingTime
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597756, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_Name
       value: RhinbillGrayPatrolling

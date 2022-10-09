@@ -1,5 +1,6 @@
 using Combat;
 using Combat.AI;
+using Locomotion;
 using Locomotion.AI;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ namespace StateMachines.AI
         public AISensor AISensor { get; private set; }
         public AIPatroller AIPatroller { get; private set; }
         public AIFighter AIFighter { get; private set; }
+        public ForceReceiver ForceReceiver { get; private set; }
         
         private Health _health;
 
@@ -35,6 +37,7 @@ namespace StateMachines.AI
             AISensor = GetComponent<AISensor>();
             AIPatroller = GetComponent<AIPatroller>();
             AIFighter = GetComponent<AIFighter>();
+            ForceReceiver = GetComponent<ForceReceiver>();
             _health = GetComponent<Health>();
         }
 

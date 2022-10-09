@@ -5,6 +5,7 @@ namespace StateMachines.AI
     public class AIAttackingState : AIBaseState
     {
         private readonly AIAttack _aiAttack;
+        private bool _forceAlreadyApplied;
 
         public AIAttackingState(AIStateMachine stateMachine, AIAttack aiAttack) : base(stateMachine)
         {
@@ -19,6 +20,13 @@ namespace StateMachines.AI
 
         public override void Tick()
         {
+            StateMachine.AIMover.ApplyForces();
+            
+            if (GetNormalizedAnimationTime(StateMachine.Animator, "Attack") >= _aiAttack.ForceApplicationNormalizedTime)
+            {
+                TryForceApplication();
+            }
+            
             if (HasAnimationFinished("Attack"))
             {
                 StateMachine.SwitchState(new AISuspicionState(StateMachine));
@@ -28,6 +36,18 @@ namespace StateMachines.AI
 
         public override void Exit()
         {
+        }
+
+        private void TryForceApplication()
+        {
+            if (_forceAlreadyApplied) return;
+            
+            StateMachine.ForceReceiver.AddForce(
+                StateMachine.transform.forward * _aiAttack.AttackerDisplacement,
+                _aiAttack.AttackerImpactSmoothingTime
+            );
+            
+            _forceAlreadyApplied = true;
         }
     }
 }

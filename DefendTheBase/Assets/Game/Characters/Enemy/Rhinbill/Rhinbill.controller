@@ -8,7 +8,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: JumpAttack
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -167,7 +167,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: c5cb1d52984a0194ea4f1e32b48ca164, type: 2}
     m_Threshold: 0.16666667
     m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -175,7 +175,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: a7aa10ac2471a0a4e821fd2ce93803af, type: 2}
     m_Threshold: 0.33333334
     m_Position: {x: -1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
@@ -183,7 +183,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 48c519220b8920841a5ff219f118e4d6, type: 2}
     m_Threshold: 0.5
     m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0

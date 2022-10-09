@@ -76,6 +76,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691b87fe3dd2d28438937ad45e8508c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equippedBill: {fileID: 0}
+  equippedHorn: {fileID: 0}
+  aiAttacks:
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <ForceApplicationNormalizedTime>k__BackingField: 0.1
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <ForceApplicationNormalizedTime>k__BackingField: 0.1
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <ForceApplicationNormalizedTime>k__BackingField: 0.1
   delayBetweenAttacks: 1
 --- !u!114 &3666145990578233291
 MonoBehaviour:

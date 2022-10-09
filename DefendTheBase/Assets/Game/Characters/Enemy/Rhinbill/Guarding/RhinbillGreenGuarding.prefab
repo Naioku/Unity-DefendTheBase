@@ -21,6 +21,18 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<Range>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<Range>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<Range>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[1].<AIAttackName>k__BackingField
       value: 1
       objectReference: {fileID: 0}
@@ -65,6 +77,18 @@ PrefabInstance:
       value: JumpAttack
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AttackerDisplacement>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AttackerDisplacement>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AttackerDisplacement>k__BackingField
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: rhinbillAttacks.Array.data[0].<TransitionDuration>k__BackingField
       value: 0.1
       objectReference: {fileID: 0}
@@ -84,6 +108,30 @@ PrefabInstance:
       propertyPath: rhinbillAttacks.Array.data[2].<TransitionDuration>k__BackingField
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AttackerImpactSmoothingTime>k__BackingField
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3336993967809797616, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -92,6 +140,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 4d791225485af8b4791a1649b86f9962, type: 2}
+    - target: {fileID: 3336993967809797617, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: outputImpactSmoothingTime
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3336993967809797619, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -139,6 +191,10 @@ PrefabInstance:
     - target: {fileID: 3336993967809797622, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: m_Name
       value: RhinbillGreenGuarding
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720374215094431433, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: <AttackRange>k__BackingField
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects:

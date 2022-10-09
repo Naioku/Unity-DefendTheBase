@@ -39,7 +39,7 @@ namespace StateMachines.AI
                 StateMachine.SwitchState(new AIRotationState(
                     StateMachine,
                     directionTowardsTarget,
-                    new AIAttackingState(StateMachine, StateMachine.AIFighter.GetAttack(AIAttackNames.JumpAttack))));
+                    new AIAttackingState(StateMachine, StateMachine.AIFighter.GetAttack(AIAttackNames.HornAttack))));
                 return;
             }
         }
@@ -47,7 +47,5 @@ namespace StateMachines.AI
         public override void Exit()
         {
         }
-        
-        
     }
 }

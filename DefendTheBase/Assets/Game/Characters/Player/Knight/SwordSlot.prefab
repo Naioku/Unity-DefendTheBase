@@ -49,7 +49,7 @@ MonoBehaviour:
   damageTrigger: {fileID: 6121733704310296182}
   ownerCollider: {fileID: 0}
   damage: 10
-  knockback: 20
+  knockback: 10
 --- !u!1 &8499008317353217723
 GameObject:
   m_ObjectHideFlags: 0
