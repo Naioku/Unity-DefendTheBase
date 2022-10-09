@@ -7,9 +7,11 @@ namespace Combat.AI
 {
     public class AIFighter : MonoBehaviour
     {
-        [SerializeField] public AIAttack[] aiAttacks = new AIAttack[3];
-        [SerializeField] public float delayBetweenAttacks = 1f;
-        
+        [SerializeField] private WeaponController equippedBill;
+        [SerializeField] private WeaponController equippedHorn;
+        [SerializeField] private AIAttack[] aiAttacks = new AIAttack[3];
+        [SerializeField] private float delayBetweenAttacks = 1f;
+
         private float _timeToNextAttack;
         private Coroutine _timerCoroutine;
 
@@ -46,5 +48,11 @@ namespace Combat.AI
                 yield return new WaitForEndOfFrame();
             }
         }
+        
+        // Animation event methods
+        public void EnableBillDamager() => equippedBill.EnableDamageTrigger();
+        public void DisableBillDamager() => equippedBill.DisableDamageTrigger();
+        public void EnableHornDamager() => equippedHorn.EnableDamageTrigger();
+        public void DisableHornDamager() => equippedHorn.DisableDamageTrigger();
     }
 }

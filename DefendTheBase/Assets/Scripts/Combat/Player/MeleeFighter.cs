@@ -6,9 +6,9 @@ namespace Combat.Player
 {
     public class MeleeFighter : MonoBehaviour
     {
-        [SerializeField] private MeleeAttack[] attacks = new MeleeAttack[4];
         [SerializeField] private WeaponController equippedMainHandWeapon;
         [SerializeField] private WeaponController equippedOffHandWeapon;
+        [SerializeField] private MeleeAttack[] attacks = new MeleeAttack[4];
 
         public MeleeAttack GetAttack(MeleeAttackNames meleeAttackName)
         {

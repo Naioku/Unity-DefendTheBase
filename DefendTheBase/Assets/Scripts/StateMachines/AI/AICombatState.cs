@@ -39,7 +39,7 @@ namespace StateMachines.AI
                 StateMachine.SwitchState(new AIRotationState(
                     StateMachine,
                     directionTowardsTarget,
-                    new AIAttackingState(StateMachine, StateMachine.AIFighter.GetAttack(AIAttackNames.BillAttack))));
+                    new AIAttackingState(StateMachine, StateMachine.AIFighter.GetAttack(AIAttackNames.JumpAttack))));
                 return;
             }
         }

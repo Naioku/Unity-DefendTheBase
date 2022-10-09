@@ -56,14 +56,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: RhinbillGrayMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 4002518701265256900, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
+      propertyPath: ownerCollider
+      value: 
+      objectReference: {fileID: 8361272434637055873}
+    - target: {fileID: 6607974037143768723, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
+      propertyPath: ownerCollider
+      value: 
+      objectReference: {fileID: 8361272434637055873}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
+--- !u!114 &2174044228100049995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6607974037143768723, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
+  m_PrefabInstance: {fileID: 5017006500146643672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5110401534160359868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 248885220708471652, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
   m_PrefabInstance: {fileID: 5017006500146643672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8220249481784263452 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4002518701265256900, guid: 60a8a4933f157fa4592201e5897d29e6, type: 3}
+  m_PrefabInstance: {fileID: 5017006500146643672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b8e5200fc26b141a26a897f5abad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7453003259639786608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +102,14 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: equippedBill
+      value: 
+      objectReference: {fileID: 8220249481784263452}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: equippedHorn
+      value: 
+      objectReference: {fileID: 2174044228100049995}
     - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: rhinbillAttacks.Array.size
       value: 3
@@ -142,11 +180,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 13.69
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -154,7 +192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.26
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -162,15 +200,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -224,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92dde17d390f4264db8c713b0fc884b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equippedMainHandWeapon: {fileID: 0}
+  equippedOffHandWeapon: {fileID: 0}
   attacks:
   - <MeleeAttackName>k__BackingField: 0
     <AnimationName>k__BackingField: LeftAttack
@@ -245,5 +285,8 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <NextComboAttackNormalizedTime>k__BackingField: 0.7
     <CancelAttackNormalizedTime>k__BackingField: 0.1
-  equippedMainHandWeapon: {fileID: 0}
-  equippedOffHandWeapon: {fileID: 0}
+--- !u!143 &8361272434637055873 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 1398180770012908529, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+  m_PrefabInstance: {fileID: 7453003259639786608}
+  m_PrefabAsset: {fileID: 0}
