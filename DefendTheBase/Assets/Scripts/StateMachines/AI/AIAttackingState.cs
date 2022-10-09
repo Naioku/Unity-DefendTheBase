@@ -1,17 +1,20 @@
-using UnityEngine;
+using Combat.AI;
 
 namespace StateMachines.AI
 {
     public class AIAttackingState : AIBaseState
     {
-        private static readonly int AttackingStateHash = Animator.StringToHash("LeftAttack");
+        private readonly AIAttack _aiAttack;
 
-        public AIAttackingState(AIStateMachine stateMachine) : base(stateMachine) {}
+        public AIAttackingState(AIStateMachine stateMachine, AIAttack aiAttack) : base(stateMachine)
+        {
+            _aiAttack = aiAttack;
+        }
         
         public override void Enter()
         {
             StateMachine.AIMover.SwitchMovementToCharacterController();
-            StateMachine.Animator.CrossFadeInFixedTime(AttackingStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(_aiAttack.AnimationName, _aiAttack.TransitionDuration);
         }
 
         public override void Tick()

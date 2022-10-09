@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -38,7 +39,7 @@ namespace StateMachines.AI
                 StateMachine.SwitchState(new AIRotationState(
                     StateMachine,
                     directionTowardsTarget,
-                    new AIAttackingState(StateMachine)));
+                    new AIAttackingState(StateMachine, StateMachine.AIFighter.GetAttack(AIAttackNames.BillAttack))));
                 return;
             }
         }

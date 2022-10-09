@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1961209412980186636
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 1591361992745055167}
+    m_Modifications:
+    - target: {fileID: 1469766948834545028, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_Name
+      value: RhinbillOrangeMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+--- !u!4 &5671954708201307511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6161286375491986299, guid: e3f4e2df90baf4a48be629f04683d9b9, type: 3}
+  m_PrefabInstance: {fileID: 1961209412980186636}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &9141158568582536902
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AIAttackName>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AIAttackName>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AnimationName>k__BackingField
+      value: BillAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AnimationName>k__BackingField
+      value: HornAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AnimationName>k__BackingField
+      value: JumpAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[0].<AnimationName>k__BackingField
+      value: BillAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[1].<AnimationName>k__BackingField
+      value: HornAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[2].<AnimationName>k__BackingField
+      value: JumpAttack
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[0].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[1].<RhinbillAttackName>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[1].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[2].<RhinbillAttackName>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6102465999744151702, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: rhinbillAttacks.Array.data[2].<TransitionDuration>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552057206506597754, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 7e539eaae5cd6cc42ad7bb64bac33506, type: 3}
+    - target: {fileID: 7552057206506597754, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4d791225485af8b4791a1649b86f9962, type: 2}
+    - target: {fileID: 7552057206506597756, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      propertyPath: m_Name
+      value: RhinbillOrangePatrolling
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5671954708201307511}
+  m_SourcePrefab: {fileID: 100100000, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+--- !u!1 &1591361992745055162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7552057206506597756, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+  m_PrefabInstance: {fileID: 9141158568582536902}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6338291167178281322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591361992745055162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dde17d390f4264db8c713b0fc884b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks:
+  - <MeleeAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: LeftAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
+  - <MeleeAttackName>k__BackingField: 1
+    <AnimationName>k__BackingField: RightAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
+  - <MeleeAttackName>k__BackingField: 2
+    <AnimationName>k__BackingField: ShieldAttack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
+  - <MeleeAttackName>k__BackingField: 3
+    <AnimationName>k__BackingField: 360Attack
+    <TransitionDuration>k__BackingField: 0.1
+    <NextComboAttackNormalizedTime>k__BackingField: 0.7
+    <CancelAttackNormalizedTime>k__BackingField: 0.1
+  equippedMainHandWeapon: {fileID: 0}
+  equippedOffHandWeapon: {fileID: 0}
+--- !u!4 &1591361992745055167 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7552057206506597753, guid: 09476cff06e17814290adea9d669a32e, type: 3}
+  m_PrefabInstance: {fileID: 9141158568582536902}
+  m_PrefabAsset: {fileID: 0}
