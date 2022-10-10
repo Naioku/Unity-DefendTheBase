@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[0].<Range>k__BackingField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[1].<Range>k__BackingField
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[2].<Range>k__BackingField
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[1].<AIAttackName>k__BackingField
@@ -130,6 +130,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[2].<ForceApplicationNormalizedTime>k__BackingField
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[0].<AttackerDisplacementSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[1].<AttackerDisplacementSmoothingTime>k__BackingField
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<AttackerDisplacementSmoothingTime>k__BackingField
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
+      propertyPath: aiAttacks.Array.data[2].<DisplacementApplicationNormalizedTime>k__BackingField
       value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3336993967809797616, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}

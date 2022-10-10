@@ -67,6 +67,8 @@ namespace Combat.AI
 
         private void Scan()
         {
+            bool isAtLeastOneObjDetected = false;
+            
             Collider[] colliders = new Collider[50];
             _count = Physics.OverlapSphereNonAlloc
                 (transform.position, distance, colliders, searchingLayers, QueryTriggerInteraction.Collide);
@@ -78,8 +80,13 @@ namespace Combat.AI
                 if (IsInSight(gameObj))
                 {
                     _detectedObjects.Add(gameObj);
-                    TargetDetectedEvent?.Invoke(DetectedObjects);
+                    isAtLeastOneObjDetected = true;
                 }
+            }
+
+            if (isAtLeastOneObjDetected)
+            {
+                TargetDetectedEvent?.Invoke(DetectedObjects);
             }
         }
 

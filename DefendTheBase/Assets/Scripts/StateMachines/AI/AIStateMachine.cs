@@ -12,14 +12,16 @@ namespace StateMachines.AI
         [field: SerializeField] public float AnimatorDampTime { get; private set; } = 0.05f;
 
         [field: Header("Attacking state")]
-        [field: SerializeField] 
-        public float AttackRange { get; private set; } = 2f;
+        [field: SerializeField]
+        [field: Tooltip("Define if AI should chase one target to the death or always chase the closest one.")]
+        public bool FocusOnTarget { get; private set; }
 
         [field: Header("Suspicion state")]
         [field: SerializeField] public float SuspicionTime { get; private set; } = 2f;
         [field: SerializeField] public float WaypointTolerance { get; private set; } = 1.5f;
         
         public Vector3 GuardingPosition { get; set; }
+        public float DefaultAttackRange { get; private set; } = 2f;
         
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }
@@ -44,6 +46,7 @@ namespace StateMachines.AI
         private void Start()
         {
             GuardingPosition = transform.position;
+            DefaultAttackRange = AIFighter.GetMostRangedAttack().Range;
             SwitchToDefaultState();
         }
 

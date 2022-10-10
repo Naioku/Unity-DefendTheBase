@@ -15,11 +15,6 @@ namespace Combat.AI
         private float _timeToNextAttack;
         private Coroutine _timerCoroutine;
 
-        public AIAttack GetAttack(AIAttackNames aiAttackName)
-        {
-            return aiAttacks.FirstOrDefault(attack => attack.AIAttackName == aiAttackName);
-        }
-        
         public void ResetTimer()
         {
             if (_timerCoroutine != null)
@@ -39,7 +34,26 @@ namespace Combat.AI
         {
             _timerCoroutine = StartCoroutine(TimerCoroutine());
         }
-        
+
+        public AIAttack GetAttack(AIAttackNames aiAttackName)
+        {
+            return aiAttacks.FirstOrDefault(attack => attack.AIAttackName == aiAttackName);
+        }
+
+        public AIAttack GetMostRangedAttack()
+        {
+            AIAttack result = null;
+            foreach (AIAttack attack in aiAttacks)
+            {
+                if (result == null || attack.Range > result.Range)
+                {
+                    result = attack;
+                }
+            }
+
+            return result;
+        }
+
         private IEnumerator TimerCoroutine()
         {
             while (_timeToNextAttack > 0f)

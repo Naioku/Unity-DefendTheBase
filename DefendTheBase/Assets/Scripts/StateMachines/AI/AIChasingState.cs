@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using StateMachines.AI.Rhinbill;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -9,26 +10,34 @@ namespace StateMachines.AI
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
         private readonly List<Transform> _detectedTargets;
+        private readonly Transform _firstDetectedTarget;
+        private readonly float _targetStopRange;
+
         private Vector3 _lastSeenTargetPosition;
 
-        public AIChasingState(AIStateMachine stateMachine, List<Transform> targets) : base(stateMachine)
+        public AIChasingState(AIStateMachine stateMachine, List<Transform> detectedTargets, float targetStopRange) : base(stateMachine)
         {
-            _detectedTargets = targets;
+            _detectedTargets = detectedTargets;
+            _firstDetectedTarget = GetClosestTarget();
+            _targetStopRange = targetStopRange;
         }
         
         public override void Enter()
         {
-            StateMachine.AIMover.SwitchMovementToNavmesh();
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.AIMover.SwitchMovementToNavmesh();
         }
 
         public override void Tick()
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
-            
-            Transform closestTarget = GetClosestTarget();
 
-            if (closestTarget == null)
+            Transform target = 
+                StateMachine.FocusOnTarget ? 
+                    _detectedTargets.Contains(_firstDetectedTarget) ? _firstDetectedTarget : null 
+                    : GetClosestTarget();
+
+            if (target == null)
             {
                 if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition) ||
                     IsDestinationReached(_lastSeenTargetPosition, StateMachine.WaypointTolerance))
@@ -39,15 +48,15 @@ namespace StateMachines.AI
 
                 return;
             }
-
-            _lastSeenTargetPosition = closestTarget.position;
             
-            if (IsInAttackRange(_lastSeenTargetPosition))
+            _lastSeenTargetPosition = target.position;
+            
+            if (IsInAttackRange(_lastSeenTargetPosition, _targetStopRange))
             {
-                StateMachine.SwitchState(new AICombatState(StateMachine, closestTarget));
+                StateMachine.SwitchState(new RhinbillCombatState(StateMachine, _detectedTargets, target));
                 return;
             }
-
+            
             if (!StateMachine.AIMover.MoveToPosition(_lastSeenTargetPosition))
             {
                 StateMachine.SwitchState(new AISuspicionState(StateMachine));
@@ -74,7 +83,7 @@ namespace StateMachines.AI
                     closestTarget = detectedTarget;
                 }
             }
-
+        
             return closestTarget;
         }
     }

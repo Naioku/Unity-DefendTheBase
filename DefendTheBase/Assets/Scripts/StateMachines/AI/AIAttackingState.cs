@@ -1,4 +1,5 @@
 using Combat.AI;
+using UnityEngine;
 
 namespace StateMachines.AI
 {
@@ -14,15 +15,15 @@ namespace StateMachines.AI
         
         public override void Enter()
         {
-            StateMachine.AIMover.SwitchMovementToCharacterController();
             StateMachine.Animator.CrossFadeInFixedTime(_aiAttack.AnimationName, _aiAttack.TransitionDuration);
+            StateMachine.AIMover.SwitchMovementToCharacterController();
         }
 
         public override void Tick()
         {
             StateMachine.AIMover.ApplyForces();
             
-            if (GetNormalizedAnimationTime(StateMachine.Animator, "Attack") >= _aiAttack.ForceApplicationNormalizedTime)
+            if (GetNormalizedAnimationTime(StateMachine.Animator, "Attack") >= _aiAttack.DisplacementApplicationNormalizedTime)
             {
                 TryForceApplication();
             }
@@ -44,7 +45,7 @@ namespace StateMachines.AI
             
             StateMachine.ForceReceiver.AddForce(
                 StateMachine.transform.forward * _aiAttack.AttackerDisplacement,
-                _aiAttack.AttackerImpactSmoothingTime
+                _aiAttack.AttackerDisplacementSmoothingTime
             );
             
             _forceAlreadyApplied = true;
