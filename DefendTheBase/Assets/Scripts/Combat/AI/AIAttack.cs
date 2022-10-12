@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Combat.AI
 {
     [Serializable]
-    public class AIAttack
+    public class AIAttack : IComparable<AIAttack>
     {
         [field: SerializeField] public AIAttackNames AIAttackName { get; private set; }
         [field: SerializeField] public string AnimationName { get; private set; }
@@ -16,5 +16,12 @@ namespace Combat.AI
         
         [field: Range(0f, 1f)]
         [field: SerializeField] public float DisplacementApplicationNormalizedTime { get; private set; } = 0.1f;
+
+        public int CompareTo(AIAttack other)
+        {
+            if (ReferenceEquals(this, other)) return 0;
+            if (ReferenceEquals(null, other)) return 1;
+            return Range.CompareTo(other.Range);
+        }
     }
 }

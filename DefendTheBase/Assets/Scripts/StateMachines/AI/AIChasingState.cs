@@ -51,7 +51,7 @@ namespace StateMachines.AI
             
             _lastSeenTargetPosition = target.position;
             
-            if (IsInAttackRange(_lastSeenTargetPosition, _targetStopRange))
+            if (StateMachine.AIFighter.IsInAttackRange(_lastSeenTargetPosition, _targetStopRange))
             {
                 StateMachine.SwitchState(new RhinbillCombatState(StateMachine, _detectedTargets, target));
                 return;

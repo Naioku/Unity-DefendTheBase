@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 7794417567429501908}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[0].<Range>k__BackingField
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1310967709840408604, guid: b41d0fac52ad18943a5e867db8620f0a, type: 3}
       propertyPath: aiAttacks.Array.data[1].<Range>k__BackingField

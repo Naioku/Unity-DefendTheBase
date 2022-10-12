@@ -19,19 +19,13 @@ namespace StateMachines.AI
         
         protected void OnTargetDetection(List<Transform> targets)
         {
-            StateMachine.SwitchState(new AIChasingState(StateMachine, targets, StateMachine.DefaultAttackRange));
+            StateMachine.SwitchState(new AIChasingState(StateMachine, targets, StateMachine.AIFighter.MaxAttackRange));
         }
         
         protected bool IsDestinationReached(Vector3 destination, float displacementToleration)
         {
             float distanceToWaypointSquared = Vector3.SqrMagnitude(destination - StateMachine.transform.position);
             return distanceToWaypointSquared <= Mathf.Pow(displacementToleration, 2);
-        }
-        
-        protected bool IsInAttackRange(Vector3 targetPosition, float attackRange)
-        {
-            return (targetPosition - StateMachine.transform.position).sqrMagnitude
-                   <= Mathf.Pow(attackRange, 2);
         }
     }
 }

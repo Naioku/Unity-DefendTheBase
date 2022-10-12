@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
 using Combat.AI;
-using Core;
 using UnityEngine;
 
 namespace StateMachines.AI.Rhinbill
@@ -12,21 +12,12 @@ namespace StateMachines.AI.Rhinbill
         
         private readonly List<Transform> _detectedTargets;
         private readonly Transform _targetReceived;
-
-        // It must not be null for now. Change it, because some Rhinbills won't have all 3 attacks.
-        // Make it more general.
-        private readonly AIAttack _jumpAttack;
-        private readonly AIAttack _hornAttack;
-        private readonly AIAttack _billAttack;
+        private readonly System.Random _randomNumberGenerator = new();
 
         public RhinbillCombatState(AIStateMachine stateMachine, List<Transform> detectedTargets, Transform targetReceived) : base(stateMachine)
         {
             _detectedTargets = detectedTargets;
             _targetReceived = targetReceived;
-            
-            _jumpAttack = StateMachine.AIFighter.GetAttack(AIAttackNames.JumpAttack);
-            _hornAttack = StateMachine.AIFighter.GetAttack(AIAttackNames.HornAttack);
-            _billAttack = StateMachine.AIFighter.GetAttack(AIAttackNames.BillAttack);
         }
         
         public override void Enter()
@@ -46,33 +37,43 @@ namespace StateMachines.AI.Rhinbill
                 StateMachine.SwitchState(new AISuspicionState(StateMachine));
                 return;
             }
+
+            if (!StateMachine.AIFighter.IsInAttackRange(target.position, StateMachine.AIFighter.MaxAttackRange))
+            {
+                StateMachine.SwitchState(new AIChasingState(StateMachine, _detectedTargets, StateMachine.AIFighter.MaxAttackRange));
+                return;
+            }
             
             if (!StateMachine.AIFighter.ReadyForNextAttack()) return;
 
-            if (IsInAttackRange(target.position, _hornAttack.Range))
-            {
-                PerformAttack(target, _hornAttack);
-                return;
-            }
+            List<AIAttack> availableAttacks = StateMachine.AIFighter.GetAvailableAttacks(target.position);
 
-            if (IsInAttackRange(target.position, _billAttack.Range))
+            if (availableAttacks.Count == 0)
             {
-                PerformAttack(target, _billAttack);
-                return;
-            }
-
-            if (IsInAttackRange(target.position, _jumpAttack.Range))
-            {
-                PerformAttack(target, _jumpAttack);
+                Debug.Log("RhinbillCombatState BUG: No attack available.");
                 return;
             }
             
-            StateMachine.SwitchState(new AIChasingState(StateMachine, _detectedTargets, _jumpAttack.Range));
+            availableAttacks.Sort();
+            var attacksWithClosestRange = GetAttacksWithClosestRange(availableAttacks);
+            PerformAttack(target, GetRandomAttack(attacksWithClosestRange));
             return;
         }
 
         public override void Exit()
         {
+        }
+
+        private List<AIAttack> GetAttacksWithClosestRange(List<AIAttack> attacks)
+        {
+            float closestAttackRange = attacks[0].Range;
+            return attacks.TakeWhile(attack => !(attack.Range > closestAttackRange)).ToList();
+        }
+
+        private AIAttack GetRandomAttack(List<AIAttack> attacks)
+        {
+            int attackNumber = _randomNumberGenerator.Next(0, attacks.Count);
+            return attacks[attackNumber];
         }
 
         private void PerformAttack(Transform target, AIAttack attack)

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Core;
 using UnityEngine;
@@ -14,6 +15,13 @@ namespace Combat.AI
 
         private float _timeToNextAttack;
         private Coroutine _timerCoroutine;
+
+        public float MaxAttackRange { get; private set; }
+
+        private void Start()
+        {
+            MaxAttackRange = GetRangeOfMostRangedAttack();
+        }
 
         public void ResetTimer()
         {
@@ -40,18 +48,20 @@ namespace Combat.AI
             return aiAttacks.FirstOrDefault(attack => attack.AIAttackName == aiAttackName);
         }
 
-        public AIAttack GetMostRangedAttack()
+        public List<AIAttack> GetAvailableAttacks(Vector3 targetPosition)
         {
-            AIAttack result = null;
-            foreach (AIAttack attack in aiAttacks)
-            {
-                if (result == null || attack.Range > result.Range)
-                {
-                    result = attack;
-                }
-            }
+            return aiAttacks.Where(attack => IsInAttackRange(targetPosition, attack.Range)).ToList();
+        }
 
-            return result;
+        public bool IsInAttackRange(Vector3 targetPosition, float attackRange)
+        {
+            return (targetPosition - transform.position).sqrMagnitude
+                   <= Mathf.Pow(attackRange, 2);
+        }
+
+        private float GetRangeOfMostRangedAttack()
+        {
+            return aiAttacks.Aggregate(0f, (current, attack) => Mathf.Max(current, attack.Range));
         }
 
         private IEnumerator TimerCoroutine()

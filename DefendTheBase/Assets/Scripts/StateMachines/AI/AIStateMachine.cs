@@ -21,7 +21,6 @@ namespace StateMachines.AI
         [field: SerializeField] public float WaypointTolerance { get; private set; } = 1.5f;
         
         public Vector3 GuardingPosition { get; set; }
-        public float DefaultAttackRange { get; private set; } = 2f;
         
         public Animator Animator { get; private set; }
         public AIMover AIMover { get; private set; }
@@ -46,7 +45,6 @@ namespace StateMachines.AI
         private void Start()
         {
             GuardingPosition = transform.position;
-            DefaultAttackRange = AIFighter.GetMostRangedAttack().Range;
             SwitchToDefaultState();
         }
 
