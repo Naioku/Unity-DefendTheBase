@@ -36,12 +36,12 @@ namespace StateMachines.Player.Knight
 
         private void OnEnable()
         {
-            Health.OnTakeDamage += HandleImpact;
+            Health.TakeDamageEvent += HandleImpact;
         }
 
         private void OnDisable()
         {
-            Health.OnTakeDamage -= HandleImpact;
+            Health.TakeDamageEvent -= HandleImpact;
         }
 
         private void HandleImpact(Vector3 obj)

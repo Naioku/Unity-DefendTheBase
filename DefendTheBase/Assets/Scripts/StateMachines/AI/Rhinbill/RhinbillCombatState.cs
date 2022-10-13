@@ -10,15 +10,9 @@ namespace StateMachines.AI.Rhinbill
         private static readonly int LocomotionStateHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
         
-        private readonly List<Transform> _detectedTargets;
-        private readonly Transform _targetReceived;
         private readonly System.Random _randomNumberGenerator = new();
 
-        public RhinbillCombatState(AIStateMachine stateMachine, List<Transform> detectedTargets, Transform targetReceived) : base(stateMachine)
-        {
-            _detectedTargets = detectedTargets;
-            _targetReceived = targetReceived;
-        }
+        public RhinbillCombatState(AIStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
@@ -30,23 +24,26 @@ namespace StateMachines.AI.Rhinbill
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
-            Transform target = _detectedTargets.Contains(_targetReceived) ? _targetReceived : null;
-
-            if (target == null)
+            if (!StateMachine.FocusOnTarget)
+            {
+                StateMachine.CurrentTarget = GetClosestReachableTarget();
+            }
+            
+            if (StateMachine.CurrentTarget == null)
             {
                 StateMachine.SwitchState(new AISuspicionState(StateMachine));
                 return;
             }
 
-            if (!StateMachine.AIFighter.IsInAttackRange(target.position, StateMachine.AIFighter.MaxAttackRange))
+            if (!StateMachine.AIFighter.IsInAttackRange(StateMachine.CurrentTarget.position, StateMachine.AIFighter.MaxAttackRange))
             {
-                StateMachine.SwitchState(new AIChasingState(StateMachine, _detectedTargets, StateMachine.AIFighter.MaxAttackRange));
+                StateMachine.SwitchState(new AIChasingState(StateMachine, StateMachine.AIFighter.MaxAttackRange));
                 return;
             }
             
             if (!StateMachine.AIFighter.ReadyForNextAttack()) return;
 
-            List<AIAttack> availableAttacks = StateMachine.AIFighter.GetAvailableAttacks(target.position);
+            List<AIAttack> availableAttacks = StateMachine.AIFighter.GetAvailableAttacks(StateMachine.CurrentTarget.position);
 
             if (availableAttacks.Count == 0)
             {
@@ -56,7 +53,7 @@ namespace StateMachines.AI.Rhinbill
             
             availableAttacks.Sort();
             var attacksWithClosestRange = GetAttacksWithClosestRange(availableAttacks);
-            PerformAttack(target, GetRandomAttack(attacksWithClosestRange));
+            PerformAttack(StateMachine.CurrentTarget, GetRandomAttack(attacksWithClosestRange));
             return;
         }
 

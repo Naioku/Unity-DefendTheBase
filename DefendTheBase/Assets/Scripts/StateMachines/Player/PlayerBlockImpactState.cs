@@ -12,7 +12,7 @@ namespace StateMachines.Player
         public override void Enter()
         {
             StateMachine.Animator.CrossFadeInFixedTime(BlockImpactStateHash, StateMachine.AnimationCrossFadeDuration);
-            StateMachine.Health.OnTakeHit += HandleBLockImpact;
+            StateMachine.Health.TakeHitEvent += HandleBLockImpact;
 
             StateMachine.Health.IsVulnerable = false;
         }
@@ -28,7 +28,7 @@ namespace StateMachines.Player
         
         public override void Exit()
         {
-            StateMachine.Health.OnTakeHit -= HandleBLockImpact;
+            StateMachine.Health.TakeHitEvent -= HandleBLockImpact;
 
             StateMachine.Health.IsVulnerable = true;
         }

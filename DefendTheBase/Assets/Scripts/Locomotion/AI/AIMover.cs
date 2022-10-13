@@ -52,6 +52,17 @@ namespace Locomotion.AI
             return true;
         }
 
+        public bool IsPositionReachable(Vector3 position)
+        {
+            if (!IsNavMeshAgentEnabled()) return false;
+            if (!_navMeshAgent.isOnNavMesh) return false;
+            
+            NavMeshPath navMeshPath = new();
+            _navMeshAgent.CalculatePath(position, navMeshPath);
+
+            return navMeshPath.status == NavMeshPathStatus.PathComplete;
+        }
+
         public void StopMovement()
         {
             if (!IsNavMeshAgentEnabled()) return;

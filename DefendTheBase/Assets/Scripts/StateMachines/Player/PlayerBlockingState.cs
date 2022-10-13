@@ -15,7 +15,7 @@ namespace StateMachines.Player
         {
             StateMachine.Animator.CrossFadeInFixedTime(BlockStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.InputReader.BlockEvent += OnBlock;
-            StateMachine.Health.OnTakeHit += HandleBLockImpact;
+            StateMachine.Health.TakeHitEvent += HandleBLockImpact;
 
             StateMachine.Health.IsVulnerable = false;
         }
@@ -31,7 +31,7 @@ namespace StateMachines.Player
         public override void Exit()
         {
             StateMachine.InputReader.BlockEvent -= OnBlock;
-            StateMachine.Health.OnTakeHit -= HandleBLockImpact;
+            StateMachine.Health.TakeHitEvent -= HandleBLockImpact;
 
             StateMachine.Health.IsVulnerable = true;
         }

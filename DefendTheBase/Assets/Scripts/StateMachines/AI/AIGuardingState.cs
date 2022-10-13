@@ -13,7 +13,7 @@ namespace StateMachines.AI
         {
             StateMachine.AIMover.SwitchMovementToNavmesh();
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
-            StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
+            StateMachine.AISensor.TargetDetectedEvent += HandleTargetDetection;
         }
 
         public override void Tick()
@@ -35,7 +35,7 @@ namespace StateMachines.AI
 
         public override void Exit()
         {
-            StateMachine.AISensor.TargetDetectedEvent -= OnTargetDetection;
+            StateMachine.AISensor.TargetDetectedEvent -= HandleTargetDetection;
         }
     }
 }

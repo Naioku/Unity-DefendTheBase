@@ -5,8 +5,8 @@ namespace Combat
 {
     public class Health : MonoBehaviour
     {
-        public event Action<Vector3> OnTakeDamage;
-        public event Action OnTakeHit;
+        public event Action<Vector3> TakeDamageEvent;
+        public event Action TakeHitEvent;
         public bool IsVulnerable { get; set; } = true;
         
         [SerializeField] private float health = 100f;
@@ -15,12 +15,12 @@ namespace Combat
         {
             if (!IsVulnerable)
             {
-                OnTakeHit?.Invoke();
+                TakeHitEvent?.Invoke();
                 return;
             }
             
             health = Mathf.Max(0f, health - damage);
-            OnTakeDamage?.Invoke(hitDirection);
+            TakeDamageEvent?.Invoke(hitDirection);
 
             if (health == 0f)
             {

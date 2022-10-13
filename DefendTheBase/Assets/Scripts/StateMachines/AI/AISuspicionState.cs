@@ -15,15 +15,19 @@ namespace StateMachines.AI
         public override void Enter()
         {
             StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
-            StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
+            StateMachine.AISensor.TargetDetectedEvent += HandleTargetDetection;
             _suspicionTimer = StateMachine.SuspicionTime;
         }
 
         public override void Tick()
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
-
             _suspicionTimer -= Time.deltaTime;
+
+            if (StateMachine.FocusOnTarget)
+            {
+                
+            }
 
             if (_suspicionTimer <= 0f)
             {
@@ -34,7 +38,7 @@ namespace StateMachines.AI
 
         public override void Exit()
         {
-            StateMachine.AISensor.TargetDetectedEvent -= OnTargetDetection;
+            StateMachine.AISensor.TargetDetectedEvent -= HandleTargetDetection;
         }
     }
 }

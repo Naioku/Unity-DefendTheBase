@@ -1,3 +1,4 @@
+using StateMachines.AI.Rhinbill;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -22,8 +23,15 @@ namespace StateMachines.AI
         public override void Tick()
         {
             StateMachine.AIMover.ApplyForces();
-            
-            if (HasAnimationFinished("Impact"))
+
+            if (!HasAnimationFinished("Impact")) return;
+
+            if (StateMachine.FocusOnTarget)
+            {
+                StateMachine.SwitchState(new RhinbillCombatState(StateMachine));
+                return;
+            }
+            else
             {
                 Vector3 directionFromReceiver = -_hitDirection;
                 StateMachine.SwitchState(new AIRotationState(

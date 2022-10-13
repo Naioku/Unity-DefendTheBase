@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_Name
-      value: GuardingEnemy
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
       propertyPath: m_RootOrder
@@ -84,19 +88,22 @@ MonoBehaviour:
     <TransitionDuration>k__BackingField: 0.1
     <Range>k__BackingField: 2
     <AttackerDisplacement>k__BackingField: 0
-    <ForceApplicationNormalizedTime>k__BackingField: 0.1
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
   - <AIAttackName>k__BackingField: 0
     <AnimationName>k__BackingField: 
     <TransitionDuration>k__BackingField: 0.1
     <Range>k__BackingField: 2
     <AttackerDisplacement>k__BackingField: 0
-    <ForceApplicationNormalizedTime>k__BackingField: 0.1
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
   - <AIAttackName>k__BackingField: 0
     <AnimationName>k__BackingField: 
     <TransitionDuration>k__BackingField: 0.1
     <Range>k__BackingField: 2
     <AttackerDisplacement>k__BackingField: 0
-    <ForceApplicationNormalizedTime>k__BackingField: 0.1
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
   delayBetweenAttacks: 1
 --- !u!114 &3666145990578233291
 MonoBehaviour:
@@ -174,6 +181,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <AnimationCrossFadeDuration>k__BackingField: 0.1
   <AnimatorDampTime>k__BackingField: 0.05
-  <AttackRange>k__BackingField: 2
+  <FocusOnTarget>k__BackingField: 0
   <SuspicionTime>k__BackingField: 2
   <WaypointTolerance>k__BackingField: 1.5

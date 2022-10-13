@@ -1,4 +1,5 @@
 using Combat.AI;
+using StateMachines.AI.Rhinbill;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -30,7 +31,7 @@ namespace StateMachines.AI
             
             if (HasAnimationFinished("Attack"))
             {
-                StateMachine.SwitchState(new AISuspicionState(StateMachine));
+                StateMachine.SwitchState(new RhinbillCombatState(StateMachine));
                 return;
             }
         }
