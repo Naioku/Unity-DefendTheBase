@@ -1,4 +1,3 @@
-using StateMachines.AI.Rhinbill;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -26,9 +25,9 @@ namespace StateMachines.AI
 
             if (!HasAnimationFinished("Impact")) return;
 
-            if (StateMachine.FocusOnTarget)
+            if (StateMachine.AIFighter.FocusOnTarget)
             {
-                StateMachine.SwitchState(new RhinbillCombatState(StateMachine));
+                StateMachine.SwitchState(StateMachine.CombatState);
                 return;
             }
             else

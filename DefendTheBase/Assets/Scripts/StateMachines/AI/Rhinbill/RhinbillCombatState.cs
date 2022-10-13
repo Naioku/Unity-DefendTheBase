@@ -24,7 +24,7 @@ namespace StateMachines.AI.Rhinbill
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
             
-            if (!StateMachine.FocusOnTarget)
+            if (!StateMachine.AIFighter.FocusOnTarget)
             {
                 StateMachine.CurrentTarget = GetClosestReachableTarget();
             }

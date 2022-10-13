@@ -71,11 +71,6 @@ namespace Locomotion.AI
             _navMeshAgent.ResetPath();
             _navMeshAgent.velocity = Vector3.zero;
         }
-        
-        public bool IsMovementStopped()
-        {
-            return _navMeshAgent.velocity == Vector3.zero;
-        }
 
         public void FacePosition(Vector3 direction)
         {

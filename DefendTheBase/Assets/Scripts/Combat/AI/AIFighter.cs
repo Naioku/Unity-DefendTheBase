@@ -12,6 +12,9 @@ namespace Combat.AI
         [SerializeField] private WeaponController equippedHorn;
         [SerializeField] private AIAttack[] aiAttacks = new AIAttack[3];
         [SerializeField] private float delayBetweenAttacks = 1f;
+        [field: SerializeField]
+        [field: Tooltip("If set, AI will be chasing and attacking the target until it is dead or fled.")]
+        public bool FocusOnTarget { get; private set; }
 
         private float _timeToNextAttack;
         private Coroutine _timerCoroutine;
@@ -41,11 +44,6 @@ namespace Combat.AI
         public void StartTimer()
         {
             _timerCoroutine = StartCoroutine(TimerCoroutine());
-        }
-
-        public AIAttack GetAttack(AIAttackNames aiAttackName)
-        {
-            return aiAttacks.FirstOrDefault(attack => attack.AIAttackName == aiAttackName);
         }
 
         public List<AIAttack> GetAvailableAttacks(Vector3 targetPosition)

@@ -1,4 +1,3 @@
-using StateMachines.AI.Rhinbill;
 using UnityEngine;
 
 namespace StateMachines.AI
@@ -27,7 +26,7 @@ namespace StateMachines.AI
         {
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 1f, StateMachine.AnimatorDampTime, Time.deltaTime);
 
-            if (!StateMachine.FocusOnTarget)
+            if (!StateMachine.AIFighter.FocusOnTarget)
             {
                 StateMachine.CurrentTarget = GetClosestReachableTarget();
             }
@@ -48,7 +47,7 @@ namespace StateMachines.AI
             
             if (StateMachine.AIFighter.IsInAttackRange(_lastSeenTargetPosition, _targetStopRange))
             {
-                StateMachine.SwitchState(new RhinbillCombatState(StateMachine));
+                StateMachine.SwitchState(StateMachine.CombatState);
                 return;
             }
             

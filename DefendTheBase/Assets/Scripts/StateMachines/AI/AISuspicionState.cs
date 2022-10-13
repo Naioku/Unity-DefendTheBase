@@ -24,7 +24,7 @@ namespace StateMachines.AI
             StateMachine.Animator.SetFloat(ForwardMovementSpeedHash, 0f, StateMachine.AnimatorDampTime, Time.deltaTime);
             _suspicionTimer -= Time.deltaTime;
 
-            if (StateMachine.FocusOnTarget)
+            if (StateMachine.AIFighter.FocusOnTarget)
             {
                 
             }
