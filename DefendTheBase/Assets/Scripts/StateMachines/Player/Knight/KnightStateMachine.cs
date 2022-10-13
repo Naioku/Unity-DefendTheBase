@@ -31,17 +31,20 @@ namespace StateMachines.Player.Knight
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            
             SwitchState(new PlayerLocomotionState(this));
         }
 
         private void OnEnable()
         {
-            Health.TakeDamageEvent += HandleImpact;
+            Health.TakeDamageEventWithDirection += HandleImpact;
         }
 
         private void OnDisable()
         {
-            Health.TakeDamageEvent -= HandleImpact;
+            Health.TakeDamageEventWithDirection -= HandleImpact;
         }
 
         private void HandleImpact(Vector3 obj)

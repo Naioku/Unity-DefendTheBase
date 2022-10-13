@@ -63,13 +63,13 @@ namespace StateMachines.AI
 
         private void OnEnable()
         {
-            _health.TakeDamageEvent += HandleImpact;
+            _health.TakeDamageEventWithDirection += HandleImpact;
             AISensor.TargetDetectedEvent += HandleTargetDetection;
         }
 
         private void OnDisable()
         {
-            _health.TakeDamageEvent -= HandleImpact;
+            _health.TakeDamageEventWithDirection -= HandleImpact;
             AISensor.TargetDetectedEvent += HandleTargetDetection;
         }
         

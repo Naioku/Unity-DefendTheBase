@@ -5,7 +5,8 @@ namespace Combat
 {
     public class Health : MonoBehaviour
     {
-        public event Action<Vector3> TakeDamageEvent;
+        public event Action<Vector3> TakeDamageEventWithDirection;
+        public event Action<float> TakeDamageEventWithHealthValue;
         public event Action TakeHitEvent;
         public bool IsVulnerable { get; set; } = true;
         
@@ -20,7 +21,8 @@ namespace Combat
             }
             
             health = Mathf.Max(0f, health - damage);
-            TakeDamageEvent?.Invoke(hitDirection);
+            TakeDamageEventWithDirection?.Invoke(hitDirection);
+            TakeDamageEventWithHealthValue?.Invoke(health);
 
             if (health == 0f)
             {
