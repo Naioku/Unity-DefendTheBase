@@ -15,12 +15,12 @@ namespace StateMachines.AI
             _direction = direction;
             _nextState = nextState;
         }
-        
+
         public override void Enter()
         {
+            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AIMover.SwitchMovementToCharacterController();
             StateMachine.AIMover.FacePosition(_direction);
-            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick()

@@ -5,13 +5,13 @@ namespace StateMachines.Player
 {
     public class PlayerImpactState : PlayerBaseState
     {
-        private static readonly int FallDownStateHash = Animator.StringToHash("Impact");
+        private static readonly int ImpactStateHash = Animator.StringToHash("Impact");
 
         public PlayerImpactState(KnightStateMachine stateMachine) : base(stateMachine) {}
         
         public override void Enter()
         {
-            StateMachine.Animator.CrossFadeInFixedTime(FallDownStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(ImpactStateHash, StateMachine.AnimationCrossFadeDuration);
         }
 
         public override void Tick()

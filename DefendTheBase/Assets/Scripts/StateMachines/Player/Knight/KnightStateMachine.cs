@@ -1,5 +1,6 @@
 using System;
 using Combat;
+using Combat.Player;
 using Core;
 using Locomotion.Player;
 using UnityEngine;
@@ -35,12 +36,12 @@ namespace StateMachines.Player.Knight
 
         private void OnEnable()
         {
-            Health.OnTakeDamage += HandleImpact;
+            Health.TakeDamageEvent += HandleImpact;
         }
 
         private void OnDisable()
         {
-            Health.OnTakeDamage -= HandleImpact;
+            Health.TakeDamageEvent -= HandleImpact;
         }
 
         private void HandleImpact(Vector3 obj)

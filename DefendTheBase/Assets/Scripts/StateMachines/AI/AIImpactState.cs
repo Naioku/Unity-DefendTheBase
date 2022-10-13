@@ -4,9 +4,8 @@ namespace StateMachines.AI
 {
     public class AIImpactState : AIBaseState
     {
-        // Temporary value. Instead of it add new impact animation and when it is finished switch state.
-        private float _animationDuration = 1f;
-        
+        private static readonly int ImpactStateHash = Animator.StringToHash("Impact");
+
         private readonly Vector3 _hitDirection;
 
         public AIImpactState(AIStateMachine stateMachine, Vector3 hitDirection) : base(stateMachine)
@@ -16,6 +15,7 @@ namespace StateMachines.AI
         
         public override void Enter()
         {
+            StateMachine.Animator.CrossFadeInFixedTime(ImpactStateHash, StateMachine.AnimationCrossFadeDuration);
             StateMachine.AIMover.SwitchMovementToCharacterController();
         }
 
@@ -23,8 +23,14 @@ namespace StateMachines.AI
         {
             StateMachine.AIMover.ApplyForces();
 
-            _animationDuration -= Time.deltaTime;
-            if (_animationDuration <= 0f)
+            if (!HasAnimationFinished("Impact")) return;
+
+            if (StateMachine.AIFighter.FocusOnTarget)
+            {
+                StateMachine.SwitchState(StateMachine.CombatState);
+                return;
+            }
+            else
             {
                 Vector3 directionFromReceiver = -_hitDirection;
                 StateMachine.SwitchState(new AIRotationState(

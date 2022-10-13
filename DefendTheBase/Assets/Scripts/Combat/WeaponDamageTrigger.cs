@@ -20,6 +20,9 @@ namespace Combat
         private void OnTriggerEnter(Collider other)
         {
             if (other == _ownerCollider) return;
+            
+            // Here can be "if friendly fire is disabled".
+            if (other.gameObject.layer == _ownerCollider.gameObject.layer) return;
 
             if (_alreadyCollidedWith.Contains(other)) return;
             _alreadyCollidedWith.Add(other);

@@ -2,10 +2,10 @@ using System;
 using Core;
 using UnityEngine;
 
-namespace Combat
+namespace Combat.Player
 {
     [Serializable]
-    public class Attack
+    public class MeleeAttack
     {
         [field: SerializeField]
         public MeleeAttackNames MeleeAttackName { get; private set; }

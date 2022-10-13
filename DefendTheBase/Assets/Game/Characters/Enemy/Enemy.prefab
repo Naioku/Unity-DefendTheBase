@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1880144075834090509
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000058114523
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772045364879292926, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+--- !u!1 &3336993967809797622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3772045364879292923, guid: 1b540fc6a99f80242bc5faf3c7c4cf29, type: 3}
+  m_PrefabInstance: {fileID: 1880144075834090509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1310967709840408604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 691b87fe3dd2d28438937ad45e8508c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedBill: {fileID: 0}
+  equippedHorn: {fileID: 0}
+  aiAttacks:
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
+  - <AIAttackName>k__BackingField: 0
+    <AnimationName>k__BackingField: 
+    <TransitionDuration>k__BackingField: 0.1
+    <Range>k__BackingField: 2
+    <AttackerDisplacement>k__BackingField: 0
+    <AttackerDisplacementSmoothingTime>k__BackingField: 0.1
+    <DisplacementApplicationNormalizedTime>k__BackingField: 0.1
+  delayBetweenAttacks: 1
+--- !u!114 &3666145990578233291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ae9f5190de258f4094450611baf83e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 7
+  rotationSpeed: 1500
+--- !u!114 &4337203797914084557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859963c2f4fa56c40ad898b5a36a62cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 10
+  angle: 120
+  height: 2
+  defaultMeshColor: {r: 0.3657968, g: 1, b: 0.3254717, a: 0.38}
+  detectedStateMeshColor: {r: 0.9846383, g: 1, b: 0.3254902, a: 0.38}
+  rangeGizmosColor: {r: 0, g: 1, b: 0, a: 1}
+  objectsInSightGizmosColor: {r: 0, g: 0, b: 1, a: 1}
+  scanFrequency: 30
+  searchingLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  occlusionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!195 &6302291379064726691
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 50
+  avoidancePriority: 50
+  m_AngularSpeed: 1000
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6720374215094431433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3336993967809797622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0efa1c5e4aae86347a75f6aca457696b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <AnimationCrossFadeDuration>k__BackingField: 0.1
+  <AnimatorDampTime>k__BackingField: 0.05
+  <FocusOnTarget>k__BackingField: 0
+  <SuspicionTime>k__BackingField: 2
+  <WaypointTolerance>k__BackingField: 1.5

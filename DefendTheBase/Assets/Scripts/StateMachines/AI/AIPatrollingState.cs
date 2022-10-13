@@ -5,7 +5,7 @@ namespace StateMachines.AI
 {
     public class AIPatrollingState : AIBaseState
     {
-        private static readonly int LocomotionHash = Animator.StringToHash("Locomotion");
+        private static readonly int LocomotionStateHash = Animator.StringToHash("Locomotion");
         private static readonly int ForwardMovementSpeedHash = Animator.StringToHash("ForwardMovementSpeed");
 
         private readonly AIMover _aiMover;
@@ -20,8 +20,8 @@ namespace StateMachines.AI
         public override void Enter()
         {
             _aiMover.SwitchMovementToNavmesh();
-            StateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, StateMachine.AnimationCrossFadeDuration);
-            StateMachine.AISensor.TargetDetectedEvent += OnTargetDetection;
+            StateMachine.Animator.CrossFadeInFixedTime(LocomotionStateHash, StateMachine.AnimationCrossFadeDuration);
+            StateMachine.AISensor.TargetDetectedEvent += HandleTargetDetection;
         }
 
         public override void Tick()
@@ -52,7 +52,7 @@ namespace StateMachines.AI
 
         public override void Exit()
         {
-            StateMachine.AISensor.TargetDetectedEvent -= OnTargetDetection;
+            StateMachine.AISensor.TargetDetectedEvent -= HandleTargetDetection;
         }
     }
 }

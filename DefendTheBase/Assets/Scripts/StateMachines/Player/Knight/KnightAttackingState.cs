@@ -1,16 +1,16 @@
-using Combat;
+using Combat.Player;
 using Core;
 
 namespace StateMachines.Player.Knight
 {
     public class KnightAttackingState : PlayerBaseState
     {
-        private readonly Attack _attack;
+        private readonly MeleeAttack _meleeAttack;
         private bool _isComboBroken;
 
-        public KnightAttackingState(KnightStateMachine stateMachine, Attack attack) : base(stateMachine)
+        public KnightAttackingState(KnightStateMachine stateMachine, MeleeAttack meleeAttack) : base(stateMachine)
         {
-            _attack = attack;
+            _meleeAttack = meleeAttack;
         }
         
         public override void Enter()
@@ -18,7 +18,7 @@ namespace StateMachines.Player.Knight
             StateMachine.InputReader.MeleeAttackEvent += OnMeleeAttack;
             StateMachine.InputReader.CancelAttackEvent += OnAttackCancel;
 
-            StateMachine.Animator.CrossFadeInFixedTime(_attack.AnimationName, _attack.TransitionDuration);
+            StateMachine.Animator.CrossFadeInFixedTime(_meleeAttack.AnimationName, _meleeAttack.TransitionDuration);
         }
 
         public override void Tick()
@@ -52,7 +52,7 @@ namespace StateMachines.Player.Knight
 
         private bool ReadyForNextAttack(float normalizedAnimationTime)
         {
-            return normalizedAnimationTime >= _attack.NextComboAttackNormalizedTime;
+            return normalizedAnimationTime >= _meleeAttack.NextComboAttackNormalizedTime;
         }
 
         private void OnAttackCancel()
@@ -64,7 +64,7 @@ namespace StateMachines.Player.Knight
 
         private bool CanAttackBeCancelled(float normalizedAnimationTime)
         {
-            return normalizedAnimationTime < _attack.CancelAttackNormalizedTime;
+            return normalizedAnimationTime < _meleeAttack.CancelAttackNormalizedTime;
         }
     }
 }

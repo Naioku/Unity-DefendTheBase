@@ -2,15 +2,15 @@ using System.Linq;
 using Core;
 using UnityEngine;
 
-namespace Combat
+namespace Combat.Player
 {
     public class MeleeFighter : MonoBehaviour
     {
-        [SerializeField] private Attack[] attacks = new Attack[4];
         [SerializeField] private WeaponController equippedMainHandWeapon;
         [SerializeField] private WeaponController equippedOffHandWeapon;
+        [SerializeField] private MeleeAttack[] attacks = new MeleeAttack[4];
 
-        public Attack GetAttack(MeleeAttackNames meleeAttackName)
+        public MeleeAttack GetAttack(MeleeAttackNames meleeAttackName)
         {
             return attacks.FirstOrDefault(attack => attack.MeleeAttackName == meleeAttackName);
         }
