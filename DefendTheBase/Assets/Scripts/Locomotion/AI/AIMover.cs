@@ -14,6 +14,7 @@ namespace Locomotion.AI
         private NavMeshAgent _navMeshAgent;
         private CharacterController _characterController;
         private ForceReceiver _forceReceiver;
+        private bool _isMovementDisabled;
 
         private void Awake()
         {
@@ -32,13 +33,27 @@ namespace Locomotion.AI
             ClampRotationSpeedToBeGreaterThan0();
         }
 
+        public void DisableMovement()
+        {
+            _navMeshAgent.enabled = false;
+            _characterController.enabled = false;
+            _isMovementDisabled = true;
+        }
+        
+        public void EnableMovement()
+        {
+            _isMovementDisabled = false;
+        }
+
         public void SwitchMovementToNavmesh()
         {
+            if (_isMovementDisabled) return;
             _navMeshAgent.enabled = true;
         }
         
         public void SwitchMovementToCharacterController()
         {
+            if (_isMovementDisabled) return;
             _navMeshAgent.enabled = false;
         }
 
