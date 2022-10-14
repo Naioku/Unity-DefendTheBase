@@ -1,4 +1,3 @@
-using System;
 using Combat;
 using Combat.Player;
 using Core;
@@ -31,25 +30,37 @@ namespace StateMachines.Player.Knight
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            
+            HideCursor();
+
             SwitchState(new PlayerLocomotionState(this));
         }
 
         private void OnEnable()
         {
-            Health.TakeDamageEventWithDirection += HandleImpact;
+            Health.TakeDamageEvent += HandleImpact;
+            Health.DeathEvent += HandleDeath;
         }
 
         private void OnDisable()
         {
-            Health.TakeDamageEventWithDirection -= HandleImpact;
+            Health.TakeDamageEvent -= HandleImpact;
+            Health.DeathEvent -= HandleDeath;
+        }
+
+        private static void HideCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         private void HandleImpact(Vector3 obj)
         {
             SwitchState(new PlayerImpactState(this));
+        }
+
+        private void HandleDeath()
+        {
+            SwitchState(new PlayerDeathState(this));
         }
     }
 }

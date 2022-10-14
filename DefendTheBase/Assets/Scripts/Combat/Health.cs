@@ -5,12 +5,13 @@ namespace Combat
 {
     public class Health : MonoBehaviour
     {
-        public event Action<Vector3> TakeDamageEventWithDirection;
-        public event Action<float> TakeDamageEventWithHealthValue;
+        public event Action<Vector3> TakeDamageEvent;
         public event Action TakeHitEvent;
+        public event Action DeathEvent;
+        
         public bool IsVulnerable { get; set; } = true;
         
-        [SerializeField] private float health = 100f;
+        [field: SerializeField] public float HealthValue { get; private set; } = 100f;
 
         public void TakeDamage(float damage, Vector3 hitDirection)
         {
@@ -20,12 +21,12 @@ namespace Combat
                 return;
             }
             
-            health = Mathf.Max(0f, health - damage);
-            TakeDamageEventWithDirection?.Invoke(hitDirection);
-            TakeDamageEventWithHealthValue?.Invoke(health);
+            HealthValue = Mathf.Max(0f, HealthValue - damage);
+            TakeDamageEvent?.Invoke(hitDirection);
 
-            if (health == 0f)
+            if (HealthValue == 0f)
             {
+                DeathEvent?.Invoke();
                 print("Character is dead xp");
             }
         }

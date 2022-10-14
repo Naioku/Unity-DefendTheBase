@@ -37,6 +37,11 @@ namespace Locomotion.Player
             UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, Time.deltaTime);
         }
 
+        public void DisableCharacterController()
+        {
+            _characterController.enabled = false;
+        }
+
         private void Move(Vector3 direction, float movementSpeed)
         {
             Vector3 movementDisplacement = direction * movementSpeed;

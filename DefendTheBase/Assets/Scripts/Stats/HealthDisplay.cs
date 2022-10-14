@@ -1,3 +1,4 @@
+using System;
 using Combat;
 using TMPro;
 using UnityEngine;
@@ -15,19 +16,29 @@ namespace Stats
             _label = GetComponent<TextMeshProUGUI>();
         }
 
-        private void OnEnable()
+        private void Start()
         {
-            health.TakeDamageEventWithHealthValue += HandleTakeDamage;
-        }
-        
-        private void OnDisable()
-        {
-            health.TakeDamageEventWithHealthValue -= HandleTakeDamage;
+            UpdateLabel();
         }
 
-        private void HandleTakeDamage(float value)
+        private void OnEnable()
         {
-            _label.text = value.ToString();
+            health.TakeDamageEvent += HandleTakeDamage;
+        }
+
+        private void OnDisable()
+        {
+            health.TakeDamageEvent -= HandleTakeDamage;
+        }
+
+        private void HandleTakeDamage(Vector3 direction)
+        {
+            UpdateLabel();
+        }
+
+        private void UpdateLabel()
+        {
+            _label.text = health.HealthValue.ToString();
         }
     }
 }
