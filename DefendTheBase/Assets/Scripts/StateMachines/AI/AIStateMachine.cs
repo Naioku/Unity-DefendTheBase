@@ -64,15 +64,17 @@ namespace StateMachines.AI
         private void OnEnable()
         {
             _health.TakeDamageEvent += HandleImpact;
+            _health.DeathEvent += HandleDeath;
             AISensor.TargetDetectedEvent += HandleTargetDetection;
         }
 
         private void OnDisable()
         {
             _health.TakeDamageEvent -= HandleImpact;
+            _health.DeathEvent -= HandleDeath;
             AISensor.TargetDetectedEvent -= HandleTargetDetection;
         }
-        
+
         public void SwitchToDefaultState()
         {
             if (AIPatroller != null)
@@ -84,12 +86,17 @@ namespace StateMachines.AI
                 SwitchState(new AIGuardingState(this));
             }
         }
-        
+
         private void HandleImpact(Vector3 hitDirection)
         {
             SwitchState(new AIImpactState(this, hitDirection));
         }
-        
+
+        private void HandleDeath()
+        {
+            SwitchState(new AIDeathState(this));
+        }
+
         private void HandleTargetDetection(List<Transform> targets)
         {
             DetectedTargets = targets;

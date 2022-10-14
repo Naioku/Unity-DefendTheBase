@@ -24,22 +24,27 @@ namespace Locomotion.Player
         public void MoveWithDefaultSpeed(Vector3 direction) => Move(direction, defaultSpeed);
         public void MoveWithBlockingStateSpeed(Vector3 direction) => Move(direction, blockingStateSpeed);
 
+        public void DisableCharacterController()
+        {
+            _characterController.enabled = false;
+        }
+        
+        public void EnableCharacterController()
+        {
+            _characterController.enabled = true;
+        }
+
         public void ApplyOnlyForces()
         {
             UpdateVelocity(_forceReceiver.ForceDisplacement, Time.deltaTime);
         }
-        
+
         public void ApplyMomentum()
         {
             Vector3 momentum = _characterController.velocity;
             momentum.y = 0f;
             
             UpdateVelocity(momentum + _forceReceiver.ForceDisplacement, Time.deltaTime);
-        }
-
-        public void DisableCharacterController()
-        {
-            _characterController.enabled = false;
         }
 
         private void Move(Vector3 direction, float movementSpeed)

@@ -19,6 +19,7 @@ namespace StateMachines.Player
 
         public override void Exit()
         {
+            StateMachine.PlayerMover.EnableCharacterController();
         }
     }
 }
